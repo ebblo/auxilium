@@ -3307,11 +3307,6 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.2.2
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
-gsap@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.5.0.tgz#ca1753b062309390b46fb3fda245a4a65fb52c2a"
-  integrity sha512-YewxuqAE0HjytsKFRUnjiUz0TatHR6L1aJjalYob1ajQpWCZz+gTRJOgQWiABfTEcA6YpgUcrWLEvEIM1Fftpg==
-
 handle-thing@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.1.tgz#857f79ce359580c340d43081cc648970d0bb234e"
@@ -6363,11 +6358,6 @@ schema-utils@^2.5.0, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7
     "@types/json-schema" "^7.0.4"
     ajv "^6.12.2"
     ajv-keywords "^3.4.1"
-
-scrollmagic@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/scrollmagic/-/scrollmagic-2.0.7.tgz#4139216f3849d226e38b3ef1e5dbbacf25190b35"
-  integrity sha512-Qu23XB3YTBhqbnTIkyVhVAEP/7r2APvW+QFfxCpd6LvJ5byCnlvSMzSeBdpyKbDKXBxVWGE9XFXUTvue3B7VrQ==
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
