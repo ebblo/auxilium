@@ -7,6 +7,8 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^4.5.2",
+    "gsap": "^3.5.0",
+    "scrollmagic": "^2.0.7",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
