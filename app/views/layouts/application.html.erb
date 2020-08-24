@@ -5,11 +5,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%# --------------favicon-------------- %>
+    <link rel="icon" type="image/png" href="#">
+
+    <%# ---------------fonts--------------- %>
+    <link href="https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@400;700&family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <%# ------------fontawesome------------ %>
+    <script src="https://kit.fontawesome.com/2d486226c5.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
