@@ -1,12 +1,79 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+@import "config/colors";
+#logo-navbar{
+  width: 100px;
+  height: 100px;
 }
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
+.flag-icon{
   width: 40px;
+}
+#flags{
+  transition: 0.3s;
+  &:hover{
+    transform:scale(1.1,1.1);
+    transition: 0.3s;
+  }
+  .dropdown-menu {
+    top: -12px;
+    background-color: transparent;
+    border: none;
+  }
+  a:hover{
+    text-decoration: none;
+    
+  }
+}
+
+.dropright .dropdown-toggle::after{
+  display: none;
+}
+.font-awsm-icons{
+  font-size: 25px;
+  color: $black;
+}
+
+
+// --------link--------
+
+.cl-effect-11 a {
+  position: relative;
+  display: inline-block;
+  outline: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  padding: 0;
+  color: $dark-blue;
+  text-shadow: none;
+  height: fit-content;
+  
+  &:hover,
+  &:focus {
+    outline: none;
+    text-decoration: none;
+    color: transparent;
+    transition: ease-in 0.7s;
+    
+  }
+  &::before{
+  position: absolute;
+	top: 0;
+  left: 0;
+	overflow: hidden;
+	padding: 0;
+  max-width: 0;
+  border-bottom: 2px solid $dark-salmon;
+  color: $dark-salmon;
+  font-weight: bold;
+  text-shadow: none;
+	content: attr(data-hover);
+	-webkit-transition: max-width 0.7s;
+	-moz-transition: max-width 0.7s;
+  transition: max-width 0.7s;
+  letter-spacing: 1px;
+  }
+  &:hover::before,
+  &:focus::before{
+    max-width: 100%;
+    
+  }
 }
