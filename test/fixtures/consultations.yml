@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2020-08-24
+  public_report: MyString
+  private_report: MyString
+  medical_prescription: MyString
+  patient: one
+  doctor: one
+
+two:
+  date: 2020-08-24
+  public_report: MyString
+  private_report: MyString
+  medical_prescription: MyString
+  patient: two
+  doctor: two
