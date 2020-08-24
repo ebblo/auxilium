@@ -35,3 +35,6 @@
 yarn-debug.log*
 .yarn-integrity
 public/assets
+
+# Ignore the .env file
+.env*
