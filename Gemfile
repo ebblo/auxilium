@@ -38,6 +38,10 @@ group :development, :test do
 
   gem 'autoprefixer-rails'
   gem 'simple_form'
+
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
