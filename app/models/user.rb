@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :first_name, :last_name, :phone_number, :city, :zip, :street, presence: true
+
+  def doctor?
+    self.type == "Doctor"
+  end
+
+  def patient?
+    self.type == "Patient"
+  end
 end
