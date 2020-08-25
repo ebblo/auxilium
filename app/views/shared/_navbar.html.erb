@@ -1,4 +1,4 @@
-<nav class="bg-white navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between" id="navbar-test">
+<nav class="bg-white navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between align-items-baseline px-4" id="navbar-test">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,9 +38,10 @@
   </div>
 </div>
 
-  <div class="nav-item dropleft">
-    <div  class="nav-item" id="dropDownLogin" style="background: url(<%= url_for("https://res.cloudinary.com/kyulol/image/upload/v1598015222/homemade_jinogf.jpg") %>);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <div class="nav-item dropleft d-flex flex-column justify-content-center align-items-center">
+    <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     </div>
+    <p>Login</p>
 
     <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
       <p><%= link_to "Mon profil" %></p>
