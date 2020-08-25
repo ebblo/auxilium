@@ -26,9 +26,9 @@
 
 
     <%# ----------------div logo---------------- %>
-    <div class="mx-5">
+    <%= link_to root_path, class: "mx-5" do %>
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598280122/youmind-official_zrwmee.jpg" alt="Logo Youmind" id="logo-navbar">
-    </div>
+    <% end %>
 
     <%# --------------2eme navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav mr-auto d-flex align-items-center">
@@ -37,6 +37,18 @@
     </nav>
   </div>
 </div>
+
+  <div class="nav-item dropleft">
+    <div  class="nav-item" id="dropDownLogin" style="width: 100px; height: 100px; background: url(<%= url_for("") %>);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </div>
+
+    <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
+      <p><%= link_to "Mon profil" %></p>
+      <p><%= link_to "Paramètres" %></p>
+      <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
+    </div>
+  </div>
+
   <a>
     <i class="fal fa-user-circle font-awsm-icons"></i>
   </a>
