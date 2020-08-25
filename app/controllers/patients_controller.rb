@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
     @patients = @doctor.patients
   end
 
-  def show
+  def my_profile
     @patient = Patient.find(params[:id])
     @doctor = @patient.doctor
     @last_consultation = @patient.consultations.where.not(public_report: nil).last
@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
     @patients = @doctor.patients
   end
 
-  def my_patient
+  def show
     @patient = Patient.find(params[:id])
     @last_consultation = @patient.consultations.where.not(public_report: nil).last 
     @next_consultation = @patient.consultations.where(public_report: nil).first
