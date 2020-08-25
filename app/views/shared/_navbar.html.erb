@@ -1,35 +1,55 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
-    <% end %>
+<nav class="bg-white navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-between" id="navbar-test">
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <%# ------------drop-down-flags------------ %>
+<div class="dropright" id="flags">
+  <a class="dropdown-toggle" href="#" role="button" id="dropDownFlag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">
+  </a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+  <div class="dropdown-menu" aria-labelledby="dropDownFlag">
+    <a class="dropdown-item" href="#"><img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag"></a>
   </div>
 </div>
+
+  
+<div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+  <div class="d-flex justify-content-center">
+    <%# --------------1ere navbar-------------- %>
+    <nav class="cl-effect-11 navbar-nav ml-auto d-flex align-items-center">
+      <a href="#" data-hover="Home" class="nav-item mx-5">Home</a>
+      <a href="#" data-hover="Dashboard" class="nav-item mx-5">Dashboard</a>
+    </nav>
+
+
+    <%# ----------------div logo---------------- %>
+    <%= link_to root_path, class: "mx-5" do %>
+      <img src="https://res.cloudinary.com/kyulol/image/upload/v1598280122/youmind-official_zrwmee.jpg" alt="Logo Youmind" id="logo-navbar">
+    <% end %>
+
+    <%# --------------2eme navbar-------------- %>
+    <nav class="cl-effect-11 navbar-nav mr-auto d-flex align-items-center">
+      <a href="#" data-hover="Calendrier" class="nav-item mx-5">Calendrier</a>
+      <a href="#" data-hover="Notifications" class="nav-item mx-5">Notifications</a>
+    </nav>
+  </div>
+</div>
+
+  <div class="nav-item dropleft">
+    <div  class="nav-item" id="dropDownLogin" style="width: 100px; height: 100px; background: url(<%= url_for("") %>);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    </div>
+
+    <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
+      <p><%= link_to "Mon profil" %></p>
+      <p><%= link_to "Paramètres" %></p>
+      <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
+    </div>
+  </div>
+
+  <a>
+    <i class="fal fa-user-circle font-awsm-icons"></i>
+  </a>
+</nav>
