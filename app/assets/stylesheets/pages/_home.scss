@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+.container-cards{
+  margin-top: 100px;
+  height: 60vh;
+}
+
+.test-bg{
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598369877/banner-100vh_w1x2nh.jpg");
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: calc(100vh - 80px);
+}
+
+.blur {
+  border-radius: 25px 25px 125px 125px;
+  background: rgba(255, 255, 255, 0.2); // Make sure this color has an opacity of less than 1
+  backdrop-filter: blur(8px); // This be the blur
+  width: 100%;
+  height: 40vh;
+  overflow: hidden;
+}

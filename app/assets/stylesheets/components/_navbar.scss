@@ -14,12 +14,18 @@
     box-shadow:         2px 1px 5px 0px rgba(50, 50, 50, 0.58);
   }
 }
+
+#navbar-test{
+  height: 90px;
+}
 #logo-navbar{
   width: 80px;
   height: 80px;
+  overflow: hidden;
   &:hover{
     transform: rotate(360deg);
     transition: 2s;
+    overflow: hidden;
   }
 }
 .flag-icon{

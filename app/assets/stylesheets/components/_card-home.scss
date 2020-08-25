@@ -1,13 +1,18 @@
+@mixin bg-card {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+
+
 .card-home{
-  backdrop-filter: blur(5px);
-  // background-color: rgba(255, 95, 67, 1);
-  @mixin bg-card {
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-  }
+  height: 490px;
+  align-items: center;
+
+
   .card-home-img.img-1{
     @include bg-card();
 
@@ -29,3 +34,4 @@
     
   }
 }
+
