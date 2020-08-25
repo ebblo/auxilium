@@ -6,4 +6,10 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
   end
+
+  def index
+    @doctor = current_user
+    @patients = @doctor.patients
+  end
+  
 end
