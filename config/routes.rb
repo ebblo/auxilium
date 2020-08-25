@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   # redirection after login
-  get '/user' => "pages#dashboard", :as => :user_root
+  get '/user', to: "pages#dashboard", :as => :user_root
 
   resources :patients, only: [ :index, :show ]
+  get "/my_patients/:id", to: "patients#my_patient", :as => :my_patient
   
 end

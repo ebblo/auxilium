@@ -94,7 +94,7 @@ my_patient_4 = Patient.new(
 )
 my_patient_4.save!
 
-puts "Create 2 new consultations"
+puts "Create 4 new consultations"
 
 my_consultation_1 = Consultation.new(
   title: "Consultation hebdomadaire",
@@ -109,10 +109,28 @@ my_consultation_1.save!
 my_consultation_2 = Consultation.new(
   title: "Consultation bi-mensuel",
   date: "2020/08/26",
+  public_report: "Pensez à ce que vous aimez dans la vie",
+  private_report: "Patient en dans le dur",
   patient: my_patient_2,
-  doctor: my_doctor_2
+  doctor: my_doctor_1
 )
 my_consultation_2.save!
+
+my_consultation_3 = Consultation.new(
+  title: "Consultation checkup",
+  date: "2020/08/25",
+  patient: my_patient_3,
+  doctor: my_doctor_1
+)
+my_consultation_3.save!
+
+my_consultation_4 = Consultation.new(
+  title: "Consultation c'est pas cher",
+  date: "2020/08/27",
+  patient: my_patient_4,
+  doctor: my_doctor_2
+)
+my_consultation_4.save!
 
 puts "Create 2 new medication"
 
@@ -126,13 +144,22 @@ my_medication_2 = Medication.new(
 )
 my_medication_2.save!
 
-puts "Create 1 new ConsultationMedication"
+puts "Create 2 new ConsultationMedication"
 
-my_consultation_medication = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_1,
   medication: my_medication_1,
   quantity: 3,
   description: "matin midi et soir"
 )
+my_consultation_medication_1.save!
+
+my_consultation_medication_2 = ConsultationMedication.new(
+  consultation: my_consultation_1,
+  medication: my_medication_2,
+  quantity: 5,
+  description: "toutes les 2 heures"
+)
+my_consultation_medication_2.save!
 
 puts "Seeding done"
