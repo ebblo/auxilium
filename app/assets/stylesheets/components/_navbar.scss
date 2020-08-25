@@ -1,22 +1,35 @@
 @import "config/colors";
+
+@mixin border50 {
+  border-radius:50%;
+}
+
+@mixin transition-transform {
+  transition: 0.3s;
+  &:hover{
+    transform:scale(1.1,1.1);
+    transition: 0.3s;
+    -webkit-box-shadow: 2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+    -moz-box-shadow:    2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+    box-shadow:         2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+  }
+}
 #logo-navbar{
   width: 80px;
   height: 80px;
+  &:hover{
+    transform: rotate(360deg);
+    transition: 2s;
+  }
 }
 .flag-icon{
   width: 25px;
 }
 #flags{
-  transition: 0.3s;
-  &:hover{
-    transform:scale(1.1,1.1);
-    transition: 0.3s;
-  }
-  .dropdown-menu {
-    top: -12px;
-    background-color: transparent;
-    border: none;
-  }
+  @include transition-transform();
+  @include border50();
+  
+
   a:hover{
     text-decoration: none;
     
@@ -26,9 +39,14 @@
 .dropright .dropdown-toggle::after{
   display: none;
 }
-.font-awsm-icons{
-  font-size: 30px;
-  color: $dark-blue;
+.login-icon{
+  width: 30px;
+  height: 30px;
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598345514/profile_fsyw6v.png") center;
+  background-size: contain;
+  @include transition-transform;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 
