@@ -1,6 +1,6 @@
 <h1><%= "patient#index" %></h1>
 <% @patients.each do |patient| %>
   <ul>
-    <li><%= link_to patient.last_name, my_patient_path(patient) %></li>
+    <li><%= link_to patient.last_name, patient_path(patient) %></li>
   </ul>
 <% end %>

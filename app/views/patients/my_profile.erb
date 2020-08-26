@@ -1,0 +1,48 @@
+<h1 style="margin: 5px;"><%= "Patient No" %> <%= @patient.id %></h1>
+<div>
+  <p style="margin: 10px;"> <%= @patient.email %> </p>
+</div>
+<br>
+<h4 style="margin: 5px;">Mon médecin</h4>
+<div>
+  <ul style="margin: 10px;">
+    <li> <strong> Dr <%= @doctor.first_name %> </strong> <%= @doctor.last_name %></li>
+    <li> <%= @doctor.street %> </li>
+    <li> <%= @doctor.zip %> <%= @doctor.city %> </li>
+  </ul>
+</div>
+<br>
+<h4 style="margin: 5px;">Ma consultation</h4>
+<div>
+  <ul style="margin: 10px;">
+    <li> <%= @last_consultation.title %> </li>
+    <li> <%= @last_consultation.date %> </li>
+    <li> <i> <%= @last_consultation.public_report %> </i> </li>
+  </ul>
+</div>
+<br>
+<h4 style="margin: 5px;">Ma prochaine consultation</h4>
+  <% unless @next_consulation.nil? %>
+  <ul>
+    <li> <%= @next_consultation.title %> </li>
+    <li> <%= @next_consultation.date %> </li>
+  </ul>
+  <% end %>
+<br>
+<%# A ajouter à l'index %>
+<h4 style="margin: 5px;">Mon historique</h4>
+<div>
+  <ul style="margin: 10px;">
+    <% @consultations.each do |consultation| %>
+    <li> <strong> <%= consultation.id %> </strong> <%= consultation.title%> <%= consultation.date%> </li>
+    <% end %>
+  </ul>
+</div>
+<br>
+<h4 style="margin: 5px;">Mes médicaments</h4>
+<div>
+  <ul style="margin: 10px;">
+    <% @prescriptions.each do |consultation_medication| %>
+    <li> <%= consultation_medication.description %> <strong> <%= consultation_medication.medication.name %> </strong> <%= consultation_medication.quantity %> </li>
+    <% end %>
+</div>
