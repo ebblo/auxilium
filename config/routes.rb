@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # redirection after login
   get '/user', to: "pages#dashboard", :as => :user_root
 
-  resources :patients, only: [ :index, :show ]
+  resources :patients, only: [ :index, :show ] do
+    resources :consultations, only: [ :create, :update ]
+  end
   get "/my_profile", to: "patients#my_profile", :as => :my_profile
   
 end

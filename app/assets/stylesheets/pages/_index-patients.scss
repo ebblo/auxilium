@@ -5,6 +5,12 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
+  border-radius: 6px;
+}
+
+.card-product:hover {
+  background-color: rgba(170, 186, 217, 0.7);
+  color: white;
 }
 
 .card-product i {
