@@ -12,6 +12,7 @@
 
       <%# --------------------infos-profil-------------------- %>
       <div class="infos-profil">
+
         <% if current_user.doctor? %>
           <p><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
           <p><%= @patient.phone_number %></p>
@@ -25,7 +26,6 @@
         <% else %>
           <p><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
           <p><%= @doctor.phone_number %></p>
-          <p><%= @doctor.avs_number %></p>
           <p>
             <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
             <span><%= @doctor.street %></span>
