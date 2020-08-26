@@ -39,7 +39,9 @@
     <li><%= @last_consultation.title %></li>
     <li><%= @last_consultation.date %></li>
     <li><%= @last_consultation.public_report %></li>
-    <li><%= @last_consultation.private_report %></li>
+    <% if current_user.doctor? %>
+      <li><%= @last_consultation.private_report %></li>
+    <% end %>
   </ul>
 <% end %>
 
@@ -62,7 +64,9 @@
     <li><%= consultation.date%></li>
     <% unless consultation.public_report.nil? %>
       <li><%= consultation.public_report %></li>
-      <li><%= consultation.private_report %></li>
+      <% if current_user.doctor? %>
+        <li><%= @last_consultation.private_report %></li>
+      <% end %>
     <% end %> 
   <% end %>
 </ul>
