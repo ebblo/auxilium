@@ -8,6 +8,7 @@
 
 // Your CSS partials
 @import "components/index";
+@import "components/card-home";
 @import "pages/index";
 
 *{
@@ -16,5 +17,8 @@ margin: 0;
 }
 body{
   color: $dark-blue;
+  background-color: $light-orange;
+  min-height: 100vh;
 }
+
 

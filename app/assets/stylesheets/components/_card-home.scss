@@ -1,0 +1,37 @@
+@mixin bg-card {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
+
+
+.card-home{
+  height: 490px;
+  align-items: center;
+
+
+  .card-home-img.img-1{
+    @include bg-card();
+
+    background: url("https://res.cloudinary.com/kyulol/image/upload/v1598354131/chat-video_tqdur6.jpg") center;
+  }
+  .card-home-img.img-2{
+    @include bg-card();
+    background: url("https://res.cloudinary.com/kyulol/image/upload/v1598354131/files_bwqrmq.jpg") center;
+
+  }
+  .card-home-img.img-3{
+    @include bg-card();
+    background: url("https://res.cloudinary.com/kyulol/image/upload/v1598354131/calendar_pvaoqz.jpg") center;
+
+  }
+  .card-home-content{
+    color: $dark-blue;
+    font-weight: bold;
+    
+  }
+}
+
