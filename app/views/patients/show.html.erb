@@ -1,127 +1,93 @@
-  <div class="row">
-  <div class="col-3">
+<div class="container-fluid p-0 m-0" id="dashboard">
 
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
-        Dernière consultation
-      </a>
-      <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-        Historique des consultations
-      </a>
-      <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-        Messagerie
-      </a>
+  <%# ---------------------sidebar--------------------- %>
+  <div class="row p-0 m-0" id="sidebar-tabs">
 
-      <% if current_user.doctor? %>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-          Planifier un rendez-vous
+    <%# ---------------------sidebar-profil--------------------- %>
+    <div class="col-2 d-flex align-items-lg-center flex-column bg-dark p-0 m-0">
+
+      <%# --------------------img avatar-profil-------------------- %>
+      <div class="avatar-dasboard">
+      </div>
+
+      <%# --------------------infos-profil-------------------- %>
+      <div class="infos-profil">
+        <% if current_user.doctor? %>
+          <p><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
+          <p><%= @patient.phone_number %></p>
+          <p><%= @patient.avs_number %></p>
+          <p>
+            <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br>
+            <span><%= @patient.street %></span>
+          </p>
+            
+            
+        <% else %>
+          <p><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
+          <p><%= @doctor.phone_number %></p>
+          <p><%= @doctor.avs_number %></p>
+          <p>
+            <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
+            <span><%= @doctor.street %></span>
+          </p>
+        
+        <% end %>
+
+        <h2><%= "Next consultation" %></h2>
+        <% unless @patient.consultations.where(public_report: nil).first.nil? %>
+
+          <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
+              <h3><%= @next_consultation.title %></h3>
+              <p><%= @next_consultation.date %></p>
+              <%# ajouter un timer "consultation dans x-hours" %>
+            
+        <% end %>
+      </div>
+
+      <%# ---------------------sidebar-tabs--------------------- %>
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+          Dernière consultation
         </a>
-      <% end %>
+        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+          Historique des consultations
+        </a>
+        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+          Messagerie
+        </a>
 
+        <% if current_user.doctor? %>
+          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+            Planifier un rendez-vous
+          </a>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="test-tabs-sidebar">
+
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <%= render  "shared/consultation-medication" %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+          <%= render  "shared/history-index" %>
+        </div>
+        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <%= render  "shared/chat" %>
+        </div>
+
+        <% if current_user.doctor? %>
+          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <%= render  "shared/book-consultation" %>
+          </div>        
+        <% end %>
+      </div>
+      
     </div>
   </div>
-  <div class="col-9">
 
-    <div class="tab-content" id="v-pills-tabContent">
-      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-        <%= render  "shared/consultation-medication" %>
-      </div>
-      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-        <%= render  "shared/history-index" %>
-      </div>
-      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-        <%= render  "shared/chat" %>
-      </div>
-
-      <% if current_user.doctor? %>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-          <%= render  "shared/book-consultation" %>
-        </div>        
-      <% end %>
-    </div>
-    
-  </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<% if current_user.doctor? %>
-  <h2><%= "Patient" %></h2>
-  <ul>
-    <li><%= @patient.first_name %></li>
-    <li><%= @patient.last_name %></li>
-    <li><%= @patient.phone_number %></li>
-    <li><%= @patient.avs_number %></li>
-    <li><%= @patient.city %></li>
-    <li><%= @patient.zip %></li>
-    <li><%= @patient.street %></li>
-  </ul>
-<% else %>
-<h2><%= "Doctor" %></h2>
-<ul>
-  <li><%= @doctor.first_name %></li>
-  <li><%= @doctor.last_name %></li>
-  <li><%= @doctor.phone_number %></li>
-  <li><%= @doctor.city %></li>
-  <li><%= @doctor.zip %></li>
-  <li><%= @doctor.street %></li>
-</ul>
-<% end %>
-
-<h2><%= "Next consultation" %></h2>
-<% unless @patient.consultations.where(public_report: nil).first.nil? %>
-  <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
-    <ul>
-      <li><%= @next_consultation.title %></li>
-      <li><%= @next_consultation.date %></li>
-    </ul>
-<% end %>
-
-<h2><%= "Last consultation" %></h2>
-<% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
-  <% @last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
-  <ul>
-    <li><%= @last_consultation.title %></li>
-    <li><%= @last_consultation.date %></li>
-    <li><%= @last_consultation.public_report %></li>
-    <% if current_user.doctor? %>
-      <li><%= @last_consultation.private_report %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<h2><%= "Prescription" %></h2>
-<% unless @last_consultation.nil? %>
-  <% @prescriptions = @last_consultation.consultation_medications %>
-  <% @prescriptions.each do |prescription| %>
-    <ul>
-      <li><%= prescription.medication.name %></li>
-      <li><%= prescription.quantity %></li>
-      <li><%= prescription.description %></li>
-    </ul>
-  <% end %>
-<% end %>
-
-<h2><%= "Consultation history" %></h2>
-<ul>
-  <% @consultations.each do |consultation| %>
-    <li><%= consultation.title%></li>
-    <li><%= consultation.date%></li>
-    <% unless consultation.public_report.nil? %>
-      <li><%= consultation.public_report %></li>
-      <% if current_user.doctor? %>
-        <li><%= @last_consultation.private_report %></li>
-      <% end %>
-    <% end %> 
-  <% end %>
-</ul>

@@ -9,18 +9,20 @@
 // Your CSS partials
 @import "components/index";
 @import "components/card-home";
-@import "components/dasboard-navbar";
+@import "components/dasboard-sidebar";
 @import "pages/index";
 
 
 *{
 padding: 0;
 margin: 0;
+
 }
 body{
   color: $dark-blue;
-  background-color: $light-orange;
+  // background-color: $light-orange;
   min-height: 100vh;
+  font-size: 16px;
 }
 
 

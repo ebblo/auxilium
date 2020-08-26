@@ -1,0 +1,28 @@
+#dashboard{
+  height: calc(100vh - 80px);
+  width: 100%;
+
+  #sidebar-tabs{
+    height: 100%;
+  }
+  .test-tabs-sidebar{
+    flex-grow: 1;
+    background-color: violet !important;
+  }
+  
+}
+
+.avatar-dasboard{
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598345514/profile_fsyw6v.png") center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 135px;
+  height: 135px;
+}
+.infos-profil p,
+.infos-profil h2{
+  font-size: 16px;
+  color: white;
+}
+
+
