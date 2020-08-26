@@ -1,4 +1,20 @@
-<h1><%= "Patients#show" %></h1>
+<div class="container-fluid" id="dashboard">
+  <h1><%= "Patients#show" %></h1>
+  <%= render  "shared/profil-dashboard" %>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <% if current_user.doctor? %>
   <h2><%= "Patient" %></h2>
