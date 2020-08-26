@@ -1,1 +1,42 @@
-<h1>historique</h1>
+<!-- Button trigger modal -->
+<% @consultations.each do |consultation| %>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  <%= consultation.title %>
+  </button>
+  <%= consultation.date %>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.title%></h5>
+          <br>
+          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.date %></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <% unless consultation.public_report.nil? %>
+            <h5><%= "Rapport du médecin" %></h5>
+            <li><%= consultation.public_report %></li>
+            <% if current_user.doctor? %>
+              <h5><%= "Notes privés" %></h5>
+              <li><%= consultation.private_report %></li>
+              <% prescriptions = consultation.consultation_medications %>
+              <h5><%= "Préscription de médicaments" %></h5>
+              <% prescriptions.each do |prescription| %>
+                <ul>
+                  <h5><%= "------------------" %></h5>
+                  <li><%= prescription.medication.name %></li>
+                  <li><%= prescription.quantity %></li>
+                  <li><%= prescription.description %></li>
+                </ul>
+              <% end %>
+            <% end %>
+          <%   end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

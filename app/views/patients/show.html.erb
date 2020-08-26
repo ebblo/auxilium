@@ -43,18 +43,7 @@
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
+<h2><%= "SIDEBAR" %></h2>
 <% if current_user.doctor? %>
   <h2><%= "Patient" %></h2>
   <ul>
@@ -77,7 +66,6 @@
   <li><%= @doctor.street %></li>
 </ul>
 <% end %>
-
 <h2><%= "Next consultation" %></h2>
 <% unless @patient.consultations.where(public_report: nil).first.nil? %>
   <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
@@ -87,41 +75,3 @@
     </ul>
 <% end %>
 
-<h2><%= "Last consultation" %></h2>
-<% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
-  <% @last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
-  <ul>
-    <li><%= @last_consultation.title %></li>
-    <li><%= @last_consultation.date %></li>
-    <li><%= @last_consultation.public_report %></li>
-    <% if current_user.doctor? %>
-      <li><%= @last_consultation.private_report %></li>
-    <% end %>
-  </ul>
-<% end %>
-
-<h2><%= "Prescription" %></h2>
-<% unless @last_consultation.nil? %>
-  <% @prescriptions = @last_consultation.consultation_medications %>
-  <% @prescriptions.each do |prescription| %>
-    <ul>
-      <li><%= prescription.medication.name %></li>
-      <li><%= prescription.quantity %></li>
-      <li><%= prescription.description %></li>
-    </ul>
-  <% end %>
-<% end %>
-
-<h2><%= "Consultation history" %></h2>
-<ul>
-  <% @consultations.each do |consultation| %>
-    <li><%= consultation.title%></li>
-    <li><%= consultation.date%></li>
-    <% unless consultation.public_report.nil? %>
-      <li><%= consultation.public_report %></li>
-      <% if current_user.doctor? %>
-        <li><%= @last_consultation.private_report %></li>
-      <% end %>
-    <% end %> 
-  <% end %>
-</ul>
