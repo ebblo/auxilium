@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   def index
     doctor = current_user
-    @patients = doctor.patients
+    @patients = doctor.patients.uniq
   end
 
   # patient#show on patient's side

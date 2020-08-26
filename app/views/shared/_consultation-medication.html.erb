@@ -22,5 +22,30 @@
       <li><%= prescription.description %></li>
     </ul>
   <% end %>
+
+  <!-- Button trigger modal -->
+  <% if current_user.doctor? %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    <%= "Ajouter des notes pour cette consultation" %>
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container d-flex flex-column align-items-center">
+              <div class="col-8 form-edit-offer">
+                <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
+                <%= f.input :public_report, label: 'Rapport du médecin' %>  
+                <%= f.input :private_report, label: 'Notes personnelles' %>
+                <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
