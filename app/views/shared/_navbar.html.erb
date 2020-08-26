@@ -20,8 +20,12 @@
   <div class="d-flex justify-content-center">
     <%# --------------1ere navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav ml-auto d-flex align-items-center">
-      <a href="#" data-hover="Home" class="nav-item mx-5">Home</a>
-      <a href="#" data-hover="Dashboard" class="nav-item mx-5">Dashboard</a>
+      <%= link_to(root_path, {"data-hover" => "Home", "class" => "nav-item mx-5"}) do %>
+        Home
+      <% end %>
+      <%= link_to(user_root_path, {"data-hover" => "Dashboard", "class" => "nav-item mx-5"}) do %>
+        Dashboard
+      <% end %>
     </nav>
 
 
@@ -32,8 +36,12 @@
 
     <%# --------------2eme navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav mr-auto d-flex align-items-center">
-      <a href="#" data-hover="Calendrier" class="nav-item mx-5">Calendrier</a>
-      <a href="#" data-hover="Notifications" class="nav-item mx-5">Notifications</a>
+      <%= link_to(root_path, {"data-hover" => "Calendrier", "class" => "nav-item mx-5"}) do %>
+        Calendrier
+      <% end %>
+      <%= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item mx-5"}) do %>
+        Notifications
+      <% end %>
     </nav>
   </div>
 </div>
