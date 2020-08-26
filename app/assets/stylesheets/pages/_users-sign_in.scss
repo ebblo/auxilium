@@ -28,16 +28,16 @@ input.form-control:focus {
 }
 
 .btn-sign-in {
-  background-color: #B12906;
+  background-color: rgba(255, 158, 64, 1);
   border: none;
 }
 
 .btn-sign-in:hover {
-  background-color: #ad4434;
+  background-color: rgba(255, 158, 64, 0.5);
 }
 
 .form-control {
-  border: 1px solid #B12906;
-  background-color: white;
+  background-image: linear-gradient(to right, rgba(255, 158, 64, 0), rgba(255, 158, 64, 0.9));
+  border: none;
 }
 
