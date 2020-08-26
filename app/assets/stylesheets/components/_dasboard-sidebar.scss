@@ -1,15 +1,21 @@
 #dashboard{
   height: calc(100vh - 80px);
   width: 100%;
+  
 
   #sidebar-tabs{
     height: 100%;
   }
   .test-tabs-sidebar{
     flex-grow: 1;
-    background-color: violet !important;
+    border-radius: 10px;
+    background-color: $light-orange !important;
   }
   
+}
+#sidebar{
+background: $light-blue;
+border-radius: 0 10px 10px 0;
 }
 
 .avatar-dasboard{
@@ -23,6 +29,19 @@
 .infos-profil h2{
   font-size: 16px;
   color: white;
+  font-weight: bold;
+}
+
+.nav-link{
+  color: white !important;
+  font-weight: bold;
+}
+
+.nav-link.active{
+  border-radius: 10px 0 0 10px !important;
+  background: $light-orange !important;
+  color: $dark-blue !important;
+  font-weight: bold;
 }
 
 

@@ -4,60 +4,61 @@
   <div class="row p-0 m-0" id="sidebar-tabs">
 
     <%# ---------------------sidebar-profil--------------------- %>
-    <div class="col-2 d-flex align-items-lg-center flex-column bg-dark p-0 m-0">
+    <div id="sidebar" class="col-2 d-flex align-items-lg-center flex-column p-0 m-0">
+      <div class="sidebar-content w-100">
+      
+        <%# --------------------img avatar-profil-------------------- %>
+        <div class="avatar-dasboard mx-auto my-5">
+        </div>
 
-      <%# --------------------img avatar-profil-------------------- %>
-      <div class="avatar-dasboard">
-      </div>
+        <%# --------------------infos-profil-------------------- %>
+        <div class="infos-profil col-9 ml-auto">
 
-      <%# --------------------infos-profil-------------------- %>
-      <div class="infos-profil">
+          <% if current_user.doctor? %>
+            <p><i class="far fa-user-md mr-2"></i>&nbsp;<span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
+            <p><i class="far fa-phone mr-2"></i>&nbsp;<%= @patient.phone_number %></p>
+            <p><i class="fal fa-credit-card-blank mr-2"></i>&nbsp;<%= @patient.avs_number %></p>
+            <p>
+              <i class="fal fa-map-marked-alt mr-2"></i>&nbsp;<span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br>
+              <span><%= @patient.street %></span>
+            </p>
+              
+          <% else %>
+            <p><i class="far fa-user-md mr-2"></i>&nbsp;<span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
+            <p><i class="far fa-phone mr-2"></i>&nbsp;<%= @doctor.phone_number %></p>
+            <p>
+              <i class="fal fa-map-marked-alt mr-2"></i>&nbsp;<span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
+              <span><%= @doctor.street %></span>
+            </p>
+          
+          <% end %>
 
-        <% if current_user.doctor? %>
-          <p><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
-          <p><%= @patient.phone_number %></p>
-          <p><%= @patient.avs_number %></p>
-          <p>
-            <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br>
-            <span><%= @patient.street %></span>
-          </p>
-            
-            
-        <% else %>
-          <p><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
-          <p><%= @doctor.phone_number %></p>
-          <p>
-            <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
-            <span><%= @doctor.street %></span>
-          </p>
-        
-        <% end %>
+          <h2><i class="fal fa-clock mr-2"></i>&nbsp;<%= "Next consultation" %></h2>
+          <% unless @patient.consultations.where(public_report: nil).first.nil? %>
 
-        <h2><%= "Next consultation" %></h2>
-        <% unless @patient.consultations.where(public_report: nil).first.nil? %>
-
-          <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
-              <h3><%= @next_consultation.title %></h3>
-              <p><%= @next_consultation.date %></p>
-              <%# ajouter un timer "consultation dans x-hours" %>
-            
-        <% end %>
+            <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
+                <h3><%= @next_consultation.title %></h3>
+                <p><%= @next_consultation.date %></p>
+                <%# ajouter un timer "consultation dans x-hours" %>
+              
+          <% end %>
+        </div>
       </div>
 
       <%# ---------------------sidebar-tabs--------------------- %>
-      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+      <div class="mt-5 ml-auto nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a class="nav-link px-2 py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           Dernière consultation
         </a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+        <a class="nav-link px-2 py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
           Historique des consultations
         </a>
-        <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
-          Messagerie
+        <a class="nav-link px-2 py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+          Messagerie 
         </a>
 
         <% if current_user.doctor? %>
-          <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+          <a class="nav-link px-2 py-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
             Planifier un rendez-vous
           </a>
         <% end %>
@@ -68,18 +69,18 @@
     <div class="test-tabs-sidebar">
 
       <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+        <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
           <%= render  "shared/consultation-medication" %>
         </div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+        <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
           <%= render  "shared/history-index" %>
         </div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+        <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
           <%= render  "shared/chat" %>
         </div>
 
         <% if current_user.doctor? %>
-          <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+          <div class="p-5 tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
             <%= render  "shared/book-consultation" %>
           </div>        
         <% end %>
