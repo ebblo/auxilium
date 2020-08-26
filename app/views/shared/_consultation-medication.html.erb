@@ -1,1 +1,25 @@
-<h1>derniere consultation</h1>
+<% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
+  <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
+  <ul>
+    <li><%= last_consultation.title %></li>
+    <li><%= last_consultation.date %></li>
+    <h3><%= "Rapport du médecin" %></h3>
+    <li><%= last_consultation.public_report %></li>
+    <% if current_user.doctor? %>
+      <h3><%= "Notes privés" %></h3>
+      <li><%= last_consultation.private_report %></li>
+    <% end %>
+  </ul>
+<% end %>
+<% unless last_consultation.nil? %>
+  <h2><%= "Préscription de médicaments" %></h2>
+  <% @prescriptions = last_consultation.consultation_medications %>
+  <% @prescriptions.each do |prescription| %>
+    <ul>
+      <%= "-------------------------" %>
+      <li><%= prescription.medication.name %></li>
+      <li><%= prescription.quantity %></li>
+      <li><%= prescription.description %></li>
+    </ul>
+  <% end %>
+<% end %>
