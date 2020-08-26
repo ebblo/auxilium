@@ -1,0 +1,54 @@
+@mixin report-prescrition {
+  width: 40%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 3em;
+  margin-left:auto ;
+  margin-right:auto ;
+}
+#tab-consutation-medication{
+  height: 80vh;
+  width: 90%;
+  
+
+  #doctor-report{
+    @include report-prescrition;
+    
+  }
+  #doctor-prescription{
+    @include report-prescrition;
+    
+  }
+}
+.test-drug{
+  width: 100%;
+  height: 30px;
+}
+.drug-quantity-img{
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598466311/pills-multiply_dipchu.png") top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 100%;
+  position: relative;
+  span{
+    background-color: white;
+    line-height: 1.4;
+    padding-left: 7px;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    top: -7px;
+    left: 20px;
+    font-weight: bold;
+    -webkit-box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+    -moz-box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+    box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+  }
+}
+.content-doctor-prescrition{
+  line-height: 2;
+  font-weight: bold;
+}
