@@ -14,8 +14,17 @@
   margin-top: 15px;
 }
 
+#link a {
+  color: #265368;
+}
+
 input {
   width: 350px;
+}
+
+input.form-control:focus {
+  box-shadow: 1px 2px rgba(38, 83, 104, 0.7);
+  border: 1px solid #265368;
 }
 
 .btn-sign-in {
@@ -29,4 +38,6 @@ input {
 
 .form-control {
   border: 1px solid #B12906;
+  background-color: white;
 }
+
