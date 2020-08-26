@@ -5,15 +5,19 @@
     <li><%= last_consultation.date %></li>
     <h3><%= "Rapport du médecin" %></h3>
     <li><%= last_consultation.public_report %></li>
+
     <% if current_user.doctor? %>
       <h3><%= "Notes privés" %></h3>
       <li><%= last_consultation.private_report %></li>
     <% end %>
+
   </ul>
 <% end %>
+
 <% unless last_consultation.nil? %>
   <h2><%= "Préscription de médicaments" %></h2>
   <% @prescriptions = last_consultation.consultation_medications %>
+
   <% @prescriptions.each do |prescription| %>
     <ul>
       <%= "-------------------------" %>
@@ -22,4 +26,5 @@
       <li><%= prescription.description %></li>
     </ul>
   <% end %>
+  
 <% end %>

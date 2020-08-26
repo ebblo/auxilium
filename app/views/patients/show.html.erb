@@ -12,28 +12,28 @@
         </div>
 
         <%# --------------------infos-profil-------------------- %>
-        <div class="infos-profil col-9 ml-auto">
+        <div class="infos-profil col-10 ml-auto">
 
           <% if current_user.doctor? %>
-            <p><i class="far fa-user-md mr-2"></i>&nbsp;<span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
-            <p><i class="far fa-phone mr-2"></i>&nbsp;<%= @patient.phone_number %></p>
-            <p><i class="fal fa-credit-card-blank mr-2"></i>&nbsp;<%= @patient.avs_number %></p>
+            <p><i class="fal fa-user mr-2"></i><br><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
+            <p><i class="far fa-phone mr-2"></i><br><%= @doctor.phone_number %></p>
+            <p><i class="fal fa-credit-card-blank mr-2"></i><br><%= @doctor.avs_number %></p>
             <p>
-              <i class="fal fa-map-marked-alt mr-2"></i>&nbsp;<span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br>
-              <span><%= @patient.street %></span>
+              <i class="fal fa-map-marked-alt mr-2"></i><br><span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
+              <span><%= @doctor.street %></span>
             </p>
               
           <% else %>
-            <p><i class="far fa-user-md mr-2"></i>&nbsp;<span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
-            <p><i class="far fa-phone mr-2"></i>&nbsp;<%= @doctor.phone_number %></p>
+            <p><i class="far fa-user-md mr-2"></i><br><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
+            <p><i class="far fa-phone mr-2"></i><br><%= @patient.phone_number %></p>
             <p>
-              <i class="fal fa-map-marked-alt mr-2"></i>&nbsp;<span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br>
-              <span><%= @doctor.street %></span>
+              <i class="fal fa-map-marked-alt mr-2"></i><br><span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br>
+              <span><%= @patient.street %></span>
             </p>
           
           <% end %>
 
-          <h2><i class="fal fa-clock mr-2"></i>&nbsp;<%= "Next consultation" %></h2>
+          <p><i class="fal fa-clock mr-2"></i><br><%= "Next consultation" %></p>
           <% unless @patient.consultations.where(public_report: nil).first.nil? %>
 
             <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
@@ -45,20 +45,22 @@
         </div>
       </div>
 
+      <hr class="style1 mt-5">
+
       <%# ---------------------sidebar-tabs--------------------- %>
       <div class="mt-5 ml-auto nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link px-2 py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+        <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           Dernière consultation
         </a>
-        <a class="nav-link px-2 py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+        <a class="nav-link px-4  py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
           Historique des consultations
         </a>
-        <a class="nav-link px-2 py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+        <a class="nav-link px-4  py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
           Messagerie 
         </a>
 
         <% if current_user.doctor? %>
-          <a class="nav-link px-2 py-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+          <a class="nav-link px-4  py-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
             Planifier un rendez-vous
           </a>
         <% end %>
