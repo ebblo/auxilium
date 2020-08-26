@@ -1,0 +1,12 @@
+<div class="container d-flex flex-column align-items-center">
+  <div class="banner-edit bg-primary d-flex flex-column justify-content-center align-items-center mb-5">
+    <h1>Planifier un rendez-vous</h1>
+  </div>
+  <div class="col-8 form-edit-offer">
+    <%= simple_form_for [ @patient, @new_consultation ], class:"log-in-form" do |f| %>
+    <%= f.input :title, label: 'Motif' %>  
+    <%= f.input :date, label: 'Date' %>
+    <%= f.submit "Planifier un rendez-vous", class: "btn btn-warning text-white" %>
+  <% end %>
+  </div>
+</div>
