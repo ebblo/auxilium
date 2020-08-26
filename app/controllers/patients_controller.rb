@@ -20,6 +20,7 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
     @consultations = @patient.consultations
+    @new_consultation = Consultation.new
     ######## DON'T DELETE COMMENTS BELOW! DOCUMENTATION ON WHICH VARIABLES ARE NECESSARY FOR THE VIEWS
     # @last_consultation = @patient.consultations.where.not(public_report: nil).last 
     # @next_consultation = @patient.consultations.where(public_report: nil).first
