@@ -1,6 +1,34 @@
-<h1><%= "patient#index" %></h1>
-<% @patients.each do |patient| %>
-  <ul>
-    <li><%= link_to patient.last_name, patient_path(patient) %></li>
-  </ul>
-<% end %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-sm-6'>
+      <h2 class='mt-5 pl-2'><%= "Mes patients" %></h2>
+      <br>
+      <div>
+        <% @patients.each do |patient| %>
+          <%= link_to patient_path(patient), class: 'color-link' do %>
+            <div class='card-product'>
+              <div>
+                <i class="fas fa-file-medical"></i>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12'>
+                  <div class='card-product-info'>
+                    <h4><%= patient.last_name %> <%= patient.first_name %></h2>
+                    <p><%= patient.avs_number %></p>
+                    <p><small><%= patient.phone_number %></small></p>
+                  </div>
+                </div>
+                <%# <div class='col-sm-1'> %>
+                  <p> <%#= patient.last_name %> </p>
+                <%# </div> %>
+              </div>
+            </div>
+          <% end%>
+        <% end%>
+      </div>
+    </div>
+    <div class='col-sm-6 col-sm-offset-2'>
+      <h2 class='mt-5 pl-2'>Mon emploi du temps</h2>
+    </div>
+  </div>
+</div>
