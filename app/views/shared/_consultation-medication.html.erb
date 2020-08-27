@@ -6,7 +6,7 @@
       <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
         
         <div>
-          <p><%= last_consultation.title %> le <%= last_consultation.date %></p>
+          <p><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %></p>
         </div>
         <div>
           <h3><%= "Rapport du médecin" %></h3>
