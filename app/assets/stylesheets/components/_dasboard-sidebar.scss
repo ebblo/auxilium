@@ -80,7 +80,7 @@ hr.style1 {
 }
 
 
-@media screen and (max-width: 1350px) {
+@media screen and (max-width: 1500px) {
   .arrow-back-index{
     width: 35px;
     height: 35px;
@@ -117,6 +117,7 @@ hr.style1 {
     color: $dark-blue;
     border-radius: 10px;
     padding: 8px;
+    margin-bottom: 2em;
     height: fit-content;
     width: 90%;
     h3{
