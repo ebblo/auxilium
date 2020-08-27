@@ -1,12 +1,14 @@
-<div class="container d-flex flex-column align-items-center">
-  <div class="banner-edit bg-primary d-flex flex-column justify-content-center align-items-center mb-5">
-    <h1>Planifier un rendez-vous</h1>
+<div class='mt-3 mb-3'>
+  <h1>Fixer un rendez-vous</h1>
+</div>
+<div>
+  <%= simple_form_for [ @patient, @new_consultation ] do |f| %>
+  <div class='row'>
+    <div class='col-6'>
+    <%= f.input :title, label: false, placeholder: 'Motif du rendez-vous', id: 'motif' %>
+    <%= f.input :date, label: false, class: 'date-motif' %>
+    <%= f.submit "Planifier un rendez-vous", class: "btn btn-warning text-white", id: 'btn-motif' %>
+    </div>
   </div>
-  <div class="col-8 form-edit-offer">
-    <%= simple_form_for [ @patient, @new_consultation ], class:"log-in-form" do |f| %>
-    <%= f.input :title, label: 'Motif' %>  
-    <%= f.input :date, label: 'Date' %>
-    <%= f.submit "Planifier un rendez-vous", class: "btn btn-warning text-white" %>
-  <% end %>
-  </div>
+<% end %>
 </div>

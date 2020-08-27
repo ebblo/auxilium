@@ -1,0 +1,28 @@
+#consultation_title {
+  width: 100% !important;
+  margin-bottom: 10px;
+  height: 56px;
+  border: none;
+  border-radius: 4px;
+}
+
+#consultation_title:focus {
+  box-shadow: 1px 2px rgba(38, 83, 104, 0.7);
+  border: 1px solid #265368;
+}
+
+.date-motif {
+  width: 100% !important;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 4px;
+}
+
+#btn-motif {
+  background-color: rgba(255, 158, 64, 1);
+  border: none;
+}
+
+#btn-motif:hover {
+  background-color: rgba(255, 158, 64, 0.5);
+}
