@@ -9,7 +9,8 @@
         <div class='card-product my-2' id='history-card'>
           <div class='card-product-info pl-3'>
             <h4><%= consultation.title %></h4>
-            <p><%= consultation.date %><p>
+            <p><%= consultation.date.strftime("%d/%m/%Y") %><p>
+            <p>à <%= consultation.date.strftime("%H:%M") %><p>
           </div>
         </div>
       <% end %>
@@ -20,9 +21,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.title%></h5>
-          <br>
-          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.date %></h5>
+          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.title%><%= " le " %><%= consultation.date.strftime("%d/%m/%Y") %><%= " à " %><%= consultation.date.strftime("%H:%M") %></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

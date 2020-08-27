@@ -38,7 +38,8 @@
 
             <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
                 <h3><%= @next_consultation.title %></h3>
-                <p><%= @next_consultation.date %></p>
+                <p><%= @next_consultation.date.strftime("%m/%d/%Y") %></p>
+                <p><%= @next_consultation.date.strftime("à %H:%M") %></p>
                 <%# ajouter un timer "consultation dans x-hours" %>
               
           <% end %>
