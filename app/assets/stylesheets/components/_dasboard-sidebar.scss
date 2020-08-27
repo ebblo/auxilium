@@ -1,4 +1,5 @@
 #dashboard{
+  max-height: calc(100vh - 80px);
   height: calc(100vh - 80px);
   width: 100%;
   
@@ -13,9 +14,17 @@
   }
   
 }
+.arrow-back-index{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
 #sidebar{
 background: $light-blue;
 border-radius: 0 10px 10px 0;
+position: relative;
 }
 
 .avatar-dasboard{
@@ -26,7 +35,7 @@ border-radius: 0 10px 10px 0;
   height: 135px;
 }
 .infos-profil p,
-.infos-profil h2{
+.infos-profil a{
   font-size: 16px;
   color: white;
   font-weight: bold;
@@ -50,4 +59,14 @@ hr.style1 {
   width: 80%;
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $light-orange, rgba(0, 0, 0, 0));
 }
-
+.mini-icon-sidebar{
+  font-size: 25px;
+}
+.next-consult{
+  background: $light-orange;
+  color: $dark-blue;
+  border-radius: 10px;
+  padding: 10px;
+  height: fit-content;
+  width: 90%;
+}
