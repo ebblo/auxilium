@@ -82,11 +82,13 @@
             </p>
             
           <% end %>
-      </div>
-              <%# button-modal ajouter/modifier une note privee %>
-              <%= link_to user_root_path do %>
-                <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598538915/arrow-leftpastel_hm0sdr.png", alt: "Le Wagon", class:"arrow-back-index" %>
-              <% end %>
+      </div>  
+        <% if current_user.doctor? %>
+          <%# arrow to index for DOCTOR ONLY %>
+          <%= link_to user_root_path do %>
+            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598538915/arrow-leftpastel_hm0sdr.png", alt: "Le Wagon", class:"arrow-back-index" %>
+          <% end %>
+        <% end %>
 
     </div>
 
