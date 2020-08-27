@@ -54,7 +54,7 @@
           Dernière consultation
         </a>
         <a class="nav-link px-4  py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
-          Historique des consultations
+          Mes consultations
         </a>
         <a class="nav-link px-4  py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
           Messagerie 
@@ -73,10 +73,10 @@
 
       <div class="tab-content" id="v-pills-tabContent">
         <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
-          <%= render  "shared/consultation-medication" %>
+          <%= render  "shared/last-consultation" %>
         </div>
         <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
-          <%= render  "shared/history-index" %>
+          <%= render  "shared/index-consultation" %>
         </div>
         <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
           <%= render  "shared/chat" %>

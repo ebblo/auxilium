@@ -1,0 +1,117 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div id="tab-consutation-medication" class="row justify-content-around">
+    
+    <div id="report-and-notes-tabs" class="bg-white">
+      <% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
+        <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
+        <%# -------------rapport du medecin------------- %>
+        <div id="doctor-report">
+          <div>
+            <p><%= last_consultation.title %> le <%= last_consultation.date %></p>
+          </div>
+          <hr class="style1 mx-auto">
+          <div>
+            <h3>Rapport du médecin</h3>
+            <p><%= last_consultation.public_report %></p>
+            <% if current_user.doctor? %>
+
+              <%# ---button-modal ajouter/modifier un rapport--- %>
+              <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-doctor-report", class:"d-flex align-items-center btn-note-report"}) do %>
+                  <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+                  <p class="m-0 text-decoration-none">Ajouter/Modifier le rapport</p>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <hr class="style1 my-5 mx-auto">
+
+        <%# ----------------notes privés---------------- %>
+        <div id="doctor-note">
+          <% if current_user.doctor? %>
+            <h3>Notes privés</h3>
+            <p><%= last_consultation.private_report %></p>
+            <% if current_user.doctor? %>
+
+              <%# button-modal ajouter/modifier une note privee %>
+              <%= link_to(root_path, {
+                "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-private-note", class:"d-flex align-items-center btn-note-report"}) do %>
+                <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+                <p class="m-0 text-decoration-none">Ajouter une note</p>
+              <% end %>
+
+              
+            <% end %>
+          <% end %>
+        </div>
+
+        
+
+      <% end %>
+    </div>
+
+    <div id="prescription-tabs" class="bg-white">
+      <% unless last_consultation.nil? %>
+
+        <h3 class="text-center my-3"><%= "Préscription de médicaments" %></h3>
+        <% @prescriptions = last_consultation.consultation_medications %>
+
+        <% @prescriptions.each do |prescription| %>
+          <div class="d-flex flex-column ml-2 my-3">
+            <div class="row test-drug">       
+              <div class="drug-quantity-img">
+                <span><%= prescription.quantity %></span>
+              </div>
+              <span class="ml-4 content-doctor-prescrition row">
+                <%= prescription.medication.name %> :
+              </span>        
+            </div>
+            <p>
+            - <%= prescription.description %>
+            </p>
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+
+    <!-- Button trigger modal -->
+
+      <!-- Modal rapport du medecin -->
+      <div class="modal fade" id="modal-doctor-report" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content modal-edit-last-consult">
+            <div class="modal-body">
+              <div class="container d-flex flex-column align-items-center">
+                <div class="col-8 form-edit-offer">
+                  <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
+                    <%= f.input :public_report, label: 'Rapport du médecin' %>  
+                    
+                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# ---------Modal notes prives--------- %>
+      <div class="modal fade" id="modal-private-note" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content modal-edit-last-consult">
+            <div class="modal-body">
+              <div class="container d-flex flex-column align-items-center">
+                <div class="col-8 form-edit-offer">
+                  <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
+                    <%= f.input :private_report, label: 'Notes personnelles' %>
+                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
+                <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
