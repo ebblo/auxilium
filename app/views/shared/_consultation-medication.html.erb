@@ -3,22 +3,21 @@
     
     <div id="doctor-report" class="bg-white">
       <% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
-        <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
+      <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
         
-          <div>
-            <p><%= last_consultation.title %> le <%= last_consultation.date %></p>
-            
-          </div>
-          <div>
-            <h3><%= "Rapport du médecin" %></h3>
-            <p><%= last_consultation.public_report %></p>
-          </div>
-          <div>
-            <% if current_user.doctor? %>
-              <h3><%= "Notes privés" %></h3>
-              <p><%= last_consultation.private_report %></p>
-            <% end %>
-          </div>
+        <div>
+          <p><%= last_consultation.title %> le <%= last_consultation.date %></p>
+        </div>
+        <div>
+          <h3><%= "Rapport du médecin" %></h3>
+          <p><%= last_consultation.public_report %></p>
+        </div>
+        <div>
+          <% if current_user.doctor? %>
+            <h3><%= "Notes privés" %></h3>
+            <p><%= last_consultation.private_report %></p>
+          <% end %>
+        </div>
 
       <% end %>
     </div>
@@ -30,47 +29,48 @@
         <% @prescriptions = last_consultation.consultation_medications %>
 
         <% @prescriptions.each do |prescription| %>
-        <div class="d-flex flex-column ml-2 my-3">
-          <div class="row test-drug">       
-            <div class="drug-quantity-img">
-              <span><%= prescription.quantity %></span>
+        
+          <div class="d-flex flex-column ml-2 my-3">
+            <div class="row test-drug">       
+              <div class="drug-quantity-img">
+                <span><%= prescription.quantity %></span>
+              </div>
+              <span class="ml-4 content-doctor-prescrition row">
+                <%= prescription.medication.name %> :
+              </span>        
             </div>
-            <span class="ml-4 content-doctor-prescrition row">
-              <%= prescription.medication.name %> :
-            </span>        
+            <p>
+            - <%= prescription.description %>
+            </p>
           </div>
-          <p>
-          - <%= prescription.description %>
-          </p>
-        </div>
 
-      <% end %>
+        <% end %>
 
-      <!-- Button trigger modal -->
-      <% if current_user.doctor? %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        <%= "Ajouter des notes pour cette consultation" %>
-        </button>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-body">
-                <div class="container d-flex flex-column align-items-center">
-                  <div class="col-8 form-edit-offer">
-                    <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
-                    <%= f.input :public_report, label: 'Rapport du médecin' %>  
-                    <%= f.input :private_report, label: 'Notes personnelles' %>
-                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
-                  <% end %>
+        <!-- Button trigger modal -->
+        <% if current_user.doctor? %>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <%= "Ajouter des notes pour cette consultation" %>
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="container d-flex flex-column align-items-center">
+                    <div class="col-8 form-edit-offer">
+                      <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
+                        <%= f.input :public_report, label: 'Rapport du médecin' %>  
+                        <%= f.input :private_report, label: 'Notes personnelles' %>
+                        <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
-    <% end %>
     </div>
   </div>
 </div>
