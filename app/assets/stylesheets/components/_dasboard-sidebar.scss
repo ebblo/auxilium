@@ -22,15 +22,17 @@ border-radius: 0 10px 10px 0;
   background: url("https://res.cloudinary.com/kyulol/image/upload/v1598345514/profile_fsyw6v.png") center;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 135px;
-  height: 135px;
+  width: 100px;
+  height: 100px;
 }
-.infos-profil p,
-.infos-profil h2{
+.infos-profil {
+  p, a{
   font-size: 16px;
   color: white;
   font-weight: bold;
-}
+  }
+} 
+  
 
 .nav-link{
   color: white !important;
@@ -48,7 +50,88 @@ hr.style1 {
 	border: 0;
 	height: 3px;
   width: 80%;
-  margin-top: 4em;
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), $light-orange, rgba(0, 0, 0, 0));
 }
+.mini-icon-sidebar{
+  font-size: 25px;
+}
+.next-consult{
+  background: $light-orange;
+  color: $dark-blue;
+  border-radius: 10px;
+  padding: 10px;
+  height: fit-content;
+  width: 90%;
+  h3{
+    font-size: 18px;
+    text-align: left !important;
+  }
+  .date-consult{
+    font-weight: bold;
+    text-align: left !important;
+  }
+}
+.arrow-back-index{
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
 
+
+@media screen and (max-width: 1500px) {
+  .arrow-back-index{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 10px;
+    left: 15px;
+  }
+  .infos-profil{
+    flex: 0 0 91.6666666667%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 91.6667%;
+    max-width: 91.6666666667%;
+    p, a{
+    font-size: 13px;
+    color: white;
+    font-weight: bold;
+    }
+  } 
+
+  h3{
+    font-size: 15px;
+    text-align: left !important;
+  }
+  .vertical-tab a{
+    font-size: 13px;
+  }
+  .mini-icon-sidebar{
+    font-size: 20px;
+  }
+
+  .next-consult{
+    background: $light-orange;
+    color: $dark-blue;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 2em;
+    height: fit-content;
+    width: 90%;
+    h3{
+      font-size: 15px;
+      text-align: left !important;
+    }
+    .date-consult{
+      font-weight: bold;
+      text-align: left !important;
+      font-size: 13px;
+    }
+  }
+  .btn-note-report{
+    font-size: 13px;
+  }
+
+}
