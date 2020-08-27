@@ -3,21 +3,20 @@
 
 <h2 class='mb-3'> Historique des consultations</h2>
 <% @consultations.each do |consultation| %>
-    <div class='row'>
-      <div class='col-sm-6'>
+  <div class='row'>
+    <div class='col-sm-6'>
+      <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
         <div class='card-product my-2' id='history-card'>
-        <%= link_to "#", data: {toggle: "modal", target: "#exampleModal"}, class: 'color-link' do %>
           <div class='card-product-info pl-3'>
             <h4><%= consultation.title %></h4>
             <p><%= consultation.date %><p>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
-
+  </div>  
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal-<%= consultation.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -46,7 +45,7 @@
                 </ul>
               <% end %>
             <% end %>
-          <%   end %>
+          <% end %>
         </div>
       </div>
     </div>
