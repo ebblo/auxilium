@@ -3,10 +3,10 @@
 
 <h2 class='mb-3'> Historique des consultations</h2>
 <% @consultations.each do |consultation| %>
-  <%= link_to "#", data: {toggle: "modal", target: "#exampleModal"}, class: 'color-link' do %>
     <div class='row'>
       <div class='col-sm-6'>
         <div class='card-product my-2' id='history-card'>
+        <%= link_to "#", data: {toggle: "modal", target: "#exampleModal"}, class: 'color-link' do %>
           <div class='card-product-info pl-3'>
             <h4><%= consultation.title %></h4>
             <p><%= consultation.date %><p>
