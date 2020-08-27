@@ -35,7 +35,6 @@
   @include transition-transform();
   @include border50();
   
-
   a:hover{
     text-decoration: none;
     
@@ -45,6 +44,7 @@
 .dropright .dropdown-toggle::after{
   display: none;
 }
+
 .login-icon{
   width: 30px;
   height: 30px;
@@ -53,6 +53,22 @@
   @include transition-transform;
   cursor: pointer;
   border-radius: 50%;
+  position: relative;
+
+    .bg-connected{
+      background-color: green;
+      border-radius: 50%;
+      width: 13px;
+      height: 13px;
+      position: absolute;
+      top: -4px;
+      left: 20px;
+      font-weight: bold;
+      -webkit-box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+      -moz-box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+      box-shadow: -1px 1px 12px 2px rgba(170,186,217,1);
+    }
+
 }
 
 
