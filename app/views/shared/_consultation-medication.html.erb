@@ -29,10 +29,13 @@
         <% @prescriptions = last_consultation.consultation_medications %>
 
         <% @prescriptions.each do |prescription| %>
-        
+
           <div class="d-flex flex-column ml-2 my-3">
-            <div class="row test-drug">       
+
+            <div class="row test-drug">
+              <%# -------img-drug-------  %>
               <div class="drug-quantity-img">
+                <%# ----badge-quantity---- %>
                 <span><%= prescription.quantity %></span>
               </div>
               <span class="ml-4 content-doctor-prescrition row">

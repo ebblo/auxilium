@@ -46,16 +46,27 @@
   </div>
 </div>
 
+  <%# -------------login drop down------------- %>
   <div class="nav-item dropleft d-flex flex-column justify-content-center align-items-center">
-    <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <% if user_signed_in? %>
+      <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="bg-connected"></span>
+      </div>
+      <p><%= current_user.first_name %></p>    
+      <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
+        <p><%= link_to "Mon profil" %></p>
+        <p><%= link_to "Paramètres" %></p>
+        <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
     </div>
-    <p>Login</p>
-
-    <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
-      <p><%= link_to "Mon profil" %></p>
-      <p><%= link_to "Paramètres" %></p>
-      <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
-    </div>
+    <% else %>
+    <div class="nav-item cl-effect-11 d-flex flex-column justify-content-center align-items-center" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <div  class="login-icon" >
+      </div>
+      <a href="#" data-hover="Login">Login</a>
+    </div>  
+      <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
+      <%= link_to "Login", user_session_path, method: :post %>
+    <% end %>
   </div>
 
   <%# <a>
