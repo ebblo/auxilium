@@ -6,7 +6,7 @@
     <%# ---------------------sidebar-profil--------------------- %>
     <div id="sidebar" class="col-2 d-flex align-items-lg-center flex-column p-0 m-0">
             <%# ---------------------sidebar-tabs--------------------- %>
-      <div class="mt-5 ml-auto nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           Dernière consultation
         </a>
@@ -70,19 +70,23 @@
         <hr class="style1 mx-auto my-4">
 
         <% unless @patient.consultations.where(public_report: nil).first.nil? %>
-            <p class="next-consult mx-auto text-center"><i class="mini-icon-sidebar  fal fa-clock mr-2"></i><%= "Next consultation :" %></p>
+          <div class="next-consult mx-auto text-center px-4">
+            <p class="text-center"><i class="mini-icon-sidebar  fal fa-clock mr-2"></i><%= "Next consultation :" %></p>
             <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
-              <h3><%= @next_consultation.title %></h3>
-              <p><%= @next_consultation.date.strftime("%m/%d/%Y") %></p>
-              <p><%= @next_consultation.date.strftime("à %H:%M") %></p>
-              <%# ajouter un timer "consultation dans x-hours" %>
-          <% else %>
-            <p class="next-consult mx-auto text-center font-weight-bold"><i class="mini-icon-sidebar font-weight-bold fal fa-clock mr-2"></i><%= "Prochaine consultation :" %><br>
-              <span class="text-white">Aucune consultation de prévue.</span>
+            <h3><%= @next_consultation.title %></h3>
+            <p class="date-consult">Le <span><%= @next_consultation.date.strftime("%m/%d/%Y") %></span>
+              à <span><%= @next_consultation.date.strftime("à %H:%M") %></span>
             </p>
-            
-          <% end %>
-      </div>  
+
+          </div>
+              <%# ajouter un timer "consultation dans x-hours" %>
+        <% else %>
+          <p class="next-consult mx-auto text-center font-weight-bold"><i class="mini-icon-sidebar font-weight-bold fal fa-clock mr-2"></i><%= "Prochaine consultation :" %><br>
+            <span class="text-white">Aucune consultation de prévue.</span>
+          </p>
+          
+        <% end %>
+        </div>  
         <% if current_user.doctor? %>
           <%# arrow to index for DOCTOR ONLY %>
           <%= link_to user_root_path do %>
