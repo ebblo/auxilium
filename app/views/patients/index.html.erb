@@ -6,7 +6,7 @@
       <div>
         <% @patients.each do |patient| %>
           <%= link_to patient_path(patient), class: 'color-link' do %>
-            <div class='card-product'>
+            <div class='card-product my-1'>
               <div>
                 <i class="fas fa-file-medical"></i>
               </div>
@@ -23,8 +23,8 @@
                 <%# </div> %>
               </div>
             </div>
-          <% end%>
-        <% end%>
+          <% end %>
+        <% end %>
       </div>
     </div>
     <div class='col-sm-6 col-sm-offset-2'>
