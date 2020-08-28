@@ -12,7 +12,7 @@ const initChatroomCable = () => {
         // console.log(data); // called when data is broadcast in the cable
         messagesContainer.insertAdjacentHTML('beforeend', data);
         // input.value = '';
-        document.getElementById("message_content").value = "";
+        document.getElementById("message_content").value = "";  
         window.scrollTo(0, document.body.scrollHeight);
       }
     });
