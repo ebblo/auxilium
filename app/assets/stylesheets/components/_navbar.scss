@@ -116,3 +116,22 @@
       
     }
 }
+
+.dropdown-menu p a {
+  color: #395579;
+}
+
+.dropdown-menu p {
+  margin: 8px;
+}
+
+.dropdown-menu p a:hover {
+  color: #AABAD9;
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  border-color: #AABAD9;
+  border-radius: 6px;
+  box-shadow: none;
+}
