@@ -1,0 +1,35 @@
+@mixin messages {
+  min-width: 390px;
+  width: fit-content;
+  min-height: 70px;
+  height: fit-content;
+  border-radius: 10px;
+  padding: 6px 13px;
+}
+.message-patient {
+  @include messages();
+  background: $dark-blue;
+  color: white;
+}
+.message-doctor {
+  @include messages();
+  background: white;
+  color: $dark-blue
+}
+input#message_content {
+  width: 100%;
+  border-radius: 10px;
+  height: 100px;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+}
+input.btn.btn-chat.text-white.mt-4.float-right {
+  background: orange;
+  border-radius: 10px;
+  font-weight: bold;
+}
+#new_message div label abbr{
+display: none;
+}

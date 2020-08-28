@@ -2,15 +2,11 @@
 
 <div id="messages", data-chatroom-id=<%= chatroom.id %>>
   <% chatroom.messages.each do |message| %>
-    <ul>
-      <li>
-        <%= render "messages/message", message: message %> 
-      </li>
-    </ul>
+    <p><%= render "messages/message", message: message %></p>
   <% end %>
 </div>
 
 <%= simple_form_for [ chatroom, message ], class:"log-in-form", remote: true do |f| %>
   <%= f.input :content, label: '' %>  
-  <%= f.submit "Envoyer", class: "btn btn-warning text-white" %>
+  <%= f.submit "Envoyer", class: "btn btn-chat text-white mt-4 float-right" %>
 <% end %>
