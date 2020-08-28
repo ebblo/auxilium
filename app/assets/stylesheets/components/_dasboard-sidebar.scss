@@ -6,7 +6,7 @@
   #sidebar-tabs{
     height: 100%;
   }
-  .test-tabs-sidebar{
+  .tabs-sidebar{
     flex-grow: 1;
     border-radius: 10px;
     background-color: $light-orange !important;
@@ -17,15 +17,29 @@
 background: $light-blue;
 border-radius: 0 10px 10px 0;
 }
+.sidebar-content{
+  h2{
+    font-size: 1.5em;
+  }
+}
 
 .avatar-dasboard{
-  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598345514/profile_fsyw6v.png") center;
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
   background-size: contain;
   background-repeat: no-repeat;
   width: 100px;
   height: 100px;
 }
-.infos-profil {
+.link-sidebar{
+  font-size: 16px;
+  color: white !important;
+  font-weight: bold;
+  text-align: center;
+  a{
+    color: #fff;
+  }
+}
+.infos-profil{
   p, a{
   font-size: 16px;
   color: white;
@@ -54,6 +68,8 @@ hr.style1 {
 }
 .mini-icon-sidebar{
   font-size: 25px;
+  color: $dark-blue !important;
+  
 }
 .next-consult{
   background: $light-orange;
@@ -77,6 +93,14 @@ hr.style1 {
   position: absolute;
   top: 10px;
   left: 15px;
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598538915/arrow-leftpastel_hm0sdr.png") center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  &hover{
+    background: url("https://res.cloudinary.com/kyulol/image/upload/v1598538915/arrow-leftpastel_hm0sdr.png") center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
 }
 
 
@@ -100,6 +124,9 @@ hr.style1 {
     font-weight: bold;
     }
   } 
+  .link-sidebar{
+    font-size: 13px;
+  }
 
   h3{
     font-size: 15px;
