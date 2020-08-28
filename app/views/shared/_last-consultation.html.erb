@@ -78,7 +78,7 @@
     </div>
 
     <!-- Button trigger modal -->
-
+    <% unless last_consultation.nil? %>
       <!-- Modal rapport du medecin -->
       <div class="modal fade" id="modal-doctor-report" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -120,6 +120,7 @@
           </div>
         </div>
       </div>
+    <% end %>
 
   </div>
 </div>
