@@ -1,57 +1,69 @@
 <div class="d-flex justify-content-center align-items-center">
-  <div id="tab-consutation-medication" class="row justify-content-around">
-    
-    <div id="report-and-notes-tabs" class="bg-white">
+  <div id="tab-consutation-medication" class="row justify-content-center">
+    <%# if current_user.doctor? %>
+      
+    <%# end %>
+
+    <div id="report-and-notes-tabs" class=" mr-3">
       <% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
         <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
         <%# -------------rapport du medecin------------- %>
-        <div id="doctor-report">
-          <div>
-            <p><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</p>
-          </div>
-          <hr class="style1 mx-auto">
-          <div>
-            <h3>Rapport du médecin</h3>
-            <p><%= last_consultation.public_report %></p>
-            <% if current_user.doctor? %>
+        <div class="split-div-doctor">
+        <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598634498/secret-file_zcff8g.png", class:"secret-report-img" %>
+          <div id="doctor-report">
+            <div>
+              <p>
+                <%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à 
+                <%= last_consultation.date.strftime("%H:%M") %>.
+                </p>
+            </div>
+            <hr class="style1 mx-auto">
 
-              <%# ---button-modal ajouter/modifier un rapport--- %>
-              <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-doctor-report", class:"d-flex align-items-center btn-note-report"}) do %>
-                  <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
-                  <p class="m-0 text-decoration-none">Ajouter/Modifier le rapport</p>
+              <h3>Rapport du médecin</h3>
+              <p class="pr-2"><%= last_consultation.public_report %></p>
+              <% if current_user.doctor? %>
+
+                <%# ---button-modal ajouter/modifier un rapport--- %>
+                <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-doctor-report", class:"d-flex align-items-center btn-note-report"}) do %>
+                    <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+                    <p class="m-0 text-decoration-none">Ajouter/Modifier le rapport</p>
+                <% end %>
               <% end %>
-            <% end %>
+
           </div>
         </div>
-
-        <hr class="style1 my-5 mx-auto">
+        <%# <hr class="style1 my-5 mx-auto"> %>
 
         <%# ----------------notes privés---------------- %>
-        <div id="doctor-note">
-          <% if current_user.doctor? %>
-            <h3>Notes privés</h3>
-            <p><%= last_consultation.private_report %></p>
+        <div class="split-div-doctor">
+          
+          <div id="doctor-note">
+
             <% if current_user.doctor? %>
+              <h3>Notes privés</h3>
+              <hr class="style1 mx-auto">
+              <p><%= last_consultation.private_report %></p>
+              <% if current_user.doctor? %>
 
-              <%# button-modal ajouter/modifier une note privee %>
-              <%= link_to(root_path, {
-                "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-private-note", class:"d-flex align-items-center btn-note-report"}) do %>
-                <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
-                <p class="m-0 text-decoration-none">Ajouter une note</p>
+                <%# button-modal ajouter/modifier une note privee %>
+                <%= link_to(root_path, {
+                  "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-private-note", class:"d-flex align-items-center btn-note-report"}) do %>
+                  <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+                  <p class="m-0 text-decoration-none">Ajouter une note</p>
+                <% end %>
+
+                
               <% end %>
-
-              
             <% end %>
-          <% end %>
+          </div>
         </div>
-
         
 
       <% end %>
     </div>
 
     <%# --------prescription de medicament-------- %>
-    <div id="prescription-tabs" class="bg-white">
+    <div id="prescription-tabs" class="bg-white ml-3">
       <% unless last_consultation.nil? %>
 
         <h3 class="text-center my-3"><%= "Prescription de médicaments" %></h3>
