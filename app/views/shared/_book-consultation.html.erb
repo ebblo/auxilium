@@ -4,8 +4,9 @@
 <div class='w-50'>
   <%= simple_form_for [ @patient, @new_consultation ] do |f| %>
 
-    <input type="datetime-local" id="meeting-time" name="meeting-time" 
-    value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" class="font-weight-bold">
+    <input type="datetime-local" id="meeting-time" name="consultation[date]" 
+    value="2018-06-12T19:30" min="2020-06-07T00:00" max="2021-06-14T00:00" class="font-weight-bold">
+    
     <div class='form-inline'>
       <div class='form-group w-75 my-3'>
         <%= f.input :title, label: false, placeholder: 'Motif du rendez-vous', class: 'w-100 font-weight-bold', id: 'motif' %>
