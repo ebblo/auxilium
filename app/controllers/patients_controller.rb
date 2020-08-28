@@ -9,21 +9,29 @@ class PatientsController < ApplicationController
     @patient = current_user
     @doctor = @patient.doctor
     @consultations = @patient.consultations
-    ######## DON'T DELETE COMMENTS BELOW! DOCUMENTATION ON WHICH VARIABLES ARE NECESSARY FOR THE VIEWS
-    # @last_consultation = @patient.consultations.where.not(public_report: nil).last
-    # @next_consultation = @patient.consultations.where(public_report: nil).first
-    # @prescriptions = @last_consultation.consultation_medications
+    open_chatroom
     render "show"
   end
 
   # patient#show on doctor's side
   def show
     @patient = Patient.find(params[:id])
+    @doctor = current_user
     @consultations = @patient.consultations
     @new_consultation = Consultation.new
-    ######## DON'T DELETE COMMENTS BELOW! DOCUMENTATION ON WHICH VARIABLES ARE NECESSARY FOR THE VIEWS
-    # @last_consultation = @patient.consultations.where.not(public_report: nil).last 
-    # @next_consultation = @patient.consultations.where(public_report: nil).first
-    # @prescriptions = @last_consultation.consultation_medications
+    open_chatroom
+  end
+
+  private
+
+  def open_chatroom
+    @chatroom = Chatroom.where(patient: @patient, doctor: @doctor).first
+    if @chatroom.nil?
+      @chatroom = Chatroom.new
+      @chatroom.patient = @patient
+      @chatroom.doctor = @doctor
+      @chatroom.save!
+    end
+    @message = Message.new
   end
 end

@@ -12,5 +12,9 @@ Rails.application.routes.draw do
     resources :consultations, only: [ :create, :update ]
   end
   get "/my_profile", to: "patients#my_profile", :as => :my_profile
+
+  resources :chatrooms, only: [] do
+    resources :messages, only: [:create]
+  end
   
 end
