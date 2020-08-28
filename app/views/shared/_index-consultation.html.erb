@@ -8,8 +8,8 @@
       <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
         <div class='card-product my-2' id='history-card'>
             <h4><%= consultation.title %></h4>
-            <p><%= consultation.date.strftime("%d/%m/%Y") %><p>
-            <p>à <%= consultation.date.strftime("%H:%M") %><p>
+            <p><%= consultation.date.strftime("%d/%m/%Y") %>
+            à <%= consultation.date.strftime("%H:%M") %><p>
         </div>
       <% end %>
     </div>
