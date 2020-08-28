@@ -4,9 +4,9 @@
   </div>
   <div class="col-8 form-edit-offer">
     <%= simple_form_for [ @patient, @new_consultation ], class:"log-in-form" do |f| %>
-    <%= f.input :title, label: 'Motif' %>  
-    <%= f.input :date, label: 'Date' %>
-    <%= f.submit "Planifier un rendez-vous", class: "btn btn-warning text-white" %>
-  <% end %>
+      <%= f.input :title, label: 'Motif' %>  
+      <%= f.input :date, label: 'Date' %>
+      <%= f.submit "Planifier un rendez-vous", class: "btn btn-warning text-white" %>
+    <% end %>
   </div>
 </div>

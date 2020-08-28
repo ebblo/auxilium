@@ -79,7 +79,7 @@
           <%= render  "shared/history-index" %>
         </div>
         <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <%= render  "shared/chat" %>
+          <%= render  "shared/chat", message: @message, chatroom: @chatroom %>
         </div>
 
         <% if current_user.doctor? %>
