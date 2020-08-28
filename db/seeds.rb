@@ -162,10 +162,8 @@ my_consultation_1 = Consultation.new(
 my_consultation_1.save!
 
 my_consultation_2 = Consultation.new(
-  title: "Consultation bi-mensuel",
-  date: "2020/08/26",
-  public_report: "Pensez à ce que vous aimez dans la vie",
-  private_report: "Patient en dans le dur",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_2,
   doctor: my_doctor_1
 )
@@ -173,47 +171,47 @@ my_consultation_2.save!
 
 my_consultation_3 = Consultation.new(
   title: "Consultation checkup",
-  date: "2020/08/25",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_3,
   doctor: my_doctor_1
 )
 my_consultation_3.save!
 
 my_consultation_4 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_4,
   doctor: my_doctor_1
 )
 my_consultation_4.save!
 
 my_consultation_5 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_5,
   doctor: my_doctor_1
 )
 my_consultation_5.save!
 
 my_consultation_6 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_6,
   doctor: my_doctor_1
 )
 my_consultation_6.save!
 
 my_consultation_7 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,9,0,0",
   patient: my_patient_7,
   doctor: my_doctor_1
 )
 my_consultation_7.save!
 
 my_consultation_8 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_8,
   doctor: my_doctor_1
 )
