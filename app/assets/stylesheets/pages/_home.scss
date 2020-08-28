@@ -1,7 +1,16 @@
 // Specific CSS for your home-page
 .container-cards{
-  margin-top: 100px;
   height: 100vh;
+  padding-top: 100px;
+  h3{
+    font-size: 2.5em;
+  }
+  scroll-behavior: smooth;
+}
+.container-fluid-cards{
+  padding-top: 100px;
+  background-color: $light-orange;
+  scroll-behavior: smooth;
 }
 
 .test-bg{
@@ -27,6 +36,8 @@
   background-repeat: no-repeat;
   height: 100px;
   width: 100px;
+  // cursor: pointer;
+  scroll-behavior: smooth;
 }
 
 @media screen and (max-width: 1500px) {
