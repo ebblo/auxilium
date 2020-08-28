@@ -96,11 +96,19 @@ my_patient_4.save!
 
 puts "Create 4 new consultations"
 
+
 my_consultation_1 = Consultation.new(
   title: "Consultation hebdomadaire",
   date: "2020/08/22",
-  public_report: "Pensez à la discussion de fin de séance",
-  private_report: "Patient en cours d'amélioration",
+  public_report: "Pensez à la discussion de fin de séance: il faut que vous réfléchissiez au \
+  rapport conflictuel que vous avez entretenu avec votre père lors de votre enfance. Qu'est-ce qui \
+  a lancé ce conflit, et quelle serait la manière de tourner la page. \
+  N'oubliez pas non plus de pratiquer régulièrement une activité physique après le travail afin de \
+  vous changer les idées. Cela vous permettra de ne pas penser à la rupture récente avec votre ex \
+  petite amie.",
+  private_report: "Patient en cours d'amélioration. A encore besoin de temps pour digérer la rupture. \
+  Continuer les séances sur les 3 mois à venir. Continuer la prescription de Lexomine pour ses crises \
+  d'angoisse, tout en diminuant les doses toutes les 2 semaines.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -135,12 +143,12 @@ my_consultation_4.save!
 puts "Create 2 new medication"
 
 my_medication_1 = Medication.new(
-  name: "Paracétamol"
+  name: "Lexomine"
 )
 my_medication_1.save!
 
 my_medication_2 = Medication.new(
-  name: "Pansement"
+  name: "Amoxicyline"
 )
 my_medication_2.save!
 
