@@ -96,21 +96,74 @@ my_patient_4.save!
 
 puts "Create 4 new consultations"
 
+my_patient_5 = Patient.new(
+  email: "albert.mousquetaire@gmail.com",
+  password: "123456",
+  first_name: "Albert",
+  last_name: "Mousquetaire",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_5.save!
+
+my_patient_6 = Patient.new(
+  email: "frank.vincent@gmail.com",
+  password: "123456",
+  first_name: "Frank",
+  last_name: "Vincent",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_6.save!
+
+my_patient_7 = Patient.new(
+  email: "jean.neymar@gmail.com",
+  password: "123456",
+  first_name: "Jean",
+  last_name: "Neymar",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_7.save!
+
+my_patient_8 = Patient.new(
+  email: "alphonse.brown@gmail.com",
+  password: "123456",
+  first_name: "Alphonse",
+  last_name: "Brown",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_8.save!
+
+puts "Create 4 new consultations"
+
+
 my_consultation_1 = Consultation.new(
   title: "Consultation hebdomadaire",
   date: "2020/08/22",
-  public_report: "Pensez à la discussion de fin de séance",
-  private_report: "Patient en cours d'amélioration",
+  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
+  private_report: "Patient en cours d'amélioration.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_1.save!
 
 my_consultation_2 = Consultation.new(
-  title: "Consultation bi-mensuel",
-  date: "2020/08/26",
-  public_report: "Pensez à ce que vous aimez dans la vie",
-  private_report: "Patient en dans le dur",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_2,
   doctor: my_doctor_1
 )
@@ -118,29 +171,61 @@ my_consultation_2.save!
 
 my_consultation_3 = Consultation.new(
   title: "Consultation checkup",
-  date: "2020/08/25",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_3,
   doctor: my_doctor_1
 )
 my_consultation_3.save!
 
 my_consultation_4 = Consultation.new(
-  title: "Consultation c'est pas cher",
-  date: "2020/08/27",
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
   patient: my_patient_4,
-  doctor: my_doctor_2
+  doctor: my_doctor_1
 )
 my_consultation_4.save!
+
+my_consultation_5 = Consultation.new(
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
+  patient: my_patient_5,
+  doctor: my_doctor_1
+)
+my_consultation_5.save!
+
+my_consultation_6 = Consultation.new(
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
+  patient: my_patient_6,
+  doctor: my_doctor_1
+)
+my_consultation_6.save!
+
+my_consultation_7 = Consultation.new(
+  title: "Consultation checkup",
+  date: "2020,8,28,9,0,0",
+  patient: my_patient_7,
+  doctor: my_doctor_1
+)
+my_consultation_7.save!
+
+my_consultation_8 = Consultation.new(
+  title: "Consultation checkup",
+  date: "2020,8,28,17,0,0",
+  patient: my_patient_8,
+  doctor: my_doctor_1
+)
+my_consultation_8.save!
 
 puts "Create 2 new medication"
 
 my_medication_1 = Medication.new(
-  name: "Paracétamol"
+  name: "Lexomine"
 )
 my_medication_1.save!
 
 my_medication_2 = Medication.new(
-  name: "Pansement"
+  name: "Amoxicyline"
 )
 my_medication_2.save!
 
