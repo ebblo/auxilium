@@ -40,6 +40,11 @@
     
   }
 }
+.dropdown-menu.flag-drop-right.show {
+  border: none;
+  position: absolute;
+  top: -11px;
+}
 
 .dropright .dropdown-toggle::after{
   display: none;
@@ -48,7 +53,7 @@
 .login-icon{
   width: 30px;
   height: 30px;
-  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598345514/profile_fsyw6v.png") center;
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
   background-size: contain;
   @include transition-transform;
   cursor: pointer;
@@ -132,6 +137,6 @@
 
 .dropdown-menu {
   border-color: #AABAD9;
-  border-radius: 6px;
+  border-radius: 10px;
   box-shadow: none;
 }

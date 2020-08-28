@@ -7,7 +7,7 @@
         <%# -------------rapport du medecin------------- %>
         <div id="doctor-report">
           <div>
-            <p><%= last_consultation.title %> le <%= last_consultation.date %></p>
+            <p><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</p>
           </div>
           <hr class="style1 mx-auto">
           <div>
@@ -50,15 +50,17 @@
       <% end %>
     </div>
 
+    <%# --------prescription de medicament-------- %>
     <div id="prescription-tabs" class="bg-white">
       <% unless last_consultation.nil? %>
 
-        <h3 class="text-center my-3"><%= "Préscription de médicaments" %></h3>
+        <h3 class="text-center my-3"><%= "Prescription de médicaments" %></h3>
         <% @prescriptions = last_consultation.consultation_medications %>
 
         <% @prescriptions.each do |prescription| %>
+        <hr class="style1 my-2 mx-auto">
           <div class="d-flex flex-column ml-2 my-3">
-            <div class="row test-drug">       
+            <div class="d-flex test-drug">       
               <div class="drug-quantity-img">
                 <span><%= prescription.quantity %></span>
               </div>
@@ -70,7 +72,7 @@
             - <%= prescription.description %>
             </p>
           </div>
-
+          
         <% end %>
       <% end %>
     </div>
