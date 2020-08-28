@@ -84,13 +84,15 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content modal-edit-last-consult">
             <div class="modal-body">
-              <div class="container d-flex flex-column align-items-center">
-                <div class="col-8 form-edit-offer">
-                  <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
-                    <%= f.input :public_report, label: 'Rapport du médecin' %>  
-                    
-                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
-                <% end %>
+              <div class="container d-flex flex-column align-items-left">
+                <div>
+                  <h4>Rapport du médecin</h4>
+                  <%= simple_form_for [ @patient, last_consultation ] do |f| %>
+                  <%= f.input :public_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
+                  <div class='d-flex justify-content-end'>
+                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-primary btn-sign-in" %>
+                  </div>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -99,21 +101,25 @@
       </div>
 
       <%# ---------Modal notes prives--------- %>
-      <div class="modal fade" id="modal-private-note" tabindex="-1" aria-hidden="true">
+      <div class="modal fade" id="modal-private-note" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content modal-edit-last-consult">
             <div class="modal-body">
-              <div class="container d-flex flex-column align-items-center">
-                <div class="col-8 form-edit-offer">
-                  <%= simple_form_for [ @patient, last_consultation ], class:"log-in-form" do |f| %>
-                    <%= f.input :private_report, label: 'Notes personnelles' %>
-                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-warning text-white" %>
-                <% end %>
+              <div class="container d-flex flex-column align-items-left">
+                <div>
+                  <h4>Rapport du médecin</h4>
+                  <%= simple_form_for [ @patient, last_consultation ] do |f| %>
+                  <%= f.input :private_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
+                  <div class='d-flex justify-content-end'>
+                    <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-primary btn-sign-in" %>
+                  </div>
+                  <% end %>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
   </div>
 </div>
