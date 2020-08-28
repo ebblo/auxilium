@@ -96,19 +96,66 @@ my_patient_4.save!
 
 puts "Create 4 new consultations"
 
+my_patient_5 = Patient.new(
+  email: "albert.mousquetaire@gmail.com",
+  password: "123456",
+  first_name: "Albert",
+  last_name: "Mousquetaire",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_5.save!
+
+my_patient_6 = Patient.new(
+  email: "frank.vincent@gmail.com",
+  password: "123456",
+  first_name: "Frank",
+  last_name: "Vincent",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_6.save!
+
+my_patient_7 = Patient.new(
+  email: "jean.neymar@gmail.com",
+  password: "123456",
+  first_name: "Jean",
+  last_name: "Neymar",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_7.save!
+
+my_patient_8 = Patient.new(
+  email: "alphonse.brown@gmail.com",
+  password: "123456",
+  first_name: "Alphonse",
+  last_name: "Brown",
+  phone_number: "078 903 01 92",
+  city: "Lausanne",
+  zip: "1006",
+  street: "avenue d'ouchy",
+  avs_number: "756.5633.5794.28"
+)
+my_patient_8.save!
+
+puts "Create 4 new consultations"
+
 
 my_consultation_1 = Consultation.new(
   title: "Consultation hebdomadaire",
   date: "2020/08/22",
-  public_report: "Pensez à la discussion de fin de séance: il faut que vous réfléchissiez au \
-  rapport conflictuel que vous avez entretenu avec votre père lors de votre enfance. Qu'est-ce qui \
-  a lancé ce conflit, et quelle serait la manière de tourner la page. \
-  N'oubliez pas non plus de pratiquer régulièrement une activité physique après le travail afin de \
-  vous changer les idées. Cela vous permettra de ne pas penser à la rupture récente avec votre ex \
-  petite amie.",
-  private_report: "Patient en cours d'amélioration. A encore besoin de temps pour digérer la rupture. \
-  Continuer les séances sur les 3 mois à venir. Continuer la prescription de Lexomine pour ses crises \
-  d'angoisse, tout en diminuant les doses toutes les 2 semaines.",
+  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
+  private_report: "Patient en cours d'amélioration.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -136,9 +183,41 @@ my_consultation_4 = Consultation.new(
   title: "Consultation c'est pas cher",
   date: "2020/08/27",
   patient: my_patient_4,
-  doctor: my_doctor_2
+  doctor: my_doctor_1
 )
 my_consultation_4.save!
+
+my_consultation_5 = Consultation.new(
+  title: "Consultation c'est pas cher",
+  date: "2020/08/27",
+  patient: my_patient_5,
+  doctor: my_doctor_1
+)
+my_consultation_5.save!
+
+my_consultation_6 = Consultation.new(
+  title: "Consultation c'est pas cher",
+  date: "2020/08/27",
+  patient: my_patient_6,
+  doctor: my_doctor_1
+)
+my_consultation_6.save!
+
+my_consultation_7 = Consultation.new(
+  title: "Consultation c'est pas cher",
+  date: "2020/08/27",
+  patient: my_patient_7,
+  doctor: my_doctor_1
+)
+my_consultation_7.save!
+
+my_consultation_8 = Consultation.new(
+  title: "Consultation c'est pas cher",
+  date: "2020/08/27",
+  patient: my_patient_8,
+  doctor: my_doctor_1
+)
+my_consultation_8.save!
 
 puts "Create 2 new medication"
 
