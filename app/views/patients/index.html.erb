@@ -6,16 +6,15 @@
       <div>
         <% @patients.each do |patient| %>
           <%= link_to patient_path(patient), class: 'color-link' do %>
-            <div class='card-product my-1'>
-              <div>
-                <i class="fas fa-file-medical"></i>
+            <div class='card-product my-3'>
+              <div class="avatar-dasboard mx-2">
               </div>
               <div class='row'>
                 <div class='col-sm-12'>
                   <div class='card-product-info'>
                     <h4><%= patient.last_name %> <%= patient.first_name %></h2>
-                    <p><%= patient.avs_number %></p>
-                    <p><small><%= patient.phone_number %></small></p>
+                    <p><i class="mini-icon-sidebar fal fa-credit-card-blank mr-2"></i><%= patient.avs_number %></p>
+                    <p><i class="mini-icon-sidebar far fa-phone mr-2"></i><%= patient.phone_number %></p>
                   </div>
                 </div>
                 <%# <div class='col-sm-1'> %>
@@ -28,7 +27,8 @@
       </div>
     </div>
     <div class='col-sm-6 col-sm-offset-2'>
-      <h2 class='mt-5 pl-2'>Mon emploi du temps</h2>
+      <h2 class='mt-5 pl-2 mb-2'>Mon emploi du temps</h2>
+      <%= image_tag("https://res.cloudinary.com/kyulol/image/upload/v1598617381/calendar-month_klt00g.png", {:style => "width:100%;"}) %>
     </div>
   </div>
 </div>

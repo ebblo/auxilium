@@ -1,3 +1,12 @@
 .card-product#history-card {
   height: 70px;
 }
+div.card-product#history-card {
+  background: white;
+  transition: 0.3s;
+  &:hover{
+    color: inherit !important;
+    transform:scale(1.05,1.05);
+    transition: 0.3s;
+  }
+}

@@ -10,7 +10,7 @@
     <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">
   </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropDownFlag">
+  <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">
     <a class="dropdown-item" href="#"><img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag"></a>
   </div>
 </div>
@@ -55,7 +55,7 @@
       <p><%= current_user.first_name %></p>    
       <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
         <p><%= link_to "Mon profil" %></p>
-        <p><%= link_to "Paramètres" %></p>
+        <p><%= link_to "Paramètres"%></p>
         <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
     </div>
     <% else %>
