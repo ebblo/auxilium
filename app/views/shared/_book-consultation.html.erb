@@ -3,15 +3,18 @@
 </div>
 <div class='w-50'>
   <%= simple_form_for [ @patient, @new_consultation ] do |f| %>
-    <%= f.input :date, label: false, class: 'date-motif' %>
+
+    <input type="datetime-local" id="meeting-time" name="meeting-time" 
+    value="2018-06-12T19:30" min="2018-06-07T00:00" max="2018-06-14T00:00" class="font-weight-bold">
     <div class='form-inline'>
-      <div class='form-group w-75'>
-        <%= f.input :title, label: false, placeholder: 'Motif du rendez-vous', class: 'w-100', id: 'motif' %>
+      <div class='form-group w-75 my-3'>
+        <%= f.input :title, label: false, placeholder: 'Motif du rendez-vous', class: 'w-100 font-weight-bold', id: 'motif' %>
       </div>
       <div class='form-group w-25'>
         <%= f.submit "Planifier", class: "btn text-white font-weight-bold ml-2", id: 'btn-motif' %> </strong>
       </div>
     </div>
+    
 <% end %>
 </div>
 
