@@ -5,8 +5,8 @@
   </button>
 
   <%# ------------drop-down-flags------------ %>
-<div class="col-md-2">
-  <div class="dropright" id="flags">
+<div class="col-md-2 ">
+  <div class="dropright stagger-link" id="flags">
     <a class="dropdown-toggle" href="#" role="button" id="dropDownFlag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">
     </a>
@@ -21,26 +21,26 @@
 <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
     <%# --------------1ere navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">
-      <%= link_to(root_path, {"data-hover" => "Home", "class" => "nav-item "}) do %>
+      <%= link_to(root_path, {"data-hover" => "Home", "class" => "nav-item stagger-link"}) do %>
         Home
       <% end %>
-      <%= link_to(user_root_path, {"data-hover" => "Dashboard", "class" => "nav-item "}) do %>
+      <%= link_to(user_root_path, {"data-hover" => "Dashboard", "class" => "nav-item stagger-link"}) do %>
         Dashboard
       <% end %>
     </nav>
 
 
     <%# ----------------div logo---------------- %>
-    <%= link_to root_path, class: "" do %>
+    <%= link_to root_path, class: "stagger-link" do %>
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
     <% end %>
 
     <%# --------------2eme navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">
-      <%= link_to(root_path, {"data-hover" => "Calendrier", "class" => "nav-item "}) do %>
+      <%= link_to(root_path, {"data-hover" => "Calendrier", "class" => "nav-item stagger-link"}) do %>
         Calendrier
       <% end %>
-      <%= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item "}) do %>
+      <%= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item stagger-link"}) do %>
         Notifications
       <% end %>
     </nav>
@@ -50,7 +50,7 @@
 
   <%# -------------login drop down------------- %>
   <% if user_signed_in? %>
-    <div class="nav-item dropleft d-flex flex-column justify-content-center align-items-center">
+    <div class="nav-item dropleft d-flex flex-column justify-content-center align-items-center stagger-link">
         <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="bg-connected"></span>
         </div>
@@ -63,7 +63,7 @@
     </div>
     <% else %>
     <div class="col-md-2 d-flex justify-content-end">
-      <div class="cl-effect-11 d-flex flex-column justify-content-center align-items-center">
+      <div class="cl-effect-11 d-flex flex-column justify-content-center align-items-center stagger-link">
         <%= link_to(user_session_path) do %>
           <div class="login-icon" >
           </div>
