@@ -2,24 +2,55 @@
   width: 28vw;
   min-width: 350px;
   height: 100%;
-  background-color: #fff;
   border-radius: 10px;
-  padding: 3em;
-  margin-left:auto ;
-  margin-right:auto ;
+
 }
 #tab-consutation-medication{
   height: 80vh;
   width: 90%;
+  position: relative;
+
+  
 
   #report-and-notes-tabs{
-    @include report-prescrition;
-    
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
   }
   #prescription-tabs{
     @include report-prescrition;
-    
+    padding: 3em;
+    background-color: #fff;
   }
+}
+
+.split-div-doctor {
+  border-radius: 10px;
+  background: white;
+  padding: 2.5em;
+  width: 28vw;
+  min-width: 350px;
+  height: 48%;
+  position: relative;
+  
+  .secret-report-img{
+    width: 60px;
+    position: absolute;
+    left: -1em;
+    bottom: -4.5em;
+    z-index: 1000;
+  }
+}
+
+#doctor-report,
+#doctor-note{
+  overflow-y: scroll;
+  min-width: 350px;
+  height: 100%;
+  
+  
 }
 .modal-content{
   min-height: 40vh;
@@ -60,12 +91,7 @@
     }
   }
 }
-#doctor-report,
-#doctor-note{
-  height: 40%;
-  overflow-y: scroll;
-  
-}
+
 
 .test-drug{
   width: 100%;
