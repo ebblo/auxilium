@@ -1,25 +1,19 @@
-<div class="d-flex justify-content-center align-items-center">
+<div class="d-flex flex-column justify-content-center align-items-center">
+  <% last_consultation = @patient.consultations.where.not(public_report: nil).last %>
+  <h1 class="mb-4"><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</h1>
   <div id="tab-consutation-medication" class="row justify-content-center">
-    <%# if current_user.doctor? %>
-      
-    <%# end %>
+    
 
     <div id="report-and-notes-tabs" class=" mr-3">
       <% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
-        <% last_consultation = @patient.consultations.where.not(public_report: nil).last %> 
+
         <%# -------------rapport du medecin------------- %>
         <div class="split-div-doctor">
         <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598634498/secret-file_zcff8g.png", class:"secret-report-img" %>
           <div id="doctor-report">
-            <div>
-              <p>
-                <%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à 
-                <%= last_consultation.date.strftime("%H:%M") %>.
-                </p>
-            </div>
+            <h3 class="sticky-top bg-white title-report">Rapport du médecin</h3>
             <hr class="style1 mx-auto">
-
-              <h3>Rapport du médecin</h3>
+              
               <p class="pr-2"><%= last_consultation.public_report %></p>
               <% if current_user.doctor? %>
 
@@ -51,7 +45,6 @@
                   <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
                   <p class="m-0 text-decoration-none">Ajouter une note</p>
                 <% end %>
-
                 
               <% end %>
             <% end %>
@@ -91,6 +84,7 @@
 
     <!-- Button trigger modal -->
     <% unless last_consultation.nil? %>
+
       <!-- Modal rapport du medecin -->
       <div class="modal fade" id="modal-doctor-report" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">

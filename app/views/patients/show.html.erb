@@ -5,7 +5,7 @@
 
     <%# ---------------------sidebar-profil--------------------- %>
     <div id="sidebar" class="col-2 d-flex align-items-lg-center flex-column p-0 m-0">
-            <%# ---------------------sidebar-tabs--------------------- %>
+      <%# ---------------------sidebar-tabs--------------------- %>
       <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           Dernière consultation
@@ -26,7 +26,7 @@
       </div>
 
       <hr class="style1 mx-auto my-3">
-      
+        
       <div class="sidebar-content w-100">
         <h2 class="text-center text-white font-weight-bold">
           <% if current_user.patient? %>
@@ -37,64 +37,75 @@
         </h2>
       
         <%# --------------------img avatar-profil-------------------- %>
+      
         <div class="avatar-dasboard mx-auto my-3">
         </div>
 
         <%# --------------------infos-profil-------------------- %>
         <% if current_user.patient? %>
 
-        <p class="link-sidebar"><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
-        <div class="infos-profil col-10 ml-auto">
-            <a href="tel:<%= @patient.phone_number %>"><i class="mini-icon-sidebar far fa-phone mr-2"></i><%= @patient.phone_number %></a>            
+          <p class="link-sidebar"><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
+          <div class="infos-profil col-10 ml-auto">
+            <p>
+              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/phone_smaz3u.png" class="mr-2 icon-profil-sidebar" alt="">
+              <a href="tel:<%= @doctor.phone_number %>"><%= @doctor.phone_number %></a>
+            </p>
             <div class="d-flex">
-              <i class="mini-icon-sidebar fal fa-map-marked-alt mr-2 m-0 text-white d-block"></i>
+            <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/map_arywfw.png" class="mr-2 icon-profil-sidebar" alt="">
+              <p class="d-block m-0">
+                <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br><span><%= @doctor.street %></span>
+              </p>
+            </div>
+          </div>
+
+        <% else %>
+
+          <p class="text-center link-sidebar"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
+          <div class="infos-profil col-10 ml-auto">
+            <p>
+              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/phone_smaz3u.png" class="mr-2 icon-profil-sidebar" alt="">
+              <a href="callto:open Skype"><%= @patient.phone_number %></a>
+            </p>
+            <p>
+              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/CARD_onakou.png" class="mr-2 icon-profil-sidebar" alt="">
+              <%= @patient.avs_number %>                
+            </p>
+            <div class="d-flex mb-2">
+              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/map_arywfw.png" class="mr-2 icon-profil-sidebar" alt="">
               <p class="d-block m-0">
                 <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
               </p>
             </div>
-              
-          <% else %>
-
-            <p class="text-center link-sidebar"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
-            <div class="infos-profil col-10 ml-auto">
-              <p>
-                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598636620/phone-white_eyk7pt.png" class="mr-2 icon-profil-sidebar" alt="">
-                <a href="callto:open Skype"><%= @patient.phone_number %></a>
-              </p>
-              <p>
-                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598636620/health-card_white_qiifvr.png" class="mr-2 icon-profil-sidebar" alt="">
-                <%= @patient.avs_number %>                
-              </p>
-              <div class="d-flex mb-2">
-                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598636620/maps-icon-white_nhjt1n.png" class="mr-2 icon-profil-sidebar" alt="">
-                <p class="d-block m-0">
-                  <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
-                </p>
-            </div>            
-          
-          <% end %>
-        </div>
+          </div>         
+        
+        <% end %>          
         
         <hr class="style1 mx-auto my-4">
 
         <% unless @patient.consultations.where(public_report: nil).first.nil? %>
           <div class="next-consult mx-auto text-center px-4">
-            <p class="text-center font-weight-bold"><i class="mini-icon-sidebar  fal fa-clock mr-2"></i><%= "Prochaine consultation :" %></p>
+          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/clock_xvf0nk.png" class="mr-2 icon-profil-sidebar clock-consult" alt="">
+            <p class="text-center font-weight-bold"><%= "Prochaine consultation :" %></p>
             <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
-            <h3><%= @next_consultation.title %></h3>
-            <p class="date-consult">Le <span><%= @next_consultation.date.strftime("%m/%d/%Y") %></span>
-              à <span><%= @next_consultation.date.strftime("%H:%M") %></span>
-            </p>
+            
+
+
+            <div class="d-flex flex-column mb-2">
+              <h3><%= @next_consultation.title %></h3>
+              <p class="date-consult">Le <span><%= @next_consultation.date.strftime("%m/%d/%Y") %></span>
+                à <span><%= @next_consultation.date.strftime("%H:%M") %></span>
+              </p>
+            </div>
 
           </div>
-              <%# ajouter un timer "consultation dans x-hours" %>
+            <%# ajouter un timer "consultation dans x-hours" %>
         <% else %>
-          <p class="next-consult mx-auto text-center font-weight-bold"><i class="mini-icon-sidebar font-weight-bold fal fa-clock mr-2"></i><%= "Prochaine consultation :" %><br>
+          <p class="next-consult mx-auto text-center font-weight-bold"><%= "Prochaine consultation :" %><br>
             <span class="text-white">Aucune consultation de prévue.</span>
           </p>
           
         <% end %>
-        </div>  
+      </div>  
         <% if current_user.doctor? %>
 
           <%# arrow to index for DOCTOR ONLY %>
@@ -102,35 +113,36 @@
             <div class="arrow-back-index">
             </div>
           <% end %>
+
         <% end %>
 
-    </div>
-
-    <%# ------------------render the tabs------------------ %>
-    <div class="tabs-sidebar">
-
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
-          <%= render  "shared/last-consultation" %>
-        </div>
-        <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
-          <%= render  "shared/index-consultation" %>
-        </div>
-        <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-          <%= render  "shared/chat", message: @message, chatroom: @chatroom %>
-        </div>
-
-        <% if current_user.doctor? %>
-          <div class="p-5 tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-            <%= render  "shared/book-consultation" %>
-          </div>        
-        <% end %>
       </div>
-      
-    </div>
-  </div>
 
-</div>
+      <%# ------------------render the tabs------------------ %>
+      <div class="tabs-sidebar">
+
+        <div class="tab-content" id="v-pills-tabContent">
+          <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
+            <%= render  "shared/last-consultation" %>
+          </div>
+          <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
+            <%= render  "shared/index-consultation" %>
+          </div>
+          <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+            <%= render  "shared/chat", message: @message, chatroom: @chatroom %>
+          </div>
+
+          <% if current_user.doctor? %>
+            <div class="p-5 tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+              <%= render  "shared/book-consultation" %>
+            </div>        
+          <% end %>
+        </div>
+      
+      </div>
+    </div>
+
+  </div>
 </div>
 
 

@@ -33,3 +33,7 @@ input.btn.btn-chat.text-white.mt-4.float-right {
 #new_message div label abbr{
 display: none;
 }
+.chat-room{
+  overflow-y: scroll;
+  height: calc(73vh - 80px);
+}

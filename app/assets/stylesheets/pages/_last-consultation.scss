@@ -6,11 +6,9 @@
 
 }
 #tab-consutation-medication{
-  height: 80vh;
+  height: 70vh;
   width: 90%;
   position: relative;
-
-  
 
   #report-and-notes-tabs{
   height: 100%;
@@ -46,11 +44,12 @@
 
 #doctor-report,
 #doctor-note{
-  overflow-y: scroll;
-  min-width: 350px;
+  overflow: scroll;
   height: 100%;
   
-  
+  .title-report{
+    width: fit-content;
+  }
 }
 .modal-content{
   min-height: 40vh;
