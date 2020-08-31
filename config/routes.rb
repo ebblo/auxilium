@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: [] do
     resources :messages, only: [:create]
   end
-  
+
+  # sends a get request to the show method in the calls controller
+  get '/calls', to: 'calls#show'
 end
