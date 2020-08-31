@@ -25,6 +25,9 @@ import { arrowBounce } from '../components/arrowBounce';
 // scroll effect on card from second BG home
 import { scrollBg2 } from '../components/scrollBg2';
 
+// effect navbar link stragger
+import { navbarLink } from '../components/navbarLink';
+
 // Internal imports, e.g:
 import { initChatroomCable } from "../channels/chatroom_channel";
 
@@ -36,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initChatroomCable();
   arrowBounce();
   scrollBg2();
+  navbarLink();
 });
