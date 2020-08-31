@@ -18,6 +18,14 @@ require("channels")
 
 // External imports
 import "bootstrap";
+
+// effect arrow(anchor) homepage arrow is bouncing
+import { arrowBounce } from '../components/arrowBounce';
+
+// scroll effect on card from second BG home
+import { scrollBg2 } from '../components/scrollBg2';
+
+// effect navbar link stragger
 import { navbarLink } from '../components/navbarLink';
 
 // Internal imports, e.g:
@@ -29,5 +37,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initChatroomCable();
+  arrowBounce();
+  scrollBg2();
   navbarLink();
 });
