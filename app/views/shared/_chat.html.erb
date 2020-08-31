@@ -1,12 +1,13 @@
-<h2>Messagerie</h1>
+<div class="chat-room">
+  <h2>Messagerie</h1>
 
-<div id="messages", data-chatroom-id=<%= chatroom.id %>>
-  <% chatroom.messages.each do |message| %>
-    <p><%= render "messages/message", message: message %></p>
-  <% end %>
+  <div id="messages", data-chatroom-id=<%= chatroom.id %>>
+    <% chatroom.messages.each do |message| %>
+      <p><%= render "messages/message", message: message %></p>
+    <% end %>
+  </div>
 </div>
-
-<%= simple_form_for [ chatroom, message ], class:"log-in-form", remote: true do |f| %>
-  <%= f.input :content, label: '' %>  
-  <%= f.submit "Envoyer", class: "btn btn-chat text-white mt-4 float-right" %>
-<% end %>
+  <%= simple_form_for [ chatroom, message ], class:"log-in-form position-fixed my-2", remote: true do |f| %>
+    <%= f.input :content, label: '' %>  
+    <%= f.submit "Envoyer", class: "btn btn-chat text-white mt-4 float-right" %>
+  <% end %>
