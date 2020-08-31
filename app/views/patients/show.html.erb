@@ -8,17 +8,21 @@
       <%# ---------------------sidebar-tabs--------------------- %>
       <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+          <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/last-consult_qhvtsy.png", class:"tabs-icon" %>
           Dernière consultation
         </a>
         <a class="nav-link px-4  py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+          <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/all-consult_db2etz.png", class:"tabs-icon" %>
           Mes consultations
         </a>
         <a class="nav-link px-4  py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
+          <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880706/chat_l8zkzl.png", class:"tabs-icon" %>
           Messagerie 
         </a>
 
         <% if current_user.doctor? %>
           <a class="nav-link px-4  py-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598882097/book_zykugo.png", class:"tabs-icon" %>
             Planifier un rendez-vous
           </a>
         <% end %>
@@ -28,25 +32,17 @@
       <hr class="style1 mx-auto my-3">
         
       <div class="sidebar-content w-100">
-        <h2 class="text-center text-white font-weight-bold">
-          <% if current_user.patient? %>
-            Mon médecin
-          <% else %>
-            Mon Patient
-          <% end %>
-        </h2>
       
         <%# --------------------img avatar-profil-------------------- %>
       
-        <div class="avatar-dasboard mx-auto my-3">
-        </div>
+        
 
         <!-- Lien vers le vidéo call -->
-        <%= link_to "Appel vidéo", calls_path %>
+        
 
         <%# --------------------infos-profil-------------------- %>
         <% if current_user.patient? %>
-
+          
           <p class="link-sidebar"><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span></p>
           <div class="infos-profil col-10 ml-auto">
             <p>
@@ -63,25 +59,39 @@
 
         <% else %>
 
-          <p class="text-center link-sidebar"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span>&nbsp;<span><%= @patient.last_name %></span></p>
-          <div class="infos-profil col-10 ml-auto">
-            <p>
-              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/phone_smaz3u.png" class="mr-2 icon-profil-sidebar" alt="">
-              <a href="callto:open Skype"><%= @patient.phone_number %></a>
-            </p>
-            <p>
-              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/CARD_onakou.png" class="mr-2 icon-profil-sidebar" alt="">
-              <%= @patient.avs_number %>                
-            </p>
-            <div class="d-flex mb-2">
-              <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/map_arywfw.png" class="mr-2 icon-profil-sidebar" alt="">
-              <p class="d-block m-0">
-                <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
-              </p>
+            <div class="dropdown dropright">
+              <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <h2 class="text-center text-white font-weight-bold">Afficher profil patient</h2>
+                <div class="d-flex justify-content-center align-items-center">
+                  <div class="avatar-dasboard">
+                  </div>
+                  <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span><br><span><%= @patient.last_name %></span></p>
+                </div>
+              </div>
+
+              <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
+                <a class="dropdown-item">
+                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
+                  <%= @patient.phone_number %>
+                </a>
+                <a class="dropdown-item">
+                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt="">
+                  <%= @patient.avs_number %>                
+                </a>
+                <div class="d-flex mb-2 dropdown-item">
+                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
+                  <a class="d-block m-0">
+                    <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>         
         
-        <% end %>          
+        <% end %>
+
+        <%= link_to calls_path, class: "call-video-icon" do %>
+          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598880705/camera_uqx49j.png" alt="img call video" class="img-video mx-auto mt-3" id="video-call">
+        <% end %>
         
         <hr class="style1 mx-auto my-4">
 

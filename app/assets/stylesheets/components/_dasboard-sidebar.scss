@@ -13,6 +13,17 @@
   }
   
 }
+.img-video{
+  display: block;
+  width: 100px;
+}
+#dropDownProfil{
+  background-color: $light-orange;
+  border-radius: 10px;
+}
+.tabs-icon{
+  width: 30px;
+}
 #sidebar{
 background: $light-blue;
 border-radius: 0 10px 10px 0;
@@ -45,7 +56,7 @@ border-radius: 0 10px 10px 0;
 .infos-profil{
   p, a{
   font-size: 16px;
-  color: white;
+  color: $dark-blue;
   font-weight: bold;
   }
 } 
