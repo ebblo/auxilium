@@ -6,7 +6,7 @@ const arrowBounce = () => {
   TweenMax.from('#arrow-anker', 2,{
     y: -50,
     autoAlpha : 0.4,
-    repeat: 10
+    repeat: 100
   })
 }
 }
