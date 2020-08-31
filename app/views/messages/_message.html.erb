@@ -1,4 +1,5 @@
-<% if message.user.doctor? %>
+<% unless message.user == current_user %>
+
 
   <%# -----------doctor chat----------- %>
   <div class="message-container" id="message-<%= message.id %>">
