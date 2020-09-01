@@ -128,16 +128,35 @@
 }
 
 #consultation_public_report,
-#consultation_private_report {
+#consultation_private_report,
+#consultation_medication_description {
   width: 100%;
   height: 262px;
   border-radius: 10px;
   padding: 10px;
-  
+  border: 1px solid #265368;
 }
 
 #consultation_public_report:focus,
-#consultation_private_report:focus {
+#consultation_private_report:focus,
+#consultation_medication_description:focus {
+  border: 1px solid #265368;
+  outline: none;
+}
+
+#consultation_medication_medication_id,
+#consultation_medication_quantity {
+  width: 100%;
+  height: 40px;
+  padding: 6px 12px;
+  border-radius: 10px;
+  margin-bottom: 6px;
+  border: 1px solid #265368;
+}
+
+#consultation_medication_medication_id:focus,
+#consultation_medication_quantity:focus {
+  box-shadow: 1px 2px rgba(38, 83, 104, 0.7);
   border: 1px solid #265368;
   outline: none;
 }
