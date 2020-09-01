@@ -5,6 +5,15 @@
   border-radius: 10px;
 
 }
+@mixin window-prescription {
+  border-radius: 10px;
+  background: white;
+  padding: 2.5em;
+  width: 28vw;
+  min-width: 350px;
+  height: 48%;
+}
+
 #tab-consutation-medication{
   height: 70vh;
   width: 90%;
@@ -22,15 +31,25 @@
     padding: 3em;
     background-color: #fff;
   }
+  
 }
-
-.split-div-doctor {
-  border-radius: 10px;
-  background: white;
-  padding: 2.5em;
+.split-no-doctor{
   width: 28vw;
   min-width: 350px;
-  height: 48%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 3em;
+  background-color: #fff;
+}
+
+.testre{
+  @include window-prescription();
+  min-height: 29em;
+  overflow-y: scroll;
+}
+
+.split-div-doctor{
+  @include window-prescription();
   position: relative;
   
   .secret-report-img{
@@ -43,7 +62,8 @@
 }
 
 #doctor-report,
-#doctor-note{
+#doctor-note,
+#prescription-tabs{
   overflow: scroll;
   height: 100%;
   

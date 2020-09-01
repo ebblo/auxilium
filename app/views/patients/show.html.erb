@@ -5,6 +5,7 @@
 
     <%# ---------------------sidebar-profil--------------------- %>
     <div id="sidebar" class="col-2 d-flex align-items-lg-center flex-column p-0 m-0">
+
       <%# ---------------------sidebar-tabs--------------------- %>
       <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
@@ -30,144 +31,144 @@
       </div>
 
       <hr class="style1 mx-auto my-3">
-        
+
       <div class="sidebar-content w-100">
 
         <%# --------------------infos-profil-------------------- %>
         <% if current_user.patient? %>
 
-            <%# -------drop-right------- %>
-            <div class="dropdown dropright">
-              <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h2 class="text-center text-white font-weight-bold">Afficher profil <br>praticien <i class="fal fa-info-circle"></i></h2>
-                <div class="d-flex justify-content-center align-items-center">
-                  <%# --------------------img avatar-profil-------------------- %>
-                  <div class="avatar-dasboard">
-                  </div>
-                  <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @doctor.first_name %></span>&nbsp;<span><%= @doctor.last_name %></span>></p>
+          <%# -------drop-right------- %>
+          <div class="dropdown dropright">
+            <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <h2 class="text-center text-white font-weight-bold">Afficher profil <br>praticien <i class="fal fa-info-circle"></i></h2>
+              <div class="d-flex justify-content-center align-items-center">
+                <%# --------------------img avatar-profil-------------------- %>
+                <div class="avatar-dasboard">
                 </div>
-              </div>
-
-              <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
-                <a href="tel:<%= @doctor.phone_number %>" class="dropdown-item">
-                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <a <%= @doctor.phone_number %>><%= @doctor.phone_number %></a>
-                </a>
-                <div onclick="window.location='https://www.google.ch/maps/place/<%= @doctor.street %>+<%= @doctor.zip %>+<%= @doctor.city %>';" class="d-flex mb-2 dropdown-item border">
-                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <a class="d-block m-0">
-                    <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br><span><%= @doctor.street %></span>
-                  </a>
-                </div>
+                <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @doctor.first_name %></span><br><span><%= @doctor.last_name %></span></p>
               </div>
             </div>
+
+            <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
+              <a href="tel:<%= @doctor.phone_number %>" class="dropdown-item">
+                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
+                  <a>><%= @doctor.phone_number %></a>
+              </a>
+              <div onclick="window.location='https://www.google.ch/maps/place/<%= @doctor.street %>+<%= @doctor.zip %>+<%= @doctor.city %>';" class="d-flex mb-2 dropdown-item border">
+                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
+                <a class="d-block m-0">
+                  <span><%= @doctor.city %></span>&nbsp;<span><%= @doctor.zip %></span><br><span><%= @doctor.street %></span>
+                </a>
+              </div>
+            </div>
+          </div>
 
         <% else %>
-            <%# -------drop-right------- %>
-            <div class="dropdown dropright">
-              <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <h2 class="text-center text-white font-weight-bold">Afficher profil <br>patient <i class="fal fa-info-circle"></i></h2>
-                <div class="d-flex justify-content-center align-items-center">
-                  <%# --------------------img avatar-profil-------------------- %>
-                  <div class="avatar-dasboard">
-                  </div>
-                  <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span><br><span><%= @patient.last_name %></span></p>
-                </div>
-              </div>
 
-              <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
-                <a href="tel:<%= @patient.phone_number %>" class="dropdown-item">
-                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <%= @patient.phone_number %>
-                </a>
-                <a class="dropdown-item">
-                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <%= @patient.avs_number %>                
-                </a>
-                <div onclick="window.location='https://www.google.ch/maps/place/<%= @patient.street %>+<%= @patient.zip %>+<%= @patient.city %>';" class="d-flex mb-2 dropdown-item border">
-                  <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <a class="d-block m-0">
-                    <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
-                  </a>
+          <%# -------drop-right------- %>
+          <div class="dropdown dropright">
+            <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <h2 class="text-center text-white font-weight-bold">Afficher profil <br>patient <i class="fal fa-info-circle"></i></h2>
+              <div class="d-flex justify-content-center align-items-center">
+                <%# --------------------img avatar-profil-------------------- %>
+                <div class="avatar-dasboard">
                 </div>
+                <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span><br><span><%= @patient.last_name %></span></p>
               </div>
             </div>
-        
+
+            <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
+              <a href="tel:<%= @patient.phone_number %>" class="dropdown-item">
+                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
+                <%= @patient.phone_number %>
+              </a>
+              <a class="dropdown-item">
+                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt="">
+                <%= @patient.avs_number %>                
+              </a>
+              <div onclick="window.location='https://www.google.ch/maps/place/<%= @patient.street %>+<%= @patient.zip %>+<%= @patient.city %>';" class="d-flex mb-2 dropdown-item border">
+                <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
+                <a class="d-block m-0">
+                  <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>
+                </a>
+              </div>
+            </div>
+          </div>
+
         <% end %>
 
         <%# --------------callto action VIDEO-------------- %>
         <%= link_to calls_path, class: "call-video-icon" do %>
-        <div class="box-video-call mx-auto d-flex justify-content-center align-items-center mt-4">
-          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598880705/camera_uqx49j.png" alt="img call video" class="img-video" id="video-call">
-        </div>
+          <div class="box-video-call mx-auto d-flex justify-content-center align-items-center mt-4">
+            <img src="https://res.cloudinary.com/kyulol/image/upload/v1598880705/camera_uqx49j.png" alt="img call video" class="img-video" id="video-call">
+          </div>
         <% end %>
-        
+
         <hr class="style1 mx-auto my-4">
 
         <%# ---------next-consultation--------- %>
-        <% unless @patient.consultations.where(public_report: nil).first.nil? %>
+        <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
+        <% unless new_consultations.first.nil? %>
+          <% next_consultation = new_consultations.first %>
           <div class="next-consult mx-auto text-center px-4">
-          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/clock_xvf0nk.png" class="mr-2 icon-profil-sidebar clock-consult" alt="">
+            <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/clock_xvf0nk.png" class="mr-2 icon-profil-sidebar clock-consult" alt="">
             <p class="text-center font-weight-bold"><%= "Prochaine consultation :" %></p>
-            <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
-            
+
 
 
             <div class="d-flex flex-column mb-2">
-              <h3><%= @next_consultation.title %></h3>
-              <p class="date-consult">Le <span><%= @next_consultation.date.strftime("%m/%d/%Y") %></span>
-                à <span><%= @next_consultation.date.strftime("%H:%M") %></span>
+              <h3><%= next_consultation.title %></h3>
+              <p class="date-consult">Le <span><%= next_consultation.date.strftime("%d/%m/%Y") %>
+                </span> à <span><%= next_consultation.date.strftime("%H:%M") %></span>
               </p>
             </div>
 
           </div>
-            <%# ajouter un timer "consultation dans x-hours" %>
+
+        <%# ajouter un timer "consultation dans x-hours" %>
         <% else %>
           <p class="next-consult mx-auto text-center font-weight-bold"><%= "Prochaine consultation :" %><br>
             <span class="text-white">Aucune consultation de prévue.</span>
           </p>
-          
-        <% end %>
-
-      </div>
-
-        <%# arrow to index for DOCTOR ONLY %>
-        <% if current_user.doctor? %>
-
-          <%= link_to user_root_path do %>
-            <div class="arrow-back-index">
-            </div>
-          <% end %>
 
         <% end %>
 
       </div>
 
-      <%# ------------------render the tabs------------------ %>
-      <div class="tabs-sidebar">
+      <%# arrow to index for DOCTOR ONLY %>
+      <% if current_user.doctor? %>
 
-        <div class="tab-content" id="v-pills-tabContent">
-          <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
-            <%= render  "shared/last-consultation" %>
+        <%= link_to user_root_path do %>
+          <div class="arrow-back-index">
           </div>
-          <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
-            <%= render  "shared/index-consultation" %>
-          </div>
-          <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-            <%= render  "shared/chat", message: @message, chatroom: @chatroom %>
-          </div>
+        <% end %>
 
-          <% if current_user.doctor? %>
-            <div class="p-5 tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-              <%= render  "shared/book-consultation" %>
-            </div>        
-          <% end %>
-        </div>
-      
-      </div>
+      <% end %>
+
     </div>
 
+    <%# ------------------render the tabs------------------ %>
+    <div class="tabs-sidebar">
+
+      <div class="tab-content" id="v-pills-tabContent">
+        <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
+          <%= render  "shared/last-consultation" %>
+        </div>
+        <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
+          <%= render  "shared/index-consultation" %>
+        </div>
+        <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+          <%= render  "shared/chat", message: @message, chatroom: @chatroom %>
+        </div>
+
+        <% if current_user.doctor? %>
+          <div class="p-5 tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+            <%= render  "shared/book-consultation" %>
+          </div>        
+        <% end %>
+      </div>
+
+    </div>
   </div>
+
 </div>
-
-

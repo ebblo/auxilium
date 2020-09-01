@@ -22,7 +22,9 @@ margin: 0;
 body{
   color: $dark-blue;
   // background-color: $light-orange;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
+  
+  height: 100%;
   font-size: 16px;
   scroll-behavior: smooth;
 }
