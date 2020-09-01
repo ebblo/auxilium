@@ -13,13 +13,36 @@
   }
   
 }
-.img-video{
-  display: block;
-  width: 100px;
+
+.box-video-call{
+  width: 130px;
+  height: 130px;
+  border: 5px solid $dark-blue;
+  border-radius: 10px;
+  transition: 1s;
+
+  &:hover{
+  border: 1px solid transparent;
+  transition: 1s;
+  }
+
+  .img-video{
+    width: 80%;
+    transition: 1s;
+    &:hover{
+      transform: scale(1.2);
+      transition: 1s;
+    }
+  }
 }
+
 #dropDownProfil{
   background-color: $light-orange;
   border-radius: 10px;
+  h2{
+    word-wrap: break-word;
+    width: 100%;
+  }
 }
 .tabs-icon{
   width: 30px;
@@ -49,8 +72,9 @@ border-radius: 0 10px 10px 0;
   color: white !important;
   font-weight: bold;
   text-align: center;
+  
   a{
-    color: #fff;
+    color: $dark-blue;
   }
 }
 .infos-profil{
@@ -58,6 +82,7 @@ border-radius: 0 10px 10px 0;
   font-size: 16px;
   color: $dark-blue;
   font-weight: bold;
+  cursor: pointer;
   }
 } 
   
