@@ -1,0 +1,25 @@
+@mixin base-error {
+  height: calc(100vh - 80px);
+  background-color: $light-orange;
+  color: $dark-blue;
+  h2{
+    font-size: 30rem;
+  }
+  p{
+    font-size: 5em;
+  }
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
+.page-404{
+  @include base-error();
+  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972408/404_pkrr0k.jpg") center;
+}
+.page-500{
+  @include base-error();
+  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972593/500_kiuu0t.jpg") center;
+}
+.page-422{
+  @include base-error();
+  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972590/403_c6fib5.jpg") center;
+}

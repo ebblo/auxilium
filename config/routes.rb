@@ -28,6 +28,11 @@ Rails.application.routes.draw do
   # video call route
   get '/calls', to: 'calls#show'
 
+  # errorpages routes
+  get "/404", :to => "errors#not_found"
+  get "/422", :to => "errors#unacceptable"
+  get "/500", :to => "errors#internal_error"
+
   # configure sidekiq
   require "sidekiq/web"
   authenticate :user, ->(user) { user.admin? } do
