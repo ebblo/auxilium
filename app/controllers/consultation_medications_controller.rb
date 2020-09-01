@@ -4,7 +4,7 @@ class ConsultationMedicationsController < ApplicationController
   def create
     @consultation_medication = ConsultationMedication.new(consultation_medication_params)
     @consultation_medication.consultation = @consultation
-    @consultation_medication.medication = ConsultationMedication.find(params[:consultation_medication][:medication_id])
+    @consultation_medication.medication = Medication.find(params[:consultation_medication][:medication_id])
     if @consultation_medication.save!
       redirect_to patient_path(@patient)
     else
