@@ -1,5 +1,5 @@
 class ConsultationMedicationsController < ApplicationController
-  before_action :set_path
+  before_action :set_patient_consultation
 
   def create
     @consultation_medication = ConsultationMedication.new(consultation_medication_params)
@@ -20,7 +20,7 @@ class ConsultationMedicationsController < ApplicationController
 
   private
 
-  def set_path
+  def set_patient_consultation
     @patient = Patient.find(params[:patient_id])
     @consultation = Consultation.find(params[:consultation_id])
   end
