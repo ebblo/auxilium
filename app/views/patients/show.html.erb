@@ -52,7 +52,7 @@
             <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
               <a href="tel:<%= @doctor.phone_number %>" class="dropdown-item">
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <a <%= @doctor.phone_number %>><%= @doctor.phone_number %></a>
+                  <a>><%= @doctor.phone_number %></a>
               </a>
               <div onclick="window.location='https://www.google.ch/maps/place/<%= @doctor.street %>+<%= @doctor.zip %>+<%= @doctor.city %>';" class="d-flex mb-2 dropdown-item border">
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
