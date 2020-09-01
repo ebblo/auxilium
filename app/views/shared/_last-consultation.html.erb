@@ -1,6 +1,10 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <% last_consultation = @patient.consultations.where.not(public_report: nil).last %>
-  <h1 class="mb-4"><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</h1>
+  <% if @patient.consultations.where.not(public_report: nil).nil? %>
+    <% last_consultation = @patient.consultations.where.not(public_report: nil).last %>
+    <h1 class="mb-4"><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</h1>
+  <% else %>
+    <h1 class="mb-4">Pas de dernière consultation</h1>
+  <% end %>
   <div id="tab-consutation-medication" class="row justify-content-center">
     
 
