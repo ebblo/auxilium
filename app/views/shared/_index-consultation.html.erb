@@ -1,38 +1,48 @@
 <!-- Button trigger modal -->
+<div class="d-flex flex-column align-items-center justify-content-center">
+  <h2 class='mb-3 text-center my-4'> Historique des consultations</h2>
 
-<h2 class='mb-3'> Historique des consultations</h2>
-<% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now } %>
-<% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
+  <div class="w-100 d-flex justify-content-around align-items-center">
+    <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now } %>
+    <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
 
-<h3 class='mb-3'>Consultations à venir</h3>
-<% new_consultations.each do |consultation| %>
-  <div class='row'>
-    <div class='col-sm-6'>
-      <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-        <div class='card-product justify-content-between my-2' id='history-card'>
-          <h4><%= consultation.title %></h4>
-          <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
-          à <%= consultation.date.strftime("%H:%M") %></p>
-        </div>
+    <div class="d-flex flex-column col-5 bg-white testre">
+      <h3 class='mb-3'>Consultations à venir</h3>
+      <% new_consultations.each do |consultation| %>
+        <div class='d-flex justify-content-center'>
+          <div class=''>
+            <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
+              <div class='card-product justify-content-between my-2' id='history-card'>
+                <h4><%= consultation.title %></h4>
+                <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
+                à <%= consultation.date.strftime("%H:%M") %></p>
+              </div>
+            <% end %>
+          </div>
+        </div> 
       <% end %>
     </div>
-  </div> 
-<% end %>
 
-<h3 class='mb-3'>Consultations passées</h3>
-<% old_consultations.each do |consultation| %>
-  <div class='row'>
-      <div class='col-sm-6'>
-        <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-          <div class='card-product-new card-product justify-content-between my-2' id='history-card'>
-              <h4><%= consultation.title %></h4>
-              <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
-              à <%= consultation.date.strftime("%H:%M") %></p>
-          </div>
-        <% end %>
-      </div>
-    </div> 
-<% end %>
+    <div class="d-flex flex-column col-5 bg-white testre">
+      <h3 class='mb-3'>Consultations passées</h3>
+      <% old_consultations.each do |consultation| %>
+        <div class='d-flex justify-content-center'>
+            <div class='w-100'>
+              <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
+                <div class='card-product-new card-product justify-content-between my-2' id='history-card'>
+                    <h4><%= consultation.title %></h4>
+                    <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
+                    à <%= consultation.date.strftime("%H:%M") %></p>
+                </div>
+              <% end %>
+            </div>
+          </div> 
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
 
 
 <% @consultations.each do |consultation| %>
