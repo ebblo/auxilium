@@ -52,6 +52,8 @@
 #sidebar{
 background: $light-blue;
 border-radius: 0 10px 10px 0;
+min-height: calc(100vh - 80px);
+
 }
 .sidebar-content{
   h2{
