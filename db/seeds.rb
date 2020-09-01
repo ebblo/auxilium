@@ -248,3 +248,4 @@ my_consultation_medication_2 = ConsultationMedication.new(
 my_consultation_medication_2.save!
 
 puts "Seeding done"
+
