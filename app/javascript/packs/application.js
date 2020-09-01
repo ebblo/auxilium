@@ -22,6 +22,9 @@ import "bootstrap";
 // scroll effect on card from second BG home
 import { scrollBg2 } from '../components/scrollBg2';
 
+// call to action video effect onload
+import { videoBtn } from '../components/videoBtn';
+
 // effect arrow(anchor) homepage arrow is bouncing
 import { arrowBounce } from '../components/arrowBounce';
 
@@ -40,4 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   arrowBounce();
   scrollBg2();
   navbarLink();
+  videoBtn();
 });
