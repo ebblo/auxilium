@@ -19,6 +19,7 @@ class PatientsController < ApplicationController
     @doctor = current_user
     @consultations = @patient.consultations
     @new_consultation = Consultation.new
+    @new_consultation_medication = ConsultationMedication.new
     open_chatroom
   end
 

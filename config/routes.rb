@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   get '/user', to: "pages#dashboard", :as => :user_root
 
   resources :patients, only: [ :index, :show ] do
-    resources :consultations, only: [ :create, :update ]
+    resources :consultations, only: [ :create, :update ] do
+      resources :consultation_medications, only: [ :new, :create, :update, :destroy] do
+        resources :medications, only: [ :create ]
+      end
+    end
   end
   get "/my_profile", to: "patients#my_profile", :as => :my_profile
 

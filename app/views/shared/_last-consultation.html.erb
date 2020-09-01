@@ -63,7 +63,7 @@
         <% @prescriptions = last_consultation.consultation_medications %>
 
         <% @prescriptions.each do |prescription| %>
-        <hr class="style1 my-2 mx-auto">
+          <hr class="style1 my-2 mx-auto">
           <div class="d-flex flex-column ml-2 my-3">
             <div class="d-flex test-drug">       
               <div class="drug-quantity-img">
@@ -77,7 +77,40 @@
             - <%= prescription.description %>
             </p>
           </div>
-          
+          <%# button-modal éditer une prescription %>
+          <%= link_to "#", data: {toggle: "modal", target: "#modalPrescriptionUpdate-#{prescription.id}"}, class: "d-flex align-items-center btn-note-report" do %>
+            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+            <p class="m-0 text-decoration-none">Editer la prescription </p>
+          <% end %>
+          <div class="modal fade" id="modalPrescriptionUpdate-<%= prescription.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+              <div class="modal-content modal-edit-last-consult">
+                <div class="modal-body">
+                  <div class="container d-flex flex-column align-items-left">
+                    <div>
+                      <h4>Editer la prescription</h4>
+                      <%= simple_form_for [ @patient, last_consultation, prescription ] do |f| %>
+                        <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: 'Description', id:'message-text' %>
+                        <%= f.input :quantity, label: false, class:'form-control', placeholder: 'Quantité', id:'message-text' %>
+                        <div class='d-flex justify-content-end'>
+                          <%= f.submit "Modifier", class: "btn btn-primary btn-sign-in" %>
+                        </div>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        <% end %>
+        <br>
+        <br>
+        <% if current_user.doctor? %>
+          <%# button-modal éditer une prescription %>
+          <%= link_to(root_path, {
+            "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-prescription-add", class:"d-flex align-items-center btn-note-report"}) do %>
+            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+            <p class="m-0 text-decoration-none">Ajouter une prescription</p>
+          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -126,6 +159,32 @@
           </div>
         </div>
       </div>
+
+      <div class="modal fade" id="modal-prescription-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content modal-edit-last-consult">
+            <div class="modal-body">
+              <div class="container d-flex flex-column align-items-left">
+                <div>
+                  <h4>Ajouter une prescription</h4>
+                  <%= simple_form_for [ @patient, last_consultation, @new_consultation_medication ] do |f| %>
+                    <%= f.input :medication_id, label: false, placeholder: 'ID', class:'form-control', id:'message-text' %>
+                    <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: 'Description', id:'message-text' %>
+                    <%= f.input :quantity, label: false, class:'form-control', placeholder: 'Quantité', id:'message-text' %>
+                    <div class='d-flex justify-content-end'>
+                      <%= f.submit "Nouvelle prescription", class: "btn btn-primary btn-sign-in" %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%# last_consultation.consultation_medications.each do |consultation_medication| %>
+        
+      <%# end %>
     <% end %>
 
   </div>
