@@ -18,6 +18,12 @@ class ConsultationMedicationsController < ApplicationController
     redirect_to patient_path(@patient)
   end
 
+  def destroy
+    @consultation_medication = ConsultationMedication.find(params[:id])
+    @consultation_medication.destroy
+    redirect_to patient_path(@patient)
+  end
+
   private
 
   def set_patient_consultation
