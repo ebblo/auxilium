@@ -69,18 +69,14 @@
             <% if current_user.doctor? %>
 
               <h5>Notes privés</h5>
-              <%= consultation.private_report %>
-              <% prescriptions = consultation.consultation_medications %>
+              <p><%= consultation.private_report %></p>
+              <p><% prescriptions = consultation.consultation_medications %></p>              
 
               <hr class="style1 mx-auto my-4">
 
               <h5><%= "Prescription de médicaments" %></h5>
               <% prescriptions.each do |prescription| %>
-
-                  <%= prescription.medication.name %>
-                  <%= prescription.quantity %>
-                  <%= prescription.description %>
-
+                <p>- <%= prescription.medication.name %>&nbsp;<%= prescription.quantity %>&nbsp;<%= prescription.description %></p>                  
               <% end %>
             <% end %>
           <% end %>
