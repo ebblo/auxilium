@@ -1,15 +1,18 @@
 <div class="d-flex flex-column justify-content-center align-items-center">
-  <% if @patient.consultations.where.not(public_report: nil).nil? %>
-    <% last_consultation = @patient.consultations.where.not(public_report: nil).last %>
+  <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now } %>
+  <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
+  <% unless old_consultations.first.nil? %>
+    <% last_consultation = old_consultations.last %>
     <h1 class="mb-4"><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</h1>
   <% else %>
     <h1 class="mb-4">Pas de dernière consultation</h1>
   <% end %>
+
   <div id="tab-consutation-medication" class="row justify-content-center">
 
     <div id="report-and-notes-tabs" class=" mr-3">
-      <% unless @patient.consultations.where.not(public_report: nil).last.nil? %>
-        <% last_consultation = @patient.consultations.where.not(public_report: nil).last %>
+      <% unless old_consultations.first.nil? %>
+        <% last_consultation = old_consultations.last %>
         <%# -------------rapport du medecin------------- %>
         <div class="<% if current_user.doctor? %>split-div-doctor<% else %>split-no-doctor<% end %>">
           <% if current_user.doctor? %>

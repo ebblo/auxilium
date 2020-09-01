@@ -105,18 +105,19 @@
         <hr class="style1 mx-auto my-4">
 
         <%# ---------next-consultation--------- %>
-        <% unless @patient.consultations.where(public_report: nil).first.nil? %>
+        <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
+        <% unless new_consultations.first.nil? %>
+          <% next_consultation = new_consultations.first %>
           <div class="next-consult mx-auto text-center px-4">
           <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/clock_xvf0nk.png" class="mr-2 icon-profil-sidebar clock-consult" alt="">
             <p class="text-center font-weight-bold"><%= "Prochaine consultation :" %></p>
-            <% @next_consultation = @patient.consultations.where(public_report: nil).first %> 
             
 
 
             <div class="d-flex flex-column mb-2">
-              <h3><%= @next_consultation.title %></h3>
-              <p class="date-consult">Le <span><%= @next_consultation.date.strftime("%m/%d/%Y") %></span>
-                à <span><%= @next_consultation.date.strftime("%H:%M") %></span>
+              <h3><%= next_consultation.title %></h3>
+              <p class="date-consult">Le <span><%= next_consultation.date.strftime("%d/%m/%Y") %></span>
+                à <span><%= next_consultation.date.strftime("%H:%M") %></span>
               </p>
             </div>
 

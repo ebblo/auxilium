@@ -58,7 +58,7 @@
         </div>
 
         <div class="modal-body">
-          <% unless consultation.public_report.nil? %>
+          <% unless consultation.date > DateTime.now %>
 
 
             <h5>Rapport du médecin</h5>
