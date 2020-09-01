@@ -59,6 +59,12 @@
     <div id="prescription-tabs" class="bg-white ml-3">
       <% unless last_consultation.nil? %>
 
+        <%= link_to(root_path, {
+            "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-prescription-add", class:"d-flex align-items-center btn-note-report"}) do %>
+            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
+            <p class="m-0 text-decoration-none">Ajouter une prescription</p>
+          <% end %>
+
         <h3 class="text-center my-3"><%= "Prescription de médicaments" %></h3>
         <% @prescriptions = last_consultation.consultation_medications %>
 
@@ -99,18 +105,9 @@
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
           </div>
-        <% end %>
-        <br>
-        <br>
-        <% if current_user.doctor? %>
-          <%# button-modal éditer une prescription %>
-          <%= link_to(root_path, {
-            "data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-prescription-add", class:"d-flex align-items-center btn-note-report"}) do %>
-            <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598522981/add-circle_hyahrc.png", alt: "Le Wagon", class:"mx-3" %>
-            <p class="m-0 text-decoration-none">Ajouter une prescription</p>
-          <% end %>
         <% end %>
       <% end %>
     </div>
@@ -160,6 +157,7 @@
         </div>
       </div>
 
+      <%# ---------Modal 'Ajouter une prescription'--------- %>
       <div class="modal fade" id="modal-prescription-add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
           <div class="modal-content modal-edit-last-consult">
@@ -181,10 +179,7 @@
           </div>
         </div>
       </div>
-
-      <%# last_consultation.consultation_medications.each do |consultation_medication| %>
-        
-      <%# end %>
+    
     <% end %>
 
   </div>
