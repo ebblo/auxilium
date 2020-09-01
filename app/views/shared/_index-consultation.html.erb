@@ -1,20 +1,41 @@
 <!-- Button trigger modal -->
 
-
 <h2 class='mb-3'> Historique des consultations</h2>
-<% @consultations.each do |consultation| %>
+<% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now } %>
+<% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
+
+<h3 class='mb-3'>Consultations à venir</h3>
+<% new_consultations.each do |consultation| %>
   <div class='row'>
     <div class='col-sm-6'>
       <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-        <div class='card-product my-2' id='history-card'>
-            <h4><%= consultation.title %></h4>
-            <p><%= consultation.date.strftime("%d/%m/%Y") %>
-            à <%= consultation.date.strftime("%H:%M") %><p>
+        <div class='card-product justify-content-between my-2' id='history-card'>
+          <h4><%= consultation.title %></h4>
+          <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
+          à <%= consultation.date.strftime("%H:%M") %></p>
         </div>
       <% end %>
     </div>
   </div> 
+<% end %>
 
+<h3 class='mb-3'>Consultations passées</h3>
+<% old_consultations.each do |consultation| %>
+  <div class='row'>
+      <div class='col-sm-6'>
+        <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
+          <div class='card-product-new card-product justify-content-between my-2' id='history-card'>
+              <h4><%= consultation.title %></h4>
+              <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
+              à <%= consultation.date.strftime("%H:%M") %></p>
+          </div>
+        <% end %>
+      </div>
+    </div> 
+<% end %>
+
+
+<% @consultations.each do |consultation| %>
   <!-- Modal -->
   <div class="modal fade" id="exampleModal-<%= consultation.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

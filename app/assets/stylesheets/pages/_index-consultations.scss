@@ -10,3 +10,12 @@ div.card-product#history-card {
     transition: 0.3s;
   }
 }
+div.card-product-new#history-card {
+  background: $light-blue;
+  transition: 0.3s;
+  &:hover{
+    color: inherit !important;
+    transform:scale(1.05,1.05);
+    transition: 0.3s;
+  }
+}

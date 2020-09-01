@@ -8,7 +8,7 @@ class PatientsController < ApplicationController
   def my_profile 
     @patient = current_user
     @doctor = @patient.doctor
-    @consultations = @patient.consultations
+    @consultations = @patient.consultations.order(:date)
     open_chatroom
     render "show"
   end
@@ -17,7 +17,7 @@ class PatientsController < ApplicationController
   def show
     @patient = Patient.find(params[:id])
     @doctor = current_user
-    @consultations = @patient.consultations
+    @consultations = @patient.consultations.order(:date)
     @new_consultation = Consultation.new
     @new_consultation_medication = ConsultationMedication.new
     open_chatroom
