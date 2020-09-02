@@ -3,6 +3,9 @@ class Patient < User
   has_many :doctors, through: :consultations
 
   has_many :chatrooms, foreign_key: "patient_id"
+  # has_many :messages, dependent: :destroy
+
+  has_one_attached :photo
 
   validates :avs_number, presence: true
 
