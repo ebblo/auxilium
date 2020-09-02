@@ -1,25 +1,49 @@
-@mixin base-error {
+@mixin base-error($backgroundUrl) {
   height: calc(100vh - 80px);
-  background-color: $light-orange;
   color: $dark-blue;
+  position: relative;
+  background: url($backgroundUrl);
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  
   h2{
-    font-size: 30rem;
+    font-size: 15rem;
+    text-align: center;
   }
   p{
-    font-size: 5em;
+    font-size: 3em;
+    text-align: center;
   }
-  // background-repeat: no-repeat;
-  // background-size: cover;
+  
 }
+@mixin content-error {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
 .page-404{
-  @include base-error();
-  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972408/404_pkrr0k.jpg") center;
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599041665/404-v2_lpteu5.jpg");
+  
+  .error-div{
+  @include content-error();
+
+  }
 }
 .page-500{
-  @include base-error();
-  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972593/500_kiuu0t.jpg") center;
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599041593/500-v2_inavxh.jpg");
+  .error-div{
+    @include content-error();
+  
+    }
 }
 .page-422{
-  @include base-error();
-  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598972590/403_c6fib5.jpg") center;
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599042344/422-v2_zuqmls.jpg");
+  .error-div{
+    @include content-error();
+  
+    }
 }
