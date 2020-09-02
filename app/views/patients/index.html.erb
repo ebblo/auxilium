@@ -7,9 +7,8 @@
         <% @patients.each do |patient| %>
           <%= link_to patient_path(patient), class: 'color-link' do %>
             <div class='card-product my-3'>
-              <%= cl_image_tag current_user.photo.key, class:"avatar-dasboard mx-2" %>
-              <%# <div class="avatar-dasboard mx-2">
-              </div> %>
+              <div class="avatar-dasboard mx-2">
+              </div>
               <div class='row'>
                 <div class='col-sm-12'>
                   <div class='card-product-info'>
