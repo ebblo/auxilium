@@ -86,7 +86,7 @@
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt="">
                 <%= @patient.avs_number %>                
               </a>
-              <div onclick="window.location='https://www.google.ch/maps/place/<%= @patient.street %>+<%= @patient.zip %>+<%= @patient.city %>';" class="d-flex mb-2 dropdown-item border">
+              <div onclick="window.open('https://www.google.ch/maps/place/<%= @patient.street %>+<%= @patient.zip %>+<%= @patient.city %>')" target="_blank" class="d-flex mb-2 dropdown-item border">
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
                 <a class="d-block m-0">
                   <span><%= @patient.city %></span>&nbsp;<span><%= @patient.zip %></span><br><span><%= @patient.street %></span>

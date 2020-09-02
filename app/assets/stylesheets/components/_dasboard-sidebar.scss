@@ -13,6 +13,19 @@
   
 }
 
+.dropdown-menu.infos-profil.show{
+  z-index: 1001;
+  a{
+    color: $dark-blue;
+    transition: 0.3s;
+    &:hover{
+      transition: 0.3s;
+      font-size: 14px;
+    }
+  }
+  
+}
+
 .box-video-call{
   width: 130px;
   height: 130px;
