@@ -77,7 +77,19 @@ min-height: calc(100vh - 80px);
   height: 35px;
   width: 35px;
 }
+.scroll-patient-index{
+  height: 80vh;
+  overflow: scroll;
+}
 .avatar-dasboard{
+  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.avatar-card-index{
   background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
   background-size: contain;
   background-repeat: no-repeat;
