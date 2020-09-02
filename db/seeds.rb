@@ -783,14 +783,6 @@ my_consultation_medication_21 = ConsultationMedication.new(
 )
 my_consultation_medication_21.save!
 
-my_consultation_medication_22 = ConsultationMedication.new(
-  consultation: my_consultation_10,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
-)
-my_consultation_medication_22.save!
-
 puts "Prescriptions added for all consultations"
 puts "--------------------------------------"
 
