@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  # has_many :messages, dependent: :destroy
+
   validates :first_name, :last_name, :phone_number, :city, :zip, :street, presence: true
 
   def doctor?
