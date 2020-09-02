@@ -46,3 +46,7 @@ display: none;
   padding-top: 5px;
   border: none;
 }
+
+#message_content:focus {
+  outline: none;
+}
