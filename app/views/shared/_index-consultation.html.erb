@@ -2,7 +2,7 @@
 <div class="d-flex flex-column align-items-center justify-content-center">
   <h2 class='mb-3 text-center my-4'> Historique des consultations</h2>
 
-  <div class="w-100 d-flex justify-content-around align-items-center">
+  <div class="w-100 d-flex justify-content-around">
     <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now } %>
     <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
 
