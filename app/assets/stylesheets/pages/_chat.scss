@@ -37,3 +37,16 @@ display: none;
   overflow-y: scroll;
   height: calc(73vh - 80px);
 }
+
+#message_content {
+  width: 100%;
+  border-radius: 10px;
+  color: #395579;
+  padding-left: 7px;
+  padding-top: 5px;
+  border: none;
+}
+
+#message_content:focus {
+  outline: none;
+}

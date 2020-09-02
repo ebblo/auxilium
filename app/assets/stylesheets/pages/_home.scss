@@ -1,9 +1,9 @@
 // Specific CSS for your home-page
 .container-cards{
-  height: 100vh;
+  height: fit-content;
   padding-top: 100px;
-  h3{
-    font-size: 2.5em;
+  h4{
+    font-size: 3em;
   }
   scroll-behavior: smooth;
 }

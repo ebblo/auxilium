@@ -1,0 +1,49 @@
+@mixin base-error($backgroundUrl) {
+  height: calc(100vh - 80px);
+  color: $dark-blue;
+  position: relative;
+  background: url($backgroundUrl);
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  
+  h2{
+    font-size: 15rem;
+    text-align: center;
+  }
+  p{
+    font-size: 3em;
+    text-align: center;
+  }
+  
+}
+@mixin content-error {
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.page-404{
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599041665/404-v2_lpteu5.jpg");
+  
+  .error-div{
+  @include content-error();
+
+  }
+}
+.page-500{
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599041593/500-v2_inavxh.jpg");
+  .error-div{
+    @include content-error();
+  
+    }
+}
+.page-422{
+  @include base-error("https://res.cloudinary.com/kyulol/image/upload/v1599042344/422-v2_zuqmls.jpg");
+  .error-div{
+    @include content-error();
+  
+    }
+}

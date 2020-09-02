@@ -5,7 +5,7 @@
   </button>
 
   <%# ------------drop-down-flags------------ %>
-<div class="col-md-2">
+<div class="">
   <div class="dropright stagger-link" id="flags">
     <a class="dropdown-toggle" href="#" role="button" id="dropDownFlag" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">
@@ -50,7 +50,7 @@
 
   <%# -------------login drop down------------- %>
   <% if user_signed_in? %>
-  <div class="col-md-2 d-flex justify-content-end">
+  <div class=" d-flex justify-content-end">
     <div class=" nav-item dropleft d-flex flex-column justify-content-center align-items-center stagger-link">
         <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="bg-connected"></span>
@@ -64,7 +64,7 @@
     </div>
   </div>
   <% else %>
-  <div class="col-md-2 d-flex justify-content-end">
+  <div class=" d-flex justify-content-end">
     <div class="cl-effect-11 d-flex flex-column justify-content-center align-items-center stagger-link">
       <%= link_to(user_session_path) do %>
         <div class="login-icon" >
@@ -77,9 +77,5 @@
     </div>  
   </div>
   <% end %>
- 
 
-  <%# <a>
-    <i class="fal fa-user-circle font-awsm-icons"></i>
-  </a> %>
 </nav>
