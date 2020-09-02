@@ -53,8 +53,9 @@
 .login-icon{
   width: 30px;
   height: 30px;
-  background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
+  // background: url("https://res.cloudinary.com/kyulol/image/upload/v1598604119/profile_ejuesw.png") center;
   background-size: contain;
+  background-position: center;
   @include transition-transform;
   cursor: pointer;
   border-radius: 50%;

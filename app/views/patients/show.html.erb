@@ -43,17 +43,27 @@
               <h2 class="text-center text-white font-weight-bold">Afficher profil <br>praticien <i class="fal fa-info-circle"></i></h2>
               <div class="d-flex justify-content-center align-items-center">
                 <%# --------------------img avatar-profil-------------------- %>
-                <div class="avatar-dasboard">
+
+                  
+                  
+
+
+                <div style="background-image: url('<%= cl_image_path @doctor.photo.key %>')" class="avatar-dasboard">
                 </div>
+
+
+
                 <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @doctor.first_name %></span><br><span><%= @doctor.last_name %></span></p>
               </div>
             </div>
 
             <div class="dropdown-menu infos-profil" aria-labelledby="dropDownProfil">
+
               <a href="tel:<%= @doctor.phone_number %>" class="dropdown-item">
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt="">
-                  <a>><%= @doctor.phone_number %></a>
+                <%= @doctor.phone_number %>
               </a>
+
               <div onclick="window.location='https://www.google.ch/maps/place/<%= @doctor.street %>+<%= @doctor.zip %>+<%= @doctor.city %>';" class="d-flex mb-2 dropdown-item border">
                 <img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/map_sccn57.png" class="mr-2 icon-profil-sidebar" alt="">
                 <a class="d-block m-0">
@@ -70,9 +80,11 @@
             <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <h2 class="text-center text-white font-weight-bold">Afficher profil <br>patient <i class="fal fa-info-circle"></i></h2>
               <div class="d-flex justify-content-center align-items-center">
+
                 <%# --------------------img avatar-profil-------------------- %>
-                <div class="avatar-dasboard">
+                <div style="background-image: url('<%= cl_image_path @patient.photo.key %>')" class="avatar-dasboard">
                 </div>
+
                 <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @patient.first_name %></span><br><span><%= @patient.last_name %></span></p>
               </div>
             </div>
