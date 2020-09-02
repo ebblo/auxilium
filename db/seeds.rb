@@ -210,8 +210,8 @@ my_patient_11.save!
 my_patient_12 = Patient.new(
   email: "jenna.Diaz@gmail.com",
   password: "123456",
-  first_name: "jenna",
-  last_name: "diaz",
+  first_name: "Jenna",
+  last_name: "Diaz",
   phone_number: "079 112 39 22",
   city: "Forel",
   zip: "1072",
@@ -330,8 +330,8 @@ my_patient_19.save!
 my_patient_20 = Patient.new(
   email: "geoffrey.martin@gmail.com",
   password: "123456",
-  first_name: "geoffrey",
-  last_name: "martin",
+  first_name: "Geoffrey",
+  last_name: "Martin",
   phone_number: "079 338 19 02",
   city: "Châtel-Saint-Denis",
   zip: "1618",
@@ -346,100 +346,100 @@ puts "Creating 20 new patients"
 puts "--------------------------------------"
 
 my_consultation_1 = Consultation.new(
-  title: "Consultation hebdomadaire",
+  title: "Première entrevue",
   date: "2020,7,3,10,30,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Réfléchissez à la raison qui a poussé vos proches à prendre contact avec moi, afin que vous puissiez suivre ces séances.",
+  private_report: "Zachariah ne souhaite pas être là. Il prétend perdre son temps. Il dit cependant qu'il reviendra.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_1.save!
 
 my_consultation_2 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Seconde séance",
   date: "2020,7,10,10,0,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Bravo pour votre engagement. Ne mettez-vous aucune pression. Chaque chose en son temps.",
+  private_report: "Zachariah semble être prêt à suivre la thérapie. Il évoque des problèmes qui ne parvient pas à résoudre depuis des années. Il ne souhaite pas en dire d'avantage pour l'instant.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_2.save!
 
 my_consultation_3 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Consulation hebdomadaire",
   date: "2020,7,14,12,15,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Demandez-vous si vos proches sont fiers de vous. Pensez à la réaction de votre mère lors que vous avez obtenu votre diplôme.",
+  private_report: "Zachariah évoque le harcèlement subi enfant qui influence ces relations actuelles. Il a l'impression de ne pas être respecté pour ce qu'il est par son entourage.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_3.save!
 
 my_consultation_4 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Suivi hebdomadaire",
   date: "2020,7,22,17,15,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Pensez aux moments positifs partagés avec votre père. Quel était votre état d'esprit ?",
+  private_report: "Zachariah semble soulagé. Sa mère semble très fière de son fils unique. La relation avec son père est cependant problématique. A creuser.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_4.save!
 
 my_consultation_5 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Séance hebdomadaire",
   date: "2020,7,30,14,0,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Trouvez 5 éléments que vous pourriez améliorer dans votre quotidien.",
+  private_report: "Zachariah admet ne plus parler avec son père depuis cinq ans (séparation de ses parents). Son père n'a jamais accepté son burnout. Le qualifie de personne fragile.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_5.save!
 
 my_consultation_6 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Consultation hebdomadaire",
   date: "2020,8,4,16,15,0,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Félicitations pour votre reprise. Pensez à ce que vous ressentez lors que vous rentrez d'une journée de travail.",
+  private_report: "Zachariah reprend son travail après 12 mois d'arrêt maladie. Il semble reprendre confiance.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_6.save!
 
 my_consultation_7 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Suivi hebdomadaire",
   date: "2020,8,12,11,45,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Pensez peut-être à annoncer la bonne nouvelle à votre père.",
+  private_report: "Zachariah se sent mieux. Aime son travail. Hésite à annoncer la nouvelle à son père.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_7.save!
 
 my_consultation_8 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Consultation hebdomadaire",
   date: "2020,8,20,8,15,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Et si vous proposiez à votre père de me recontrer ?",
+  private_report: "Zachariah évoque le message à son père. Son père lui répond après quelques jours. Zachariah ne parvient pas à décrire ce qu'il ressent.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_8.save!
 
 my_consultation_9 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Séance hebdomadaire",
   date: "2020,8,26,15,0,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Repensez à notre entrevue avec votre père. Avez-vous pu lui poser toutes les questions que vous aviez en tête ?",
+  private_report: "Rencontre avec le père de Zachariah. Un personnage très strict. A de grands besoins de contrôle. Se méfie de mes questions. Zachariah n'ose pas s'exprimer devant lui.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_9.save!
 
 my_consultation_10 = Consultation.new(
-  title: "Consultation checkup",
+  title: "Suivi hebdomadaire",
   date: "2020,9,1,10,30,0",
-  public_report: "Pensez à la discussion de fin de séance concernant le rapport avec votre père.",
-  private_report: "Patient en cours d'amélioration.",
+  public_report: "Réfléchissez aux raisons qui vous poussent à admirer votre père.",
+  private_report: "Le père de Zachariah prétend avoir été humilié lors de la séance. Zachariah culpabilise et me reproche cette thérapie familiale. Il n'a pas reparlé à son père depuis.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
