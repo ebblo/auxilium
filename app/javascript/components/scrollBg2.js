@@ -22,7 +22,7 @@ const scrollBg2 = () => {
       let scene = new ScrollMagic.Scene({
           triggerElement: this
       })
-      .addIndicators()
+      // .addIndicators()
       .setTween(TL)
       .reverse(true)
       .addTo(controller);
