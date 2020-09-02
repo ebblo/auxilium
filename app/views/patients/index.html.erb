@@ -1,20 +1,23 @@
 <div class='container' id="index-patient">
   <div class='row'>
-    <div class='col-sm-6'>
+    <div class='col-sm-6 scroll-patient-index'>
       <h2 class='mt-5 pl-2'><%= "Mes patients" %></h2>
       <br>
       <div>
         <% @patients.each do |patient| %>
           <%= link_to patient_path(patient), class: 'color-link' do %>
             <div class='card-product my-3'>
-              <div class="avatar-dasboard mx-2">
-              </div>
+              <%# <div class="">
+              </div> %>
+
+              <%= cl_image_tag patient.photo.key, class:"avatar-card-index mx-5" %>
+
               <div class='row'>
                 <div class='col-sm-12'>
                   <div class='card-product-info'>
                     <h4><%= patient.last_name %> <%= patient.first_name %></h2>
-                    <p><i class="mini-icon-sidebar fal fa-credit-card-blank mr-2"></i><%= patient.avs_number %></p>
-                    <p><i class="mini-icon-sidebar far fa-phone mr-2"></i><%= patient.phone_number %></p>
+                    <p><img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt=""><%= patient.avs_number %></p>
+                    <p><img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt=""><%= patient.phone_number %></p>
                   </div>
                 </div>
                 <%# <div class='col-sm-1'> %>
