@@ -52,9 +52,13 @@
   <% if user_signed_in? %>
   <div class=" d-flex justify-content-end">
     <div class=" nav-item dropleft d-flex flex-column justify-content-center align-items-center stagger-link">
-        <div  class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+        
+        <div style="background-image: url('<%= cl_image_path current_user.photo.key %>')" class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="bg-connected"></span>
         </div>
+
+
         <p><%= current_user.first_name %></p>    
         <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
           <p><%= link_to "Mon profil" %></p>
