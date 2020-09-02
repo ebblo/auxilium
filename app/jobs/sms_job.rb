@@ -16,9 +16,9 @@ class SmsJob < ApplicationJob
     )
 
     client.sms.send(
-      from: "Docteur XXXXXXXXXXXX",
+      from: "Docteur Vidal",
       to: ENV["NEXMO_PHONE_NUMBER"],
-      text: "Cher YYYYYYYYYYYYY, n'oubliez votre rendez-vous demain à ZZZZZZZZZZZZZZZZZZ."
+      text: "Bonjour Zachariah, votre consultation du vendredi 4 septembre à XX:YY est bien confirmée."
     )
   end
 end
