@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="d-flex flex-column align-items-center justify-content-center">
-  <h2 class='mb-3 text-center my-4'> Historique des consultations</h2>
+  <h1 class='text-center mt-2 mb-3'> Historique des consultations</h1>
 
   <div class="w-100 d-flex justify-content-around">
     <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now }.reverse %>
