@@ -6,12 +6,12 @@
   border-radius: 10px;
   padding: 6px 13px;
 }
-.message-patient {
+.message-user {
   @include messages();
   background: $dark-blue;
   color: white;
 }
-.message-doctor {
+.message-receive {
   @include messages();
   background: white;
   color: $dark-blue
