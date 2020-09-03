@@ -7,7 +7,7 @@
     <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
 
     <%# ----------nexts consultations---------- %>
-    <div class="d-flex flex-column col-5 bg-white testre">
+    <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
       <h3 class='mb-3'>Consultations à venir</h3>
       <% new_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
@@ -25,7 +25,7 @@
     </div>
 
     <%# ------------old consultations------------ %>
-    <div class="d-flex flex-column col-5 bg-white testre">
+    <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
       <h3 class='mb-3'>Consultations passées</h3>
       <% old_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
