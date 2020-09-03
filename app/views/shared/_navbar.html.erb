@@ -59,7 +59,14 @@
         </div>
 
 
-        <p><%= current_user.first_name %></p>    
+        <p>
+          <% if current_user.doctor? %>
+            Dr <%= current_user.last_name %>
+          <% else %>
+            <%= current_user.first_name %>
+          <% end %>
+        </p>
+
         <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
           <p><%= link_to "Mon profil" %></p>
           <p><%= link_to "Paramètres"%></p>
