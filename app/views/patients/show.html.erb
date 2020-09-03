@@ -44,16 +44,10 @@
               <div class="d-flex justify-content-center align-items-center">
                 <%# --------------------img avatar-profil-------------------- %>
 
-                  
-                  
-
-
                 <div style="background-image: url('<%= cl_image_path @doctor.photo.key %>')" class="avatar-dasboard">
                 </div>
 
-
-
-                <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>"><span><%= @doctor.first_name %></span><br><span><%= @doctor.last_name %></span></p>
+                <p class="text-center link-sidebar ml-2 my-0"><a href="mailto:<%= @patient.email %>">Dr <%= @doctor.last_name %></span></p>
               </div>
             </div>
 
