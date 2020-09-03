@@ -19,8 +19,20 @@ div.card-product-new#history-card {
     transition: 0.3s;
   }
 }
+
+div.card-product-new-active#history-card {
+  background: $light-orange;
+  transition: 0.3s;
+  &:hover{
+    color: inherit !important;
+    transform:scale(1.05,1.05);
+    transition: 0.3s;
+  }
+}
+
 .max-indux-consult-height{
   max-height: 70vh !important;
   min-height: 70vh !important;
   height: 70vh !important;
 }
+
