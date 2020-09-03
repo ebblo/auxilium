@@ -116,7 +116,11 @@ min-height: calc(100vh - 80px);
   }
 } 
   
-
+.edit-btn-report{
+  position: absolute;
+  bottom: 14px;
+  right: 23px;
+}
 .nav-link{
   color: white !important;
   font-weight: bold;
