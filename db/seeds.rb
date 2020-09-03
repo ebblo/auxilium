@@ -447,11 +447,35 @@ my_consultation_10.save!
 
 my_consultation_11 = Consultation.new(
   title: "Suivi dernière séance hebdomadaire",
-  date: DateTime.new(2020,9,4,17,30,0),
+  date: DateTime.now,
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_11.save!
+
+my_consultation_12 = Consultation.new(
+  title: "Consultation du vendredi",
+  date: DateTime.new(2020,9,11,17,30,0),
+  patient: my_patient_1,
+  doctor: my_doctor_1
+)
+my_consultation_12.save!
+
+my_consultation_13 = Consultation.new(
+  title: "Consultation hebdomadaire",
+  date: DateTime.new(2020,9,18,17,30,0),
+  patient: my_patient_1,
+  doctor: my_doctor_1
+)
+my_consultation_13.save!
+
+my_consultation_14 = Consultation.new(
+  title: "Consultation du vendredi",
+  date: DateTime.new(2020,9,25,17,30,0),
+  patient: my_patient_1,
+  doctor: my_doctor_1
+)
+my_consultation_14.save!
 
 my_consultation_P2 = Consultation.new(
   title: "Consultation checkup",
@@ -639,157 +663,285 @@ my_consultation_medication_2 = ConsultationMedication.new(
 )
 my_consultation_medication_2.save!
 
-my_consultation_medication_3 = ConsultationMedication.new(
-  consultation: my_consultation_1,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
-)
-my_consultation_medication_3.save!
-
-my_consultation_medication_4 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_2,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_4.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_5 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_2,
   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
   description: "Au déjeuner"
 )
-my_consultation_medication_5.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_6 = ConsultationMedication.new(
-  consultation: my_consultation_2,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
-)
-my_consultation_medication_6.save!
-
-my_consultation_medication_7 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_3,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_7.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_8 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_3,
-  medication: Medication.all.where(name: "NARDIL").first,
+  medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+  description: "Au déjeuner"
 )
-my_consultation_medication_8.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_9 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_4,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_9.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_10 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_4,
-  medication: Medication.all.where(name: "NARDIL").first,
+  medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+  description: "Au déjeuner"
 )
-my_consultation_medication_10.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_11 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_5,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_11.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_12 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_5,
-  medication: Medication.all.where(name: "NARDIL").first,
+  medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+  description: "Au déjeuner"
 )
-my_consultation_medication_12.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_13 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_6,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_13.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_14 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_6,
   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
   description: "Au déjeuner"
 )
-my_consultation_medication_14.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_15 = ConsultationMedication.new(
-  consultation: my_consultation_6,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+my_consultation_medication_1 = ConsultationMedication.new(
+  consultation: my_consultation_7,
+  medication: Medication.all.where(name: "PROZAC").first,
+  quantity: 3,
+  description: "Matin midi et soir"
 )
-my_consultation_medication_15.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_16 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_7,
   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
   description: "Au déjeuner"
 )
-my_consultation_medication_16.save!
+my_consultation_medication_2.save!
 
-my_consultation_medication_17 = ConsultationMedication.new(
-  consultation: my_consultation_7,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
-)
-my_consultation_medication_17.save!
-
-my_consultation_medication_18 = ConsultationMedication.new(
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_8,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+  medication: Medication.all.where(name: "PROZAC").first,
+  quantity: 3,
+  description: "Matin midi et soir"
 )
-my_consultation_medication_18.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_19 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
+  consultation: my_consultation_8,
+  medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
+  quantity: 2,
+  description: "Au déjeuner"
+)
+my_consultation_medication_2.save!
+
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_9,
-  medication: Medication.all.where(name: "NARDIL").first,
-  quantity: 2,
-  description: "Optionnel, en cas de crise de panique"
+  medication: Medication.all.where(name: "PROZAC").first,
+  quantity: 3,
+  description: "Matin midi et soir"
 )
-my_consultation_medication_19.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_20 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
+  consultation: my_consultation_9,
+  medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
+  quantity: 2,
+  description: "Au déjeuner"
+)
+my_consultation_medication_2.save!
+
+my_consultation_medication_1 = ConsultationMedication.new(
   consultation: my_consultation_10,
   medication: Medication.all.where(name: "PROZAC").first,
   quantity: 3,
   description: "Matin midi et soir"
 )
-my_consultation_medication_20.save!
+my_consultation_medication_1.save!
 
-my_consultation_medication_21 = ConsultationMedication.new(
+my_consultation_medication_2 = ConsultationMedication.new(
   consultation: my_consultation_10,
   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
   quantity: 2,
   description: "Au déjeuner"
 )
-my_consultation_medication_21.save!
+my_consultation_medication_2.save!
+
+# my_consultation_medication_4 = ConsultationMedication.new(
+#   consultation: my_consultation_2,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_4.save!
+
+# my_consultation_medication_5 = ConsultationMedication.new(
+#   consultation: my_consultation_2,
+#   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
+#   quantity: 2,
+#   description: "Au déjeuner"
+# )
+# my_consultation_medication_5.save!
+
+# my_consultation_medication_6 = ConsultationMedication.new(
+#   consultation: my_consultation_2,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_6.save!
+
+# my_consultation_medication_7 = ConsultationMedication.new(
+#   consultation: my_consultation_3,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_7.save!
+
+# my_consultation_medication_8 = ConsultationMedication.new(
+#   consultation: my_consultation_3,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_8.save!
+
+# my_consultation_medication_9 = ConsultationMedication.new(
+#   consultation: my_consultation_4,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_9.save!
+
+# my_consultation_medication_10 = ConsultationMedication.new(
+#   consultation: my_consultation_4,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_10.save!
+
+# my_consultation_medication_11 = ConsultationMedication.new(
+#   consultation: my_consultation_5,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_11.save!
+
+# my_consultation_medication_12 = ConsultationMedication.new(
+#   consultation: my_consultation_5,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_12.save!
+
+# my_consultation_medication_13 = ConsultationMedication.new(
+#   consultation: my_consultation_6,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_13.save!
+
+# my_consultation_medication_14 = ConsultationMedication.new(
+#   consultation: my_consultation_6,
+#   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
+#   quantity: 2,
+#   description: "Au déjeuner"
+# )
+# my_consultation_medication_14.save!
+
+# my_consultation_medication_15 = ConsultationMedication.new(
+#   consultation: my_consultation_6,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_15.save!
+
+# my_consultation_medication_16 = ConsultationMedication.new(
+#   consultation: my_consultation_7,
+#   medication:Medication.all.where(name: "FLUOXETINE BAYER").first,
+#   quantity: 2,
+#   description: "Au déjeuner"
+# )
+# my_consultation_medication_16.save!
+
+# my_consultation_medication_17 = ConsultationMedication.new(
+#   consultation: my_consultation_7,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_17.save!
+
+# my_consultation_medication_18 = ConsultationMedication.new(
+#   consultation: my_consultation_8,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_18.save!
+
+# my_consultation_medication_19 = ConsultationMedication.new(
+#   consultation: my_consultation_9,
+#   medication: Medication.all.where(name: "NARDIL").first,
+#   quantity: 2,
+#   description: "Optionnel, en cas de crise de panique"
+# )
+# my_consultation_medication_19.save!
+
+# my_consultation_medication_20 = ConsultationMedication.new(
+#   consultation: my_consultation_10,
+#   medication: Medication.all.where(name: "PROZAC").first,
+#   quantity: 3,
+#   description: "Matin midi et soir"
+# )
+# my_consultation_medication_20.save!
 
 puts "Prescriptions added for all consultations"
 puts "--------------------------------------"
