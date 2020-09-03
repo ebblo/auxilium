@@ -8,11 +8,11 @@
 
       <%# ---------------------sidebar-tabs--------------------- %>
       <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link px-4  py-2 active" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
+        <a class="nav-link px-4  py-2" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/last-consult_qhvtsy.png", class:"tabs-icon" %>
           Dernière consultation
         </a>
-        <a class="nav-link px-4  py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
+        <a class="nav-link px-4 active py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/all-consult_db2etz.png", class:"tabs-icon" %>
           Mes consultations
         </a>
@@ -163,10 +163,10 @@
     <div class="tabs-sidebar">
 
       <div class="tab-content" id="v-pills-tabContent">
-        <div class="p-5 tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
+        <div class="p-5 tab-pane fade " id="v-pills-home" role="tabpanel" aria-labelledby="last-consult-tab">
           <%= render  "shared/last-consultation" %>
         </div>
-        <div class="p-5 tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
+        <div class="p-5 tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="historic-consult-tab">
           <%= render  "shared/index-consultation" %>
         </div>
         <div class="p-5 tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">

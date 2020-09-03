@@ -6,11 +6,12 @@
     <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now }.reverse %>
     <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
 
+    <%# ----------nexts consultations---------- %>
     <div class="d-flex flex-column col-5 bg-white testre">
       <h3 class='mb-3'>Consultations à venir</h3>
       <% new_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
-          <div class=''>
+          <div class='w-100'>
             <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
               <div class='card-product justify-content-between my-2' id='history-card'>
                 <h4><%= consultation.title %></h4>
@@ -23,6 +24,7 @@
       <% end %>
     </div>
 
+    <%# ------------old consultations------------ %>
     <div class="d-flex flex-column col-5 bg-white testre">
       <h3 class='mb-3'>Consultations passées</h3>
       <% old_consultations.each do |consultation| %>
