@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="d-flex flex-column align-items-center justify-content-center">
-  <h1 class='text-center mt-2 mb-4'> Historique des consultations</h1>
+  <h1 class='text-center mt-2 mb-4'><%= t ('show.page-my-consultations.title-my-consultation') %></h1>
 
   <div class="w-100 d-flex justify-content-around">
     <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now }.reverse %>
@@ -8,7 +8,7 @@
 
     <%# ----------nexts consultations---------- %>
     <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
-      <h3 class='mb-3'>Consultations à venir</h3>
+      <h3 class='mb-3'><%= t ('show.page-my-consultations.upcoming-consultations') %></h3>
       <% new_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
           <div class='w-100'>
@@ -26,7 +26,7 @@
 
     <%# ------------old consultations------------ %>
     <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
-      <h3 class='mb-3'>Consultations passées</h3>
+      <h3 class='mb-3'><%= t ('show.page-my-consultations.past-consultations') %></h3>
       <% old_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
             <div class='w-100'>

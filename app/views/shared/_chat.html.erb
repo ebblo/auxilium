@@ -1,5 +1,5 @@
 <div class="chat-room">
-  <h1>Messagerie</h1>
+  <h1><%= t ('show.page-messaging.title-messaging') %></h1>
 
   <div id="messages", data-chatroom-id=<%= chatroom.id %>>
     <% chatroom.messages.each do |message| %>

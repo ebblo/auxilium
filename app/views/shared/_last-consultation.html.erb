@@ -6,7 +6,7 @@
     <h1 class="mb-0"><%= last_consultation.title %></h1>
     <h2 class='mt-0 pt-0 mb-3'> <%= last_consultation.date.strftime("%d.%m.%Y") %></h2>
   <% else %>
-    <h2 class="mb-4">Pas de dernière consultation</h2>
+    <h2 class="mb-4"><%= t ('show.page-last-consultation.no-consultation') %></h2>
   <% end %>
 
   <div id="tab-consutation-medication" class="row justify-content-center">
@@ -21,7 +21,7 @@
           <% end %>
           
           <div id="doctor-report">
-            <h3 class="sticky-top w-100 bg-white title-report">Rapport du médecin</h3>
+            <h3 class="sticky-top w-100 bg-white title-report"><%= t ('show.page-last-consultation.doctor-report') %></h3>
             <hr class="style1 mx-auto">
 
             <p class="pr-2"><%= last_consultation.public_report %></p>
@@ -30,7 +30,7 @@
               <%# ---button-modal ajouter/modifier un rapport--- %>
               <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-doctor-report", class:"d-flex align-items-center btn-note-report edit-btn-report"}) do %>
                 <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-                <p class="m-0 text-decoration-none">Ajouter/Modifier le rapport</p>
+                <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.edit-report') %></p>
               <% end %>
             <% end %>
 
@@ -43,7 +43,7 @@
 
             <div id="doctor-note">
               
-              <h3 class="sticky-top w-100 bg-white title-report">Notes confidentielles</h3>
+              <h3 class="sticky-top w-100 bg-white title-report"><%= t ('show.page-last-consultation.private-notes') %></h3>
               <hr class="style1 mx-auto">
               <p><%= last_consultation.private_report %></p>
               <% if current_user.doctor? %>
@@ -51,7 +51,7 @@
                 <%# button-modal ajouter/modifier une note privee %>
                 <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-private-note", class:"d-flex align-items-center btn-note-report edit-btn-report"}) do %>
                   <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-                  <p class="m-0 text-decoration-none">Ajouter une note</p>
+                  <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.edit-report') %></p>
                 <% end %>
 
               <% end %>
@@ -65,13 +65,13 @@
     <%# --------prescription de medicament-------- %>
     <div id="prescription-tabs" class="bg-white ml-3">
       <% unless last_consultation.nil? %>
-      <h3 class="text-center my-3"><%= "Prescription de médicaments" %></h3>
+      <h3 class="text-center my-3"><%= t ('show.page-last-consultation.drugs-medication') %></h3>
 
         <%# –––––––––––––button 'Ajouter une prescription' –––––––––––––%>
         <% if current_user.doctor? %>
           <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-prescription-add", class:"d-flex align-items-center btn-note-report my-4"}) do %>
             <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-            <p class="m-0 text-decoration-none">Nouveau traitement</p>
+            <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.new-treatment') %></p>
           <% end %>
         <% end %>
 
@@ -155,7 +155,7 @@
                     <%= simple_form_for [ @patient, last_consultation ] do |f| %>
                       <%= f.input :public_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
                       <div class='d-flex justify-content-end'>
-                        <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-primary btn-sign-in" %>
+                        <%= f.submit 'Envoyer', class: "btn btn-primary btn-sign-in" %>
                       </div>
                     <% end %>
                   </div>
@@ -176,7 +176,7 @@
                     <%= simple_form_for [ @patient, last_consultation ] do |f| %>
                       <%= f.input :private_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
                       <div class='d-flex justify-content-end'>
-                        <%= f.submit "Ajouter des notes pour cette consultations", class: "btn btn-primary btn-sign-in" %>
+                        <%= f.submit 'Envoyer', class: "btn btn-primary btn-sign-in" %>
                       </div>
                     <% end %>
                   </div>

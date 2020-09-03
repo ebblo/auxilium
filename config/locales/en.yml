@@ -30,4 +30,49 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  navbar:
+    calendar: "Calendar"
+  
+  home:
+    h1-home-blur: "YouMind, always accompanied"
+    content-blur-box: "\"Keep a trust relation, even from far away.\" Youmind propose to keep in touch when you need it. you will never miss a consultation ever with your pratician."
+    title-bg-2: "Why using Youmind ?"
+    content-card1: "Keep in touch with your pratician simply et quicly with our included chat !"
+    content-card2: "Find your consultation historic and also your meds files"
+    content-card3: "Book online, 24h/24h and 7/7, for a video consultation"
+
+  patients:
+    title-patients: "My patients"
+    title-schedule: "My schedule"
+    
+  show:
+    sidebar:
+      link-last-consultation: "Last consultation"
+      link-my-consultations: "My consultations"
+      link-messaging: "Messaging"
+      link-schedule-meeting: "Schedule-meeting"
+      show-profil-doctor_html: "show pratician <br>profil "
+      show-profil-patient_html: "Show patient <br>profil "
+      next-consultation: "Next consultation"
+      the: "Le"
+      at: "at"
+      no-consultation-schedule: "No consultation scheduled."
+    
+    page-last-consultation:
+      no-consultation: "No last consultation"
+      doctor-report: "Doctor report"
+      edit-report: "Edit"
+      private-notes: "Private notes"
+      drugs-medication: "Drugs medication"
+      new-treatment: "New treatment"
+
+    page-my-consultations:
+      title-my-consultation: "All my consultations"      
+      upcoming-consultations: "Upcoming consultations"
+      past-consultations: "Past consultations"
+
+    page-messaging:
+      title-messaging: "Messaging"
+    
+  page-schedule-meeting:
+    fix-appointment: "Fix Appointment"
