@@ -78,7 +78,7 @@
 }
 
 .btn-note-report{
-  padding: 3px 15px;
+  
   width: fit-content;
   transition: 0.3s;
   p{
@@ -91,15 +91,13 @@
 
   &:hover{
     text-decoration: none !important;
-    img{
-    border-radius: 50%;
-    
+    img{    
     width: 28px;
     height: 28px;
     transition: 0.3s;
-    -webkit-box-shadow: 2px 1px 5px 0px rgba(50, 50, 50, 0.58);
-    -moz-box-shadow:    2px 1px 5px 0px rgba(50, 50, 50, 0.58);
-    box-shadow:         2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+    // -webkit-box-shadow: 2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+    // -moz-box-shadow:    2px 1px 5px 0px rgba(50, 50, 50, 0.58);
+    // box-shadow:         2px 1px 5px 0px rgba(50, 50, 50, 0.58);
     }
     p{
       transform:scale(1.1,1.1);

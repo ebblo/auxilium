@@ -1,9 +1,9 @@
 <div class='container' id="index-patient">
   <div class='row'>
-    <div class='col-sm-6 scroll-patient-index'>
+    <div class='col-sm-6 '>
       <h2 class='mt-5 pl-2'><%= "Mes patients" %></h2>
       <br>
-      <div>
+      <div class="px-3 scroll-patient-index">
         <% @patients.each do |patient| %>
           <%= link_to patient_path(patient), class: 'color-link' do %>
             <div class='card-product my-3'>
