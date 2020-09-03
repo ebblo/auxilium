@@ -3,7 +3,7 @@
   <% new_consultations = @consultations.select { |consultation| consultation.date >= DateTime.now } %>
   <% unless old_consultations.first.nil? %>
     <% last_consultation = old_consultations.last %>
-    <h1 class="mb-4"><%= last_consultation.title %> le <%= last_consultation.date.strftime("%m/%d/%Y") %> à <%= last_consultation.date.strftime("%H:%M") %>.</h1>
+    <h1 class="mb-4"><em><%= last_consultation.title %></em> du <%= last_consultation.date.strftime("%m/%d/%Y") %></h1>
   <% else %>
     <h1 class="mb-4">Pas de dernière consultation</h1>
   <% end %>
