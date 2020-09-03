@@ -81,28 +81,34 @@
         <% @prescriptions.each do |prescription| %>
           <hr class="style1 my-2 mx-auto">
           <div class="d-flex flex-column ml-2 my-3">
-            <div class="d-flex test-drug">       
+            <div class="d-flex test-drug">
               <div class="drug-quantity-img">
                 <span><%= prescription.quantity %></span>
               </div>
               <span class="ml-4 content-doctor-prescrition row">
                 <%= prescription.medication.name %> :
               </span>
-              <div class="ml-auto">
-                <%# –––––––––––––button 'Arrêter le traitement' (dans la boucle DO) –––––––––––––%>
-                <%= link_to patient_consultation_consultation_medication_path(@patient, last_consultation, prescription), method: :delete, data: { confirm: "Etes-vous sûr?" }, class: "d-flex align-items-center btn-note-report" do %>
-                  <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128749/delete_goevhg.png", alt: "logo médicaments", class:"mx-3" %>
-                  <%# <p class="m-0 text-decoration-none"> Arrêter le traitement </p> %>
-                <% end %>
-              </div>      
+              <% if current_user.doctor? %>
+                <div class="ml-auto">
+                  <%# –––––––––––––button 'Arrêter le traitement' (dans la boucle DO) –––––––––––––%>
+                  <%= link_to patient_consultation_consultation_medication_path(@patient, last_consultation, prescription), method: :delete, data: { confirm: "Etes-vous sûr?" }, class: "d-flex align-items-center btn-note-report" do %>
+                    <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128749/delete_goevhg.png", alt: "logo médicaments", class:"mx-3" %>
+                    <%# <p class="m-0 text-decoration-none"> Arrêter le traitement </p> %>
+                  <% end %>
+                </div>      
+              <% end %>
             </div>
-            <div class="d-flex justify-content-between">
-              <p class="m-0">- <%= prescription.description %></p>
-                <%# –––––––––––––button 'Modifier un traitement' (dans la boucle DO) –––––––––––––%>
-                <%= link_to "#", data: {toggle: "modal", target: "#modalPrescriptionUpdate-#{prescription.id}"}, class: "d-flex align-items-center btn-note-report" do %>
-                  <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "logo médicaments", class:"mx-3" %>
+            
+              <div class="d-flex justify-content-between">
+                <p class="m-0">- <%= prescription.description %></p>
+                <% if current_user.doctor? %>
+                  <%# –––––––––––––button 'Modifier un traitement' (dans la boucle DO) –––––––––––––%>
+                  <%= link_to "#", data: {toggle: "modal", target: "#modalPrescriptionUpdate-#{prescription.id}"}, class: "d-flex align-items-center btn-note-report" do %>
+                    <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "logo médicaments", class:"mx-3" %>
+                  <% end %>
                 <% end %>
-            </div>
+              </div>
+            
 
           </div>
 
