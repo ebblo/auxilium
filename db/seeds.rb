@@ -439,14 +439,14 @@ my_consultation_10 = Consultation.new(
   title: "Suivi hebdomadaire",
   date: DateTime.new(2020,8,29,17,30,0),
   public_report: "Les progrès réalisés ces dernières semaines sont bluffants, bravo! C'est une très bonne idée de vous mettre à la méditation, cela vous permettra de prendre plus de recul sur les problèmes qui vous affectent.",
-  private_report: "Zachariah continue sur sa lancée, dissocie de mieux en mieux les problèmes dûs à sa maladie du reste. A de moins en moins de mal à échanger avec des personnes inconnnues, notamment en travail. Sa vie familiale semble se stabiliser également.",
+  private_report: "Zachariah continue sur sa lancée, dissocie de mieux en mieux les problèmes dûs à sa maladie du reste. A de moins en moins de mal à échanger avec des personnes inconnnues, notamment au travail. Sa vie familiale semble se stabiliser également.",
   patient: my_patient_1,
   doctor: my_doctor_1
 )
 my_consultation_10.save!
 
 my_consultation_11 = Consultation.new(
-  title: "Suivi dernière séance hebdomadaire",
+  title: "Consultation du vendredi",
   date: DateTime.new(2020,9,4,17,30,0),
   patient: my_patient_1,
   doctor: my_doctor_1
