@@ -8,7 +8,7 @@ class Consultation < ApplicationRecord
   validates :title, :date, presence: true
 
   ###### REACTIVATE THIS LINE (desactivated for seeding)
-  # after_create :async_update # Run on create
+  after_create :async_update # Run on create
 
   private
 
