@@ -347,7 +347,7 @@ puts "--------------------------------------"
 
 my_consultation_1 = Consultation.new(
   title: "Première entrevue",
-  date: DateTime.new(2020,7,3,10,30,0),
+  date: DateTime.new(2020,7,3,10,30,0,2,Rational(2,24)),
   public_report: "Réfléchissez à la raison qui a poussé vos proches à prendre contact avec moi, afin que vous puissiez suivre ces séances.",
   private_report: "Zachariah ne souhaite pas être là. Il prétend perdre son temps. Il dit cependant qu'il reviendra.",
   patient: my_patient_1,
@@ -357,7 +357,7 @@ my_consultation_1.save!
 
 my_consultation_2 = Consultation.new(
   title: "Seconde séance",
-  date: DateTime.new(2020,7,10,10,0,0),
+  date: DateTime.new(2020,7,10,10,0,0,Rational(2,24)),
   public_report: "Bravo pour votre engagement. Ne mettez-vous aucune pression. Chaque chose en son temps.",
   private_report: "Zachariah semble être prêt à suivre la thérapie. Pour la première fois il a mentionné sa bipolarité, mais ne souhaite pas en dire plus pour l'instant.",
   patient: my_patient_1,
@@ -367,7 +367,7 @@ my_consultation_2.save!
 
 my_consultation_3 = Consultation.new(
   title: "Consulation hebdomadaire",
-  date: DateTime.new(2020,7,14,12,15,0),
+  date: DateTime.new(2020,7,14,12,15,0,Rational(2,24)),
   public_report: "Demandez-vous si vos proches sont fiers de vous. Pensez à la réaction de votre mère lors que vous avez obtenu votre diplôme.",
   private_report: "Zachariah évoque les problèmes quotidiens dû à sa maladie. Il a l'impression de ne pas être respecté pour ce qu'il est par son entourage.",
   patient: my_patient_1,
@@ -377,7 +377,7 @@ my_consultation_3.save!
 
 my_consultation_4 = Consultation.new(
   title: "Suivi hebdomadaire",
-  date: DateTime.new(2020,7,22,17,15,0),
+  date: DateTime.new(2020,7,22,17,15,0,Rational(2,24)),
   public_report: "Pensez aux moments où vous vous sentez bien. Quel est votre état d'esprit à ce moment là?",
   private_report: "Zachariah semble soulagé. Il semble commencer à accepter sa bipolarité et le fait qu'on puisse avoir une vie quasi normale malgré tout.",
   patient: my_patient_1,
@@ -387,7 +387,7 @@ my_consultation_4.save!
 
 my_consultation_5 = Consultation.new(
   title: "Séance hebdomadaire",
-  date: DateTime.new(2020,7,30,14,0,0),
+  date: DateTime.new(2020,7,30,14,0,0,Rational(2,24)),
   public_report: "Trouvez 5 éléments que vous pourriez améliorer dans votre quotidien.",
   private_report: "Zachariah admet que la maladie le pénalise fortement au quotidien, et a tendance à l'angoisser fortement lorsqu'il se retrouve dans un environnement qu'il connaît mal.",
   patient: my_patient_1,
@@ -397,7 +397,7 @@ my_consultation_5.save!
 
 my_consultation_6 = Consultation.new(
   title: "Consultation hebdomadaire",
-  date: DateTime.new(2020,8,4,16,15,0,0),
+  date: DateTime.new(2020,8,4,16,15,0,0,Rational(2,24)),
   public_report: "Félicitations pour votre reprise. Pensez à ce que vous ressentez lors que vous rentrez d'une journée de travail.",
   private_report: "Zachariah reprend son travail après 12 mois d'arrêt maladie. Il semble reprendre confiance. Il est cependant anxieux d'une éventuelle rechute.",
   patient: my_patient_1,
@@ -407,7 +407,7 @@ my_consultation_6.save!
 
 my_consultation_7 = Consultation.new(
   title: "Suivi hebdomadaire",
-  date: DateTime.new(2020,8,12,11,45,0),
+  date: DateTime.new(2020,8,12,11,45,0,Rational(2,24)),
   public_report: "Continuez dans cette direction. Ne pensez pas à ce que les gens que vous ne connaissez pas pensent de vous, soyez vous-même.",
   private_report: "Zachariah se sent mieux. Aime son travail. Ne veut pas s'emballer, mais a moins peur d'aller vers les gens.",
   patient: my_patient_1,
@@ -417,7 +417,7 @@ my_consultation_7.save!
 
 my_consultation_8 = Consultation.new(
   title: "Consultation hebdomadaire",
-  date: DateTime.new(2020,8,20,8,15,0),
+  date: DateTime.new(2020,8,20,8,15,0,Rational(2,24)),
   public_report: "Vos proches sont là pour vous soutenir, ne l'oubliez jamais. N'hésitez pas à parler ouvertement de votre bipolarité avec eux.",
   private_report: "Zachariah évoque la difficulté pour ses proches de vivre avec une personne bipolaire au quotidien.",
   patient: my_patient_1,
@@ -427,7 +427,7 @@ my_consultation_8.save!
 
 my_consultation_9 = Consultation.new(
   title: "Séance hebdomadaire",
-  date: DateTime.new(2020,8,26,15,0,0),
+  date: DateTime.new(2020,8,26,15,0,0,Rational(2,24)),
   public_report: "Continuez sur cette voie, vous êtes sur la bonne voie. Pensez aux axes d'amélioration évoqués lors de la séance.",
   private_report: "Zachariah est dans une bonne phase. Semble trouver un bon équilibre entre son travail et sa vie familiale.",
   patient: my_patient_1,
@@ -437,7 +437,7 @@ my_consultation_9.save!
 
 my_consultation_10 = Consultation.new(
   title: "Suivi hebdomadaire",
-  date: DateTime.new(2020,8,29,17,30,0),
+  date: DateTime.new(2020,8,29,17,30,0,Rational(2,24)),
   public_report: "Les progrès réalisés ces dernières semaines sont bluffants, bravo! C'est une très bonne idée de vous mettre à la méditation, cela vous permettra de prendre plus de recul sur les problèmes qui vous affectent.",
   private_report: "Zachariah continue sur sa lancée, dissocie de mieux en mieux les problèmes dûs à sa maladie du reste. A de moins en moins de mal à échanger avec des personnes inconnnues, notamment au travail. Sa vie familiale semble se stabiliser également.",
   patient: my_patient_1,
@@ -447,7 +447,7 @@ my_consultation_10.save!
 
 my_consultation_11 = Consultation.new(
   title: "Consultation du vendredi",
-  date: DateTime.new(2020,9,4,17,30,0),
+  date: DateTime.new(2020,9,4,17,30,0,Rational(2,24)),
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -455,7 +455,7 @@ my_consultation_11.save!
 
 my_consultation_12 = Consultation.new(
   title: "Consultation du vendredi",
-  date: DateTime.new(2020,9,11,17,30,0),
+  date: DateTime.new(2020,9,11,17,30,0,Rational(2,24)),
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -463,7 +463,7 @@ my_consultation_12.save!
 
 my_consultation_13 = Consultation.new(
   title: "Consultation hebdomadaire",
-  date: DateTime.new(2020,9,18,17,30,0),
+  date: DateTime.new(2020,9,18,17,30,0,Rational(2,24)),
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -471,7 +471,7 @@ my_consultation_13.save!
 
 my_consultation_14 = Consultation.new(
   title: "Consultation du vendredi",
-  date: DateTime.new(2020,9,25,17,30,0),
+  date: DateTime.new(2020,9,25,17,30,0,Rational(2,24)),
   patient: my_patient_1,
   doctor: my_doctor_1
 )
@@ -479,7 +479,7 @@ my_consultation_14.save!
 
 my_consultation_P2 = Consultation.new(
   title: "Consultation checkup",
-  date: "2020,8,28,17,0,0",
+  date: "2020,8,28,17,0,0,Rational(2,24)",
   patient: my_patient_2,
   doctor: my_doctor_1
 )
