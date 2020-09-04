@@ -9,9 +9,9 @@ en:
     calendar: "Calendar"
 
   home:
-    h1-blur-box: "YouMind, always with you !"
-    content-blur-box: "Build a trustworthy relation, even remotedly. Youmind allows you to keep in touch with your therapist, anytime. Never miss an appointment anymore ! Bring your doctor home."
-    title-bg-2: "Why using Youmind ?"
+    h1-blur-box: "YouMind, always with you"
+    content-blur-box: "Build a trustworthy relation, even remotely. YouMind allows you to keep in touch with your therapist, anytime. Never miss an appointment anymore ! Bring your doctor home."
+    title-bg-2: "Why use YouMind ?"
     content-card1: "Keeping in touch with your doctor is as quick and simple as an integrated Chat."
     content-card2: "Quickly access your medical records and past appointments."
     content-card3: "Make appointments online 24/7 and organize video chats."
