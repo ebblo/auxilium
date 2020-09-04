@@ -10,21 +10,21 @@
       <div class="mt-5 ml-auto nav flex-column nav-pills vertical-tab" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link px-4 active  py-2" id="last-consult-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/last-consult_qhvtsy.png", class:"tabs-icon" %>
-          <%= t ('show.sidebar.link-last-consultation') %>
+          <%= t('sidebar.link-last-consultation') %>
         </a>
         <a class="nav-link px-4 py-2" id="historic-consult-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/all-consult_db2etz.png", class:"tabs-icon" %>
-          <%= t ('show.sidebar.link-my-consultations') %>
+          <%= t('sidebar.link-my-consultations') %>
         </a>
         <a class="nav-link px-4  py-2" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880706/chat_l8zkzl.png", class:"tabs-icon" %>
-          <%= t ('show.sidebar.link-messaging') %> 
+          <%= t('sidebar.link-messaging') %> 
         </a>
 
         <% if current_user.doctor? %>
           <a class="nav-link px-4  py-2" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
             <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598882097/book_zykugo.png", class:"tabs-icon" %>
-            <%= t ('show.sidebar.link-schedule-meeting') %>
+            <%= t('sidebar.link-schedule-meeting') %>
           </a>
         <% end %>
 
@@ -40,7 +40,7 @@
           <%# -------drop-right------- %>
           <div class="dropdown dropright">
             <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <h2 class="text-center text-white font-weight-bold"><%= t ('show.sidebar.show-profil-doctor_html') %><i class="fal fa-info-circle"></i></h2>
+              <h2 class="text-center text-white font-weight-bold"><%= t('sidebar.show-profil-doctor_html') %><i class="fal fa-info-circle"></i></h2>
               <div class="d-flex justify-content-center align-items-center">
                 <%# --------------------img avatar-profil-------------------- %>
 
@@ -72,7 +72,7 @@
           <%# -------drop-right------- %>
           <div class="dropdown dropright">
             <div  class="dropdown-toggle col-md-11 mx-auto py-3" href="#" role="button" id="dropDownProfil" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <h2 class="text-center text-white font-weight-bold"><%= t ('show.sidebar.show-profil-patient_html') %><i class="fal fa-info-circle"></i></h2>
+              <h2 class="text-center text-white font-weight-bold"><%= t('sidebar.show-profil-patient_html') %><i class="fal fa-info-circle"></i></h2>
               <div class="d-flex justify-content-center align-items-center">
 
                 <%# --------------------img avatar-profil-------------------- %>
@@ -118,14 +118,16 @@
           <% next_consultation = new_consultations.first %>
           <div class="next-consult mx-auto text-center px-4">
             <img src="https://res.cloudinary.com/kyulol/image/upload/v1598872143/clock_xvf0nk.png" class="mr-2 icon-profil-sidebar clock-consult" alt="">
-            <p class="text-center font-weight-bold"><%= t ('show.sidebar.next-consultation') %></p>
+            <p class="text-center font-weight-bold">
+              <%= t('sidebar.next-consultation') %>
+            </p>
 
 
 
             <div class="d-flex flex-column mb-2">
               <h3><%= next_consultation.title %></h3>
-              <p class="date-consult"><%= t ('show.sidebar.the') %> <span><%= next_consultation.date.strftime("%d/%m/%Y") %>
-                </span> <%= t ('show.sidebar.at') %> <span><%= next_consultation.date.strftime("%H:%M") %></span>
+              <p class="date-consult"><%= t('sidebar.the') %> <span><%= next_consultation.date.strftime("%d/%m/%Y") %>
+                </span> <%= t('sidebar.at') %> <span><%= next_consultation.date.strftime("%H:%M") %></span>
               </p>
             </div>
 
@@ -133,8 +135,8 @@
 
         <%# ajouter un timer "consultation dans x-hours" %>
         <% else %>
-          <p class="next-consult mx-auto text-center font-weight-bold"><%= "Prochaine consultation :" %><br>
-            <span class="text-white"><%= t ('show.sidebar.no-consultation-schedule') %></span>
+          <p class="next-consult mx-auto text-center font-weight-bold"><%= t('sidebar.next-consultation') %><br>
+            <span class="text-white"><%= t('sidebar.no-consultation-schedule') %></span>
           </p>
 
         <% end %>

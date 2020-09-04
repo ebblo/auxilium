@@ -6,7 +6,7 @@
     <h1 class="mb-0"><%= last_consultation.title %></h1>
     <h2 class='mt-0 pt-0 mb-3'> <%= last_consultation.date.strftime("%d.%m.%Y") %></h2>
   <% else %>
-    <h2 class="mb-4"><%= t ('show.page-last-consultation.no-consultation') %></h2>
+    <h2 class="mb-4"><%= t('page-last-consultation.no-consultation') %></h2>
   <% end %>
 
   <div id="tab-consutation-medication" class="row justify-content-center">
@@ -21,7 +21,7 @@
           <% end %>
           
           <div id="doctor-report">
-            <h3 class="sticky-top w-100 bg-white title-report"><%= t ('show.page-last-consultation.doctor-report') %></h3>
+            <h3 class="sticky-top w-100 bg-white title-report"><%= t('page-last-consultation.doctor-report') %></h3>
             <hr class="style1 mx-auto">
 
             <p class="pr-2"><%= last_consultation.public_report %></p>
@@ -30,7 +30,7 @@
               <%# ---button-modal ajouter/modifier un rapport--- %>
               <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-doctor-report", class:"d-flex align-items-center btn-note-report edit-btn-report"}) do %>
                 <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-                <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.edit-report') %></p>
+                <p class="m-0 text-decoration-none"><%= t('page-last-consultation.edit-report') %></p>
               <% end %>
             <% end %>
 
@@ -43,7 +43,7 @@
 
             <div id="doctor-note">
               
-              <h3 class="sticky-top w-100 bg-white title-report"><%= t ('show.page-last-consultation.private-notes') %></h3>
+              <h3 class="sticky-top w-100 bg-white title-report"><%= t('page-last-consultation.private-notes') %></h3>
               <hr class="style1 mx-auto">
               <p><%= last_consultation.private_report %></p>
               <% if current_user.doctor? %>
@@ -51,7 +51,7 @@
                 <%# button-modal ajouter/modifier une note privee %>
                 <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-private-note", class:"d-flex align-items-center btn-note-report edit-btn-report"}) do %>
                   <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-                  <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.edit-report') %></p>
+                  <p class="m-0 text-decoration-none"><%= t('page-last-consultation.edit-report') %></p>
                 <% end %>
 
               <% end %>
@@ -65,19 +65,19 @@
     <%# --------prescription de medicament-------- %>
     <div id="prescription-tabs" class="bg-white ml-3">
       <% unless last_consultation.nil? %>
-      <h3 class="text-center my-3"><%= t ('show.page-last-consultation.drugs-medication') %></h3>
+      <h3 class="text-center my-3"><%= t('page-last-consultation.drugs-medication') %></h3>
 
-        <%# –––––––––––––button 'Ajouter une prescription' –––––––––––––%>
+        
         <% if current_user.doctor? %>
           <%= link_to(root_path, {"data-hover" => "Notifications", "data-toggle" => "modal", "data-target" => "#modal-prescription-add", class:"d-flex align-items-center btn-note-report my-4"}) do %>
             <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "Le Wagon", class:"mx-3" %>
-            <p class="m-0 text-decoration-none"><%= t ('show.page-last-consultation.new-treatment') %></p>
+            <p class="m-0 text-decoration-none"><%= t('page-last-consultation.new-drugs') %></p>
           <% end %>
         <% end %>
 
         
         <% @prescriptions = last_consultation.consultation_medications %>
-
+        <%# ––––––––––––––MODAL create 1 drug prescription' (dans la boucle DO) –––––––––––––%>
         <% @prescriptions.each do |prescription| %>
           <hr class="style1 my-2 mx-auto">
           <div class="d-flex flex-column ml-2 my-3">
@@ -90,7 +90,7 @@
               </span>
               <% if current_user.doctor? %>
                 <div class="ml-auto">
-                  <%# –––––––––––––button 'Arrêter le traitement' (dans la boucle DO) –––––––––––––%>
+                  <%# –––––––––––––MODAL delete 1 drug prescription' (dans la boucle DO) –––––––––––––%>
                   <%= link_to patient_consultation_consultation_medication_path(@patient, last_consultation, prescription), method: :delete, data: { confirm: "Etes-vous sûr?" }, class: "d-flex align-items-center btn-note-report" do %>
                     <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128749/delete_goevhg.png", alt: "logo médicaments", class:"mx-3" %>
                     <%# <p class="m-0 text-decoration-none"> Arrêter le traitement </p> %>
@@ -102,7 +102,7 @@
               <div class="d-flex justify-content-between">
                 <p class="m-0">- <%= prescription.description %></p>
                 <% if current_user.doctor? %>
-                  <%# –––––––––––––button 'Modifier un traitement' (dans la boucle DO) –––––––––––––%>
+                  <%# –––––––––––––button 'Modifier 1 traitement' (dans la boucle DO) –––––––––––––%>
                   <%= link_to "#", data: {toggle: "modal", target: "#modalPrescriptionUpdate-#{prescription.id}"}, class: "d-flex align-items-center btn-note-report" do %>
                     <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599128748/edit_wrlxz5.png", alt: "logo médicaments", class:"mx-3" %>
                   <% end %>
@@ -112,7 +112,7 @@
 
           </div>
 
-          <%# –––––––––––––button 'Editer une prescription' (dans la boucle DO) –––––––––––––%>
+          <%# –––––––––––––MODAL edit 1 drug prescription' (dans la boucle DO) –––––––––––––%>
           <% if current_user.doctor? %>
 
           
@@ -122,12 +122,12 @@
                   <div class="modal-body">
                     <div class="container d-flex flex-column align-items-left">
                       <div>
-                        <h4>Modifier le traitement</h4>
+                        <h4><%= t('page-last-consultation.edit-drug') %></h4>
                         <%= simple_form_for [ @patient, last_consultation, prescription ] do |f| %>
-                          <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: 'Description', id:'message-text' %>
+                          <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: t('page-last-consultation.new-treatment.description'), id:'message-text' %>
                           <%= f.input :quantity, label: false, class:'form-control', placeholder: 'Quantité', id:'message-text' %>
                           <div class='d-flex justify-content-end'>
-                            <%= f.submit "Modifier", class: "btn btn-primary btn-sign-in" %>
+                            <%= f.submit t('page-last-consultation.edit-report'), class: "btn btn-primary btn-sign-in" %>
                           </div>
                         <% end %>
                       </div>
@@ -151,11 +151,11 @@
               <div class="modal-body">
                 <div class="container d-flex flex-column align-items-left">
                   <div>
-                    <h4>Rapport public</h4>
+                    <h4><%= t('page-last-consultation.h4-modal-public-report') %></h4>
                     <%= simple_form_for [ @patient, last_consultation ] do |f| %>
                       <%= f.input :public_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
                       <div class='d-flex justify-content-end'>
-                        <%= f.submit 'Envoyer', class: "btn btn-primary btn-sign-in" %>
+                        <%= f.submit t('page-last-consultation.send'), class: "btn btn-primary btn-sign-in" %>
                       </div>
                     <% end %>
                   </div>
@@ -172,11 +172,11 @@
               <div class="modal-body">
                 <div class="container d-flex flex-column align-items-left">
                   <div>
-                    <h4>Rapport confidentiel</h4>
+                    <h4><%= t('page-last-consultation.h4-modal-piravte-report') %></h4>
                     <%= simple_form_for [ @patient, last_consultation ] do |f| %>
                       <%= f.input :private_report, as: :text, label: false, class:'form-control', id:'message-text', rows: '5' %>
                       <div class='d-flex justify-content-end'>
-                        <%= f.submit 'Envoyer', class: "btn btn-primary btn-sign-in" %>
+                        <%= f.submit t('page-last-consultation.send'), class: "btn btn-primary btn-sign-in" %>
                       </div>
                     <% end %>
                   </div>
@@ -193,13 +193,13 @@
               <div class="modal-body">
                 <div class="container d-flex flex-column align-items-left">
                   <div>
-                    <h4>Nouveau traitement</h4>
+                    <h4><%= t('page-last-consultation.new-drugs') %></h4>
                     <%= simple_form_for [ @patient, last_consultation, @new_consultation_medication ] do |f| %>
                       <%= f.input :medication_id, collection: Medication.all, label: false, placeholder: 'ID', class:'form-control', id:'message-text' %>
-                      <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: 'Description', id:'message-text' %>
-                      <%= f.input :quantity, label: false, class:'form-control', placeholder: 'Quantité', id:'message-text' %>
+                      <%= f.input :description, as: :text, label: false, class:'form-control', placeholder: t('page-last-consultation.description'), id:'message-text' %>
+                      <%= f.input :quantity, label: false, class:'form-control', placeholder: t('page-last-consultation.quantity'), id:'message-text' %>
                       <div class='d-flex justify-content-end'>
-                        <%= f.submit "Nouvelle prescription", class: "btn btn-primary btn-sign-in" %>
+                        <%= f.submit t('page-last-consultation.btn-add-drugs'), class: "btn btn-primary btn-sign-in" %>
                       </div>
                     <% end %>
                   </div>

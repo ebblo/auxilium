@@ -16,7 +16,7 @@
       <%# ---------------english flag--------------- %>
 
       <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">
-        <%= link_to(root_path(locale: :en), {"class" => "dropdown-item"}) do %>
+        <%= link_to(root_path(locale: :en), {"class" => "dropdown-item link-drop-item"}) do %>
           <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag">
         <% end %>
         <%# <a class="dropdown-item" href="#">
@@ -27,16 +27,16 @@
 
   <% else %>
 
-    <%# ---------------french flag--------------- %>
+    <%# ---------------english flag--------------- %>
     <div class="dropright stagger-link" id="flags">
       <%= link_to(root_path(locale: :en), {"class" => "dropdown-toggle", "role" => "button", "id" => "dropDownFlag", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}) do %>
         <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="french-flag">
       <% end %>
 
-      <%# ---------------english flag--------------- %>
+      <%# ---------------french flag--------------- %>
 
       <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">
-        <%= link_to(root_path(locale: :fr), {"class" => "dropdown-item"}) do %>
+        <%= link_to(root_path(locale: :fr), {"class" => "dropdown-item link-drop-item"}) do %>
           <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="uk-flag">
         <% end %>
         <%# <a class="dropdown-item" href="#">
@@ -69,7 +69,7 @@
     <%# --------------2eme navbar-------------- %>
     <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">
       <%= link_to(root_path, {"data-hover" => t('navbar.calendar'), "class" => "nav-item stagger-link"}) do %>
-        <%= t ('navbar.calendar') %>
+        <%= t('navbar.calendar') %>
       <% end %>
       <%= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item stagger-link"}) do %>
         Notifications

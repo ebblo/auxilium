@@ -1,5 +1,5 @@
 <div class="chat-room">
-  <h1><%= t ('show.page-messaging.title-messaging') %></h1>
+  <h1><%= t('page-messaging.title-messaging') %></h1>
 
   <div id="messages", data-chatroom-id=<%= chatroom.id %>>
     <% chatroom.messages.each do |message| %>
@@ -8,6 +8,6 @@
   </div>
 </div>
   <%= simple_form_for [ chatroom, message ], class:"log-in-form position-fixed my-2", remote: true do |f| %>
-    <%= f.input :content, as: :text,  label: false, class:'form-control', placeholder: 'Votre message', id:'message-text', rows: '2' %>  
-    <%= f.submit "Envoyer", class: "btn btn-chat text-white mt-4 float-right" %>
+    <%= f.input :content, as: :text,  label: false, class:'form-control', placeholder: t('page-messaging.your-message'), id:'message-text', rows: '2' %>  
+    <%= f.submit t('page-messaging.send'), class: "btn btn-chat text-white mt-4 float-right" %>
   <% end %>
