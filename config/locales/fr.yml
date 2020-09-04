@@ -1,4 +1,10 @@
 fr:
+  devise:
+    sessions: 
+      user:
+        signed_in: "You are know signed in."
+        signed_out: "You are know signed out"
+        
   navbar:
     calendar: "Calendrier"
   

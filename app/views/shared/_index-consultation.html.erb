@@ -33,7 +33,7 @@
             <div class='w-100'>
               <% if DateTime.now < consultation.date + 1.hour  %>
                 <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-                  <div class='card-product-new-active card-product flex-column align-items-center my-2' id='history-card'>
+                  <div class='card-product-new-active card-product flex-column align-items-start justify-content-center my-2' id='history-card'>
                       <h4 class="pl-4"><%= consultation.title %></h4>
                       <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
                       à <%= consultation.date.strftime("%H:%M") %></p>

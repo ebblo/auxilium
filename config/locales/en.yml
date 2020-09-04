@@ -1,14 +1,20 @@
 en:
+  devise:
+    sessions: 
+      user:
+        signed_in: "You are know signed in."
+        signed_out: "You are know signed out"
+  
   navbar:
     calendar: "Calendar"
 
   home:
-    h1-blur-box: "YouMind, always accompanied"
-    content-blur-box: "\"Keep a trust relation, even from far away.\" Youmind propose to keep in touch when you need it. you will never miss a consultation ever with your pratician."
+    h1-blur-box: "YouMind, always with you !"
+    content-blur-box: "Build a trustworthy relation, even remotedly. Youmind allows you to keep in touch with your therapist, anytime. Never miss an appointment anymore ! Bring your doctor home."
     title-bg-2: "Why using Youmind ?"
-    content-card1: "Keep in touch with your pratician simply et quicly with our included chat !"
-    content-card2: "Find your consultation historic and also your meds files"
-    content-card3: "Book online, 24h/24h and 7/7, for a video consultation"
+    content-card1: "Keeping in touch with your doctor is as quick and simple as an integrated Chat."
+    content-card2: "Quickly access your medical records and past appointments."
+    content-card3: "Make appointments online 24/7 and organize video chats."
 
   patients:
     title-patients: "My patients"
@@ -19,34 +25,34 @@ en:
     link-last-consultation: "Last consultation"
     link-my-consultations: "My consultations"
     link-messaging: "Chat"
-    link-schedule-meeting: "Schedule-meeting"
-    show-profil-doctor_html: "show pratician <br>profil "
-    show-profil-patient_html: "Show patient <br>profil "
+    link-schedule-meeting: "Schedule an appointment"
+    show-profil-doctor_html: "Show therapist's <br>profile "
+    show-profil-patient_html: "Show patient's <br>profile "
     next-consultation: "Next consultation :"
     the: ""
     at: "at"
-    no-consultation-schedule: "No consultation scheduled."
+    no-consultation-schedule: "No planned consultation."
   
   page-last-consultation:
-    no-consultation: "No last consultation"
-    doctor-report: "Doctor report"
+    no-consultation: "No consultation"
+    doctor-report: "Therapist's report"
     edit-report: "Edit"
-    private-notes: "Private notes"
-    drugs-medication: "Drugs medication"
-    new-drugs: "New prescription"
+    private-notes: "Confidential notes"
+    drugs-medication: "Drug prescription"
+    new-drugs: "New treatment"
     description: "Description"
     quantity: "Quantity"
-    btn-add-drugs: "Add prescription"
+    btn-add-drugs: "Add treatment"
     h4-modal-public-report: "Public report"
-    send: "Send"
+    send: "Save"
     h4-modal-piravte-report: "Private report"
-    edit-drug: "Edit prescription"
+    edit-drug: "Modify prescription"
 
   page-my-consultations:
-    title-my-consultation: "All my consultations"      
-    upcoming-consultations: "Upcoming consultations"
+    title-my-consultation: "Consultation history"      
+    upcoming-consultations: "Future consultations"
     past-consultations: "Past consultations"
-    doctor-report: "Doctor report"
+    doctor-report: "Therapist's report"
     private-notes: "Private notes"
     at: "at"
     the: ""
@@ -58,6 +64,6 @@ en:
     send: "Send"
   
   page-schedule-meeting:
-    fix-appointment: "Fix Appointment"
-    consultation-reason: "Consultation reason:"
+    fix-appointment: "Schedule an appointment"
+    consultation-reason: "Appointment reason :"
     validate: "Validate"
