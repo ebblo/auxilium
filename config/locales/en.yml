@@ -1,33 +1,69 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  devise:
+    sessions: 
+      user:
+        signed_in: "You are know signed in."
+        signed_out: "You are know signed out"
+  
+  navbar:
+    calendar: "Calendar"
+
+  home:
+    h1-blur-box: "YouMind, always with you !"
+    content-blur-box: "Build a trustworthy relation, even remotedly. Youmind allows you to keep in touch with your therapist, anytime. Never miss an appointment anymore ! Bring your doctor home."
+    title-bg-2: "Why using Youmind ?"
+    content-card1: "Keeping in touch with your doctor is as quick and simple as an integrated Chat."
+    content-card2: "Quickly access your medical records and past appointments."
+    content-card3: "Make appointments online 24/7 and organize video chats."
+
+  patients:
+    title-patients: "My patients"
+    title-schedule: "My schedule"
+    
+  
+  sidebar:
+    link-last-consultation: "Last consultation"
+    link-my-consultations: "My consultations"
+    link-messaging: "Chat"
+    link-schedule-meeting: "Schedule an appointment"
+    show-profil-doctor_html: "Show therapist's <br>profile "
+    show-profil-patient_html: "Show patient's <br>profile "
+    next-consultation: "Next consultation :"
+    the: ""
+    at: "at"
+    no-consultation-schedule: "No planned consultation."
+  
+  page-last-consultation:
+    no-consultation: "No consultation"
+    doctor-report: "Therapist's report"
+    edit-report: "Edit"
+    private-notes: "Confidential notes"
+    drugs-medication: "Drug prescription"
+    new-drugs: "New treatment"
+    description: "Description"
+    quantity: "Quantity"
+    btn-add-drugs: "Add treatment"
+    h4-modal-public-report: "Public report"
+    send: "Save"
+    h4-modal-piravte-report: "Private report"
+    edit-drug: "Modify prescription"
+
+  page-my-consultations:
+    title-my-consultation: "Consultation history"      
+    upcoming-consultations: "Future consultations"
+    past-consultations: "Past consultations"
+    doctor-report: "Therapist's report"
+    private-notes: "Private notes"
+    at: "at"
+    the: ""
+    drugs-precription: "Drugs prescription"
+
+  page-messaging:
+    title-messaging: "Messaging"
+    your-message: "Your message"
+    send: "Send"
+  
+  page-schedule-meeting:
+    fix-appointment: "Schedule an appointment"
+    consultation-reason: "Appointment reason :"
+    validate: "Validate"

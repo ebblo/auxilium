@@ -23,6 +23,9 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+# internationalization i18n I18n
+gem 'rails-i18n'
+
 # cloudinary
 gem 'cloudinary', '~> 1.16.0'
 

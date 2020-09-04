@@ -13,6 +13,7 @@ div.card-product#history-card {
 div.card-product-new#history-card {
   background: $light-blue;
   transition: 0.3s;
+  position: relative;
   &:hover{
     color: inherit !important;
     transform:scale(1.05,1.05);
@@ -21,8 +22,9 @@ div.card-product-new#history-card {
 }
 
 div.card-product-new-active#history-card {
-  background: $light-orange;
+  background: $light-orange !important;
   transition: 0.3s;
+  position: relative;
   &:hover{
     color: inherit !important;
     transform:scale(1.05,1.05);
@@ -36,3 +38,9 @@ div.card-product-new-active#history-card {
   height: 70vh !important;
 }
 
+.file-img-past-consult{
+  position: absolute;
+  width: 50px;
+  top: 11px;
+  right: 6px;
+}
