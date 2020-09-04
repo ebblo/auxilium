@@ -1,6 +1,6 @@
 <!-- Button trigger modal -->
 <div class="d-flex flex-column align-items-center justify-content-center">
-  <h1 class='text-center mt-2 mb-4'> Historique des consultations</h1>
+  <h1 class='text-center mt-2 mb-4'><%= t('page-my-consultations.title-my-consultation') %></h1>
 
   <div class="w-100 d-flex justify-content-around">
     <% old_consultations = @consultations.select { |consultation| consultation.date < DateTime.now }.reverse %>
@@ -8,15 +8,16 @@
 
     <%# ----------nexts consultations---------- %>
     <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
-      <h3 class='mb-3'>Consultations à venir</h3>
+      <h3 class='mb-3'><%= t('page-my-consultations.upcoming-consultations') %></h3>
       <% new_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
           <div class='w-100'>
             <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-              <div class='card-product justify-content-between my-2' id='history-card'>
+              <div class='card-product position-relative flex-column align-items-start justify-content-center my-2' id='history-card'>
                 <h4><%= consultation.title %></h4>
                 <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
                 à <%= consultation.date.strftime("%H:%M") %></p>
+                <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599214971/past-consult_efzyqj.png", class:"file-img-past-consult" %>
               </div>
             <% end %>
           </div>
@@ -26,27 +27,30 @@
 
     <%# ------------old consultations------------ %>
     <div class="d-flex flex-column col-5 bg-white testre max-indux-consult-height">
-      <h3 class='mb-3'>Consultations passées</h3>
+      <h3 class='mb-3'><%= t('page-my-consultations.past-consultations') %></h3>
       <% old_consultations.each do |consultation| %>
         <div class='d-flex justify-content-center'>
             <div class='w-100'>
               <% if DateTime.now < consultation.date + 1.hour  %>
                 <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-                  <div class='card-product-new-active card-product justify-content-between my-2' id='history-card'>
-                      <h4><%= consultation.title %></h4>
+                  <div class='card-product-new-active card-product flex-column align-items-start justify-content-center my-2' id='history-card'>
+                      <h4 class="pl-4"><%= consultation.title %></h4>
                       <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
                       à <%= consultation.date.strftime("%H:%M") %></p>
+                      <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599214971/past-consult_efzyqj.png", class:"file-img-past-consult" %>
                   </div>
                 <% end %>
               <% else %>
                 <%= link_to "#", data: {toggle: "modal", target: "#exampleModal-#{consultation.id}"}, class: 'color-link' do %>
-                    <div class='card-product-new card-product justify-content-between my-2' id='history-card'>
-                        <h4><%= consultation.title %></h4>
-                        <p class="mr-2"><%= consultation.date.strftime("%d/%m/%Y") %>
-                        à <%= consultation.date.strftime("%H:%M") %></p>
+                    <div class='card-product-new card-product flex-column align-items-start justify-content-center my-2' id='history-card'>
+                        <h4 class=""><%= consultation.title %></h4>
+                        <p class=""><%= consultation.date.strftime("%d/%m/%Y") %>
+                        <%= t('page-my-consultations.at') %> <%= consultation.date.strftime("%H:%M") %></p>
+                        <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1599214971/past-consult_efzyqj.png", class:"file-img-past-consult" %>
                     </div>
                   <% end %>
               <% end %>
+              
             </div>
           </div> 
       <% end %>
@@ -63,7 +67,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.title%> le<br><%= consultation.date.strftime("%d/%m/%Y") %><%= " à " %><%= consultation.date.strftime("%H:%M") %></h5>
+          <h5 class="modal-title" id="exampleModalLabel"><%= consultation.title%> <%= t('page-my-consultations.the') %><br><%= consultation.date.strftime("%d/%m/%Y") %>&nbsp;<%= t('page-my-consultations.at') %>&nbsp;<%= consultation.date.strftime("%H:%M") %></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -73,20 +77,20 @@
           <% unless consultation.date > DateTime.now %>
 
 
-            <h5>Rapport du médecin</h5>
+            <h5><%= t('page-my-consultations.doctor-report') %></h5>
             <%= consultation.public_report %>
 
             <hr class="style1 mx-auto my-4">
 
             <% if current_user.doctor? %>
 
-              <h5>Notes privés</h5>
+              <h5><%= t('page-my-consultations.private-notes') %></h5>
               <p><%= consultation.private_report %></p>
               <p><% prescriptions = consultation.consultation_medications %></p>              
 
               <hr class="style1 mx-auto my-4">
 
-              <h5><%= "Prescription de médicaments" %></h5>
+              <h5><%= t('page-my-consultations.drugs-precription') %></h5>
               <% prescriptions.each do |prescription| %>
                 <p>- <%= prescription.medication.name %>&nbsp;<%= prescription.quantity %>&nbsp;<%= prescription.description %></p>                  
               <% end %>

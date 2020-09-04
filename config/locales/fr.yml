@@ -1,0 +1,70 @@
+fr:
+  devise:
+    sessions: 
+      user:
+        signed_in: "You are know signed in."
+        signed_out: "You are know signed out"
+        
+  navbar:
+    calendar: "Calendrier"
+  
+  home:
+    h1-blur-box: "YouMind, toujours accompagné"
+    content-blur-box: "\"Maintenir une relation de confiance, même à distance.\" Youmind vous propose de garder contact en tout temps avec votre thérapeute. Il ne sera plus jamais question de manquer une consultation. Depuis chez vous, avec votre médecin."
+    title-bg-2: "Pourquoi utiliser YouMind ?"
+    content-card1: "Gardez le contact avec votre médecin simplement et rapidement grace au Chat intégré !"
+    content-card2: "Retrouvez votre historique de rendez-vous et vos documents médicaux."
+    content-card3: "Prenez rendez vous en ligne, 24h/24 et 7j/7, pour une consultation vidéo."
+
+  patients:
+    title-patients: "Mes patients"
+    title-schedule: "Mon emploi du temps"
+    
+  
+  sidebar:
+    link-last-consultation: "Dernière consultation"
+    link-my-consultations: "Mes consultations"
+    link-messaging: "Messagerie"
+    link-schedule-meeting: "Planifier un rendez-vous"
+    show-profil-doctor_html: "Afficher profil <br>praticien "
+    show-profil-patient_html: "Afficher profil <br>patient "
+    next-consultation: "Prochaine consultation :"
+    the: "Le"
+    at: "à"
+    no-consultation-schedule: "Aucune consultation de prévue."
+  
+  page-last-consultation:
+    no-consultation: "Pas de dernière consultation"
+    doctor-report: "Rapport du médecin"
+    edit-report: "Editer"
+    private-notes: "Notes confidentielles"
+    drugs-medication: "Prescription de médicaments"
+    new-drugs: "Nouveau traitement"
+    description: "Description"
+    quantity: "Quantité"
+    btn-add-drugs: "Nouvelle prescription"
+    h4-modal-public-report: "Rapport public"
+    send: "Enregistrer"
+    h4-modal-piravte-report: "Rapport privé"
+    edit-drug: "Modifier le traitement"
+
+  page-my-consultations:
+    title-my-consultation: "Historique des consultations"     
+    upcoming-consultations: "Consultations à venir"
+    past-consultations: "Consultations passées"
+    doctor-report: "Rapport du médecin"
+    private-notes: "Notes privés"
+    at: "à"
+    the: "le"
+    drugs-precription: "Prescription de médicaments"
+
+  page-messaging:
+    title-messaging: "Messagerie"
+    your-message: "Votre message"
+    send: "Envoyer"
+  
+  page-schedule-meeting:
+    fix-appointment: "Fixer un rendez-vous"
+    consultation-reason: "Motif du rendez-vous"
+    validate: "Planifier"
+    
