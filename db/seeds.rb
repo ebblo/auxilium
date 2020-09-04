@@ -446,7 +446,7 @@ my_consultation_10 = Consultation.new(
 my_consultation_10.save!
 
 my_consultation_11 = Consultation.new(
-  title: "Suivi dernière séance hebdomadaire",
+  title: "Consultation du vendredi",
   date: DateTime.new(2020,9,4,17,30,0),
   patient: my_patient_1,
   doctor: my_doctor_1
