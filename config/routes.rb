@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+  # scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     # your routes here...
     # devise
     devise_for :users
@@ -39,5 +39,5 @@ Rails.application.routes.draw do
     authenticate :user, ->(user) { user.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
-  end
+  # end
 end

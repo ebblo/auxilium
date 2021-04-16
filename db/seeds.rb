@@ -637,7 +637,7 @@ url = "https://www.doctissimo.fr/classe-PL-ANTIDEPRESSEURS.htm"
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 
-html_doc.search('.multi-columns-2 li a').each do |element|
+html_doc.search('.doc-list--grid li a').each do |element|
   my_medication = Medication.new(
     name: element.text.strip
   )
