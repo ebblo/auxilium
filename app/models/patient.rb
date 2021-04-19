@@ -20,4 +20,8 @@ class Patient < User
   def full_address
     "#{self.street}, #{self.zip} #{self.city}"
   end
+
+  def next_consultation
+    self.consultations.where("consultations.date >= ?", Time.zone.now).order(:date).first
+  end
 end

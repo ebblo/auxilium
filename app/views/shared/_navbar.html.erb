@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between align-items-center p-2">
+<div class="d-flex justify-content-between align-items-center p-2 col-12" >
   <div class="ml-3">
     <%= link_to root_path do %>
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
@@ -7,11 +7,11 @@
   <div class="mr-3">
     <% if user_signed_in? %>
       <%= link_to destroy_user_session_path, method: :delete do %>
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
       <% end %>
     <% else %>
       <%= link_to new_user_session_path do %>
-        <i class="fas fa-sign-in-alt"></i>
+        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
       <% end %>
     <% end %>
   </div>

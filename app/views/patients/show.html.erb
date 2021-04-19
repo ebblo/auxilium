@@ -1,6 +1,6 @@
 <div class="col-12" style="background-color: #AABAD9;">
   <div class="row justify-content-around">
-    <div class="card col-11 d-flex justify-content-center mt-3" style="height: 220px; background-color: white; border-radius: 8px; border: none;" >
+    <div class="card col-11 d-flex justify-content-center mt-3" style="height: 200px; background-color: white; border-radius: 8px; border: none;" >
       <div>
         <h2 class="card-text mt-3 font-weight-bold text-center"><%= @patient.full_name %></h2>
         <div class="m-2">
@@ -24,14 +24,23 @@
   </div>
 
   <div class="row justify-content-around">
+    <div class="card col-11 d-flex justify-content-center mt-3" style="height: 100px; background-color: white; border-radius: 8px; border: none;" >
+      <div>
+        <h2 class="card-text font-weight-bold text-center mb-2">Next consultation</h2>
+        <p class="text-center"><%= @next_consultation.present? ? "#{@next_consultation.full_title_and_date}" : "No consultation scheduled"%></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-around">
     <div class="card col-5 d-flex justify-content-center mt-3" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
       <div style="text-align: center">
         <%= link_to root_path do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/last-consult_qhvtsy.png", class:"mt-2", style:"height: 50px;" %>
+          <div>
+            <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Last consultation</p>
+          </div>
         <% end %>
-      </div>
-      <div>
-        <p class="card-text mt-3 font-weight-bold text-center">Last consultation</p>
       </div>
     </div>
 
@@ -39,25 +48,30 @@
       <div style="text-align: center">
         <%= link_to root_path do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/all-consult_db2etz.png", class:"mt-2", style:"height: 50px;" %>
+          <div>
+            <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Consultation history</p>
+          </div>
         <% end %>
-      </div>
-      <div>
-        <p class="card-text mt-3 font-weight-bold text-center">Consultation history</p>
       </div>
     </div>
   </div>
 
   <div class="row justify-content-center">
-    <div class="card col-11 d-flex justify-content-center mt-3 mb-3" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
+    <div class="card col-11 d-flex justify-content-center mt-3 mb-5" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
       <div style="text-align: center">
         <%= link_to root_path do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598882097/book_zykugo.png", class:"mt-2", style:"height: 50px;" %>
+          <div>
+            <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Book consultation</p>
+          </div>
         <% end %>
-      </div>
-      <div>
-        <p class="card-text mt-3 font-weight-bold text-center">Book consultation</p>
       </div>
     </div>
   </div>
+
+  <br>
+  <br>
+  <br>
+  
 </div>
 
