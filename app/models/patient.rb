@@ -12,4 +12,12 @@ class Patient < User
   def doctor
     @doctor = self.doctors.first
   end
+
+  def full_name
+    "#{self.first_name.capitalize} #{self.last_name.capitalize}"
+  end
+
+  def full_address
+    "#{self.street}, #{self.zip} #{self.city}"
+  end
 end

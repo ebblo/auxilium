@@ -1,15 +1,18 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="d-flex justify-content-between align-items-center p-2">
   <div class="ml-3">
     <%= link_to root_path do %>
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
     <% end %>
   </div>
-  <h1>YouMind</h1>
   <div class="mr-3">
     <% if user_signed_in? %>
-      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-decoration-none"	 %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fas fa-sign-in-alt"></i>
+      <% end %>
     <% else %>
-      <%= link_to "Login", new_user_session_path%>
+      <%= link_to new_user_session_path do %>
+        <i class="fas fa-sign-in-alt"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
