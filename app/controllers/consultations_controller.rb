@@ -1,5 +1,14 @@
 class ConsultationsController < ApplicationController
-  before_action :set_patient
+  before_action :set_patient, only: [ :create, :update ]
+  before_action :set_consultation, only: [ :show, :edit ]
+
+  def show
+
+  end
+
+  def edit
+
+  end
 
   def create
     # @patient = Patient.find(params[:patient_id])
@@ -18,6 +27,10 @@ class ConsultationsController < ApplicationController
   end
 
   private
+
+  def set_consultation
+    @consultation = Consultation.find(params[:id])
+  end
 
   def set_patient
     @patient = Patient.find(params[:patient_id])

@@ -24,4 +24,8 @@ class Patient < User
   def next_consultation
     self.consultations.where("consultations.date >= ?", Time.zone.now).order(:date).first
   end
+
+  def last_consultation
+    self.consultations.where("consultations.date < ?", Time.zone.now).order(:date).first
+  end
 end

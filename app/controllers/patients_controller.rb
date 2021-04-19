@@ -18,6 +18,7 @@ class PatientsController < ApplicationController
   # patient#show on doctor's side
   def show
     @next_consultation = @patient.next_consultation
+    @last_consultation = @patient.last_consultation
     # @doctor = current_user
     # @consultations = @patient.consultations.order(:date)
     # @new_consultation = Consultation.new

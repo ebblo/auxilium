@@ -35,7 +35,7 @@
   <div class="row justify-content-around">
     <div class="card col-5 d-flex justify-content-center mt-3" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
       <div style="text-align: center">
-        <%= link_to root_path do %>
+        <%= link_to consultation_path(@last_consultation) do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/last-consult_qhvtsy.png", class:"mt-2", style:"height: 50px;" %>
           <div>
             <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Last consultation</p>
@@ -72,6 +72,6 @@
   <br>
   <br>
   <br>
-  
+
 </div>
 

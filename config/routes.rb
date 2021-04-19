@@ -19,6 +19,9 @@ Rails.application.routes.draw do
         end
       end
     end
+
+    resources :consultations, only: [ :show, :edit ]
+
     get "/my_profile", to: "patients#my_profile", :as => :my_profile
 
     # chatroom
