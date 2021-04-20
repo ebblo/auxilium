@@ -1,13 +1,18 @@
 class ConsultationsController < ApplicationController
-  before_action :set_patient, only: [ :create, :update ]
+  before_action :set_patient, only: [ :create ]
   before_action :set_consultation, only: [ :show, :edit ]
 
   def show
-
+    @consultation_medications = @consultation.consultation_medications.includes(:medication)
   end
 
   def edit
-
+    if params[:consultation_medication].present?
+      @consultation_medication = ConsultationMedication.find(params[:consultation_medication])
+    else
+      @consultation_medication = ConsultationMedication.new
+    end
+    @medications = Medication.all
   end
 
   def create
@@ -20,10 +25,13 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    # @patient = Patient.find(params[:patient_id])
     @consultation = Consultation.find(params[:id])
     @consultation.update(consultation_params_update)
-    redirect_to patient_path(@patient)
+    if @consultation.save
+      redirect_to consultation_path(@consultation)
+    else
+      render "edit"
+    end
   end
 
   private

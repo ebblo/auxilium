@@ -13,14 +13,18 @@ Rails.application.routes.draw do
 
     # dashboard
     resources :patients, only: [ :index, :show ] do
-      resources :consultations, only: [ :create, :update ] do
-        resources :consultation_medications, only: [ :new, :create, :update, :destroy] do
+      resources :consultations, only: [ :create ] do
+        resources :consultation_medications, only: [ :new, :update] do
           resources :medications, only: [ :create ]
         end
       end
     end
 
-    resources :consultations, only: [ :show, :edit ]
+    resources :consultations, only: [ :show, :edit, :update ] do
+      resources :consultation_medications, only: [ :create, :update ]
+    end
+
+    resources :consultation_medications, only: [ :destroy ]
 
     get "/my_profile", to: "patients#my_profile", :as => :my_profile
 
