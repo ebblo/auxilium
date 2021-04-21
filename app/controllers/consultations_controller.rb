@@ -1,5 +1,5 @@
 class ConsultationsController < ApplicationController
-  before_action :set_patient, only: [ :index, :create , :new ]
+  before_action :set_patient, only: [ :index, :create  ]
   before_action :set_consultation, only: [ :show, :edit ]
 
   def index
@@ -10,10 +10,6 @@ class ConsultationsController < ApplicationController
   def show
     @consultation_medications = @consultation.consultation_medications.includes(:medication)
     @patient = @consultation.patient
-  end
-
-  def new
-    @consultation = Consultation.new
   end
 
   def edit

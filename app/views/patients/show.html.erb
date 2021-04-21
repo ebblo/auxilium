@@ -62,16 +62,20 @@
     </div>
   </div>
 
+  <div class="col-12 mt-5">
+    <h2 class="card-text font-weight-bold text-center">Book consultation</h2>
+  </div>
   <div class="row justify-content-center">
-    <div class="card col-11 d-flex justify-content-center mt-3 mb-5" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
-      <div style="text-align: center">
-        <%= link_to new_patient_consultation_path(@patient) do %>
-          <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598882097/book_zykugo.png", class:"mt-2", style:"height: 50px;" %>
-          <div>
-            <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Book consultation</p>
+    <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
+      <div class="mt-3">
+        <%= simple_form_for [ @patient, @new_consultation ] do |f| %>
+          <%= f.input :date, as: :datetime, label: false, html5: true, class: "mt-3" %>
+          <div class='d-flex justify-content-end'>
+            <%= f.submit "Book", class: "btn btn-primary mt-2 mb-3" %>
           </div>
         <% end %>
       </div>
+
     </div>
   </div>
 

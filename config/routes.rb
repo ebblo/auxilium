@@ -13,11 +13,7 @@ Rails.application.routes.draw do
 
     # dashboard
     resources :patients, only: [ :index, :show ] do
-      resources :consultations, only: [ :index, :create, :new ] do
-        resources :consultation_medications, only: [ :new, :update] do
-          resources :medications, only: [ :create ]
-        end
-      end
+      resources :consultations, only: [ :index, :create ]
     end
 
     resources :consultations, only: [ :show, :edit, :update ] do
@@ -29,7 +25,7 @@ Rails.application.routes.draw do
     get "/my_profile", to: "patients#my_profile", :as => :my_profile
 
     # chatroom
-    resources :chatrooms, only: [] do
+    resources :chatrooms, only: [ :show ] do
       resources :messages, only: [:create]
     end
 
