@@ -32,28 +32,26 @@
       <div class=" row justify-content-center mt-3 align-items-center">
         <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Prescription</h2>
         <%= link_to edit_consultation_path(@consultation) do %>
-          <i class="fas fa-plus-circle col-2" style="color: #395579;"></i>
+          <i class="fas fa-plus-circle col-2" style="color: green; opacity: 0.7;"></i>
         <% end %>
       </div>
       <% if !@consultation_medications.empty? %>
         <% @consultation_medications.each do |consultation_medication| %>
-          <div class="row justify-content-center h-auto w-100 border border-2 mb-1">
-            <p class="col-2 card-text mb-3 p-2 text-center d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.quantity %></p>
-            <p class="col-5 card-text mb-3 p-2 text-center d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.medication.name %></p>
-            <p class="col-5 card-text mb-3 p-2 text-center d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.description %></p>
-            <%#= link_to consultation_medication_path(consultation_medication), method: :delete do %>
-<!--              <i class="fas fa-trash-alt col-6" style="color: #395579;"></i>-->
-            <%# end %>
-            <%#= link_to edit_consultation_path(@consultation, consultation_medication: consultation_medication) do %>
-<!--              <i class="fas fa-edit col-6" style="color: #395579;"></i>-->
-            <%# end %>
+          <div class="card-text mb-3 p-2 text-left d-inline-block h-auto w-100 border border-2" style="border-radius: 10px; border-color: #395579;">
+            <div class="row">
+              <p class="col-3 card-text mb-3 p-2 text-center d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.quantity %></p>
+              <p class="col-9 card-text mb-3 p-2 text-center d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.medication.name %></p>
+            </div>
+            <p class="col-12 card-text mb-1 p-2 text-right d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.description %></p>
           </div>
-          <%= link_to consultation_medication_path(consultation_medication), method: :delete do %>
-            <i class="fas fa-trash-alt col-6" style="color: #395579;"></i>
-          <% end %>
-          <%= link_to edit_consultation_path(@consultation, consultation_medication: consultation_medication) do %>
-            <i class="fas fa-edit col-6" style="color: #395579;"></i>
-          <% end %>
+          <div class="row justify-content-around mb-3">
+            <%= link_to consultation_medication_path(consultation_medication), method: :delete do %>
+              <i class="fas fa-trash-alt col-6" style="color: red; opacity: 0.7;"></i>
+            <% end %>
+            <%= link_to edit_consultation_path(@consultation, consultation_medication: consultation_medication) do %>
+              <i class="fas fa-edit col-6" style="color: #395579;"></i>
+            <% end %>
+          </div>
         <% end %>
       <% else %>
         <p class="card-text mb-3 p-2 text-left d-inline-block h-auto w-100 border border-2" style="border-radius: 10px; border-color: #395579;">No prescription</p>
