@@ -9,6 +9,8 @@ class Patient < User
 
   validates :avs_number, presence: true
 
+  # after_create :new_chatroom
+
   def doctor
     @doctor = self.doctors.first
   end
@@ -28,4 +30,11 @@ class Patient < User
   def last_consultation
     self.consultations.where("consultations.date < ?", Time.zone.now).order(:date).first
   end
+
+  # def new_chatroom
+  #   chatroom = Chatroom.new
+  #   chatroom.patient = self
+  #   chatroom.doctor = self.doctor
+  #   chatroom.save
+  # end
 end
