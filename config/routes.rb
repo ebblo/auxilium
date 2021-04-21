@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     # dashboard
     resources :patients, only: [ :index, :show ] do
-      resources :consultations, only: [ :create ] do
+      resources :consultations, only: [ :index, :create, :new ] do
         resources :consultation_medications, only: [ :new, :update] do
           resources :medications, only: [ :create ]
         end

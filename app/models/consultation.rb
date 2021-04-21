@@ -5,14 +5,17 @@ class Consultation < ApplicationRecord
   has_many :consultation_medications, dependent: :destroy
   has_many :medications, through: :consultation_medications
 
-  validates :title, :date, presence: true
+  validates :date, presence: true
 
   ###### REACTIVATE THIS LINE (desactivated for seeding)
   # after_create :async_update # Run on create
 
-  def full_title_and_date
-    "#{self.title}: #{self.date.strftime("%d/%m/%Y")}, #{self.date.strftime("%H:%M")}"
+  def full_date
+    "#{self.date.strftime("%d/%m/%Y")}, #{self.date.strftime("%H:%M")}"
   end
+
+  scope :past, -> { where("consultations.date < ?", Time.zone.now) }
+  scope :upcoming, -> { where("consultations.date >= ?", Time.zone.now) }
 
   private
 

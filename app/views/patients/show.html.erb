@@ -1,25 +1,30 @@
 <div class="col-12" style="background-color: #AABAD9;">
-  <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
-  <div class="row justify-content-around">
-    <div class="card col-11 d-flex justify-content-center mt-3" style="height: 200px; background-color: white; border-radius: 8px; border: none;" >
-      <div>
-        <h2 class="card-text mt-3 font-weight-bold text-center"><%= @patient.full_name %></h2>
-        <div class="m-2">
-          <a href="tel:<%= @patient.phone_number %>" style="color: #395579;">
-            <i class="fas fa-phone mr-3"></i>
-            <%= @patient.phone_number %>
-          </a>
-        </div>
-        <div class="m-2">
-          <i class="fas fa-notes-medical mr-3"></i>
-          <%= @patient.avs_number %>
-        </div>
-        <div class="m-2">
-          <a href="https://www.google.com/maps/place/<%= @patient.full_address %>" target=”_blank” style="color: #395579;">
-            <i class="fas fa-address-card mr-3"></i>
-            <%= @patient.full_address %>
-          </a>
-        </div>
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-2">
+      <%= link_to patients_path do %>
+        <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
+      <% end %>
+    </div>
+    <div class="col-10 mt-3">
+      <h2 class="card-text font-weight-bold text-center mb-2"><%= @patient.full_name %></h2>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center mt-3">
+      <div class="m-2 col-10">
+        <a href="tel:<%= @patient.phone_number %>" style="color: #395579;">
+          <i class="fas fa-phone mr-3"></i>
+          <%= @patient.phone_number %>
+        </a>
+      </div>
+      <div class="m-2 col-10">
+        <i class="fas fa-notes-medical mr-3"></i>
+        <%= @patient.avs_number %>
+      </div>
+      <div class="m-2 col-10">
+        <a href="https://www.google.com/maps/place/<%= @patient.full_address %>" target=”_blank” style="color: #395579;">
+          <i class="fas fa-address-card mr-3"></i>
+          <%= @patient.full_address %>
+        </a>
       </div>
     </div>
   </div>
@@ -28,7 +33,7 @@
     <div class="card col-11 d-flex justify-content-center mt-3" style="height: 100px; background-color: white; border-radius: 8px; border: none;" >
       <div>
         <h2 class="card-text font-weight-bold text-center mb-2">Next consultation</h2>
-        <p class="text-center"><%= @next_consultation.present? ? "#{@next_consultation.full_title_and_date}" : "No consultation scheduled"%></p>
+        <p class="text-center"><%= @next_consultation.present? ? "#{@next_consultation.full_date}" : "No consultation scheduled"%></p>
       </div>
     </div>
   </div>
@@ -47,7 +52,7 @@
 
     <div class="card col-5 d-flex justify-content-center mt-3" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
       <div style="text-align: center">
-        <%= link_to root_path do %>
+        <%= link_to patient_consultations_path(@patient) do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598880705/all-consult_db2etz.png", class:"mt-2", style:"height: 50px;" %>
           <div>
             <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Consultation history</p>
@@ -60,7 +65,7 @@
   <div class="row justify-content-center">
     <div class="card col-11 d-flex justify-content-center mt-3 mb-5" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
       <div style="text-align: center">
-        <%= link_to root_path do %>
+        <%= link_to new_patient_consultation_path(@patient) do %>
           <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598882097/book_zykugo.png", class:"mt-2", style:"height: 50px;" %>
           <div>
             <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Book consultation</p>

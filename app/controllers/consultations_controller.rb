@@ -1,9 +1,19 @@
 class ConsultationsController < ApplicationController
-  before_action :set_patient, only: [ :create ]
+  before_action :set_patient, only: [ :index, :create , :new ]
   before_action :set_consultation, only: [ :show, :edit ]
+
+  def index
+    @past_consultations = @patient.consultations.past.order(date: :desc)
+    @upcoming_consultations = @patient.consultations.upcoming.order(date: :desc)
+  end
 
   def show
     @consultation_medications = @consultation.consultation_medications.includes(:medication)
+    @patient = @consultation.patient
+  end
+
+  def new
+    @consultation = Consultation.new
   end
 
   def edit
@@ -16,17 +26,19 @@ class ConsultationsController < ApplicationController
   end
 
   def create
-    # @patient = Patient.find(params[:patient_id])
-    @consultation = Consultation.new(consultation_params_create)
+    @consultation = Consultation.new(consultation_params)
     @consultation.doctor = current_user
     @consultation.patient = @patient
-    @consultation.save!
-    redirect_to patient_path(@patient)
+    if @consultation.save
+      redirect_to patient_consultations_path
+    else
+      render "new"
+    end
   end
 
   def update
     @consultation = Consultation.find(params[:id])
-    @consultation.update(consultation_params_update)
+    @consultation.update(consultation_params)
     if @consultation.save
       redirect_to consultation_path(@consultation)
     else
@@ -44,11 +56,7 @@ class ConsultationsController < ApplicationController
     @patient = Patient.find(params[:patient_id])
   end
 
-  def consultation_params_create
-    params.require(:consultation).permit(:title, :date)
-  end
-
-  def consultation_params_update
-    params.require(:consultation).permit(:public_report, :private_report)
+  def consultation_params
+    params.require(:consultation).permit(:date, :public_report, :private_report)
   end
 end
