@@ -1,15 +1,19 @@
 class ConsultationsController < ApplicationController
+  before_action :authenticate_doctor!
+
   before_action :set_patient, only: [ :index, :create  ]
   before_action :set_consultation, only: [ :show, :edit ]
 
   def index
     @past_consultations = @patient.consultations.past.order(date: :desc)
     @upcoming_consultations = @patient.consultations.upcoming.order(date: :desc)
+    @chatroom = @patient.chatroom
   end
 
   def show
     @consultation_medications = @consultation.consultation_medications.includes(:medication)
     @patient = @consultation.patient
+    @chatroom = @patient.chatroom
   end
 
   def edit
@@ -19,11 +23,12 @@ class ConsultationsController < ApplicationController
       @consultation_medication = ConsultationMedication.new
     end
     @medications = Medication.all
+    @chatroom = @consultation.patient.chatroom
   end
 
   def create
     @consultation = Consultation.new(consultation_params)
-    @consultation.doctor = current_user
+    @consultation.doctor = current_doctor
     @consultation.patient = @patient
     if @consultation.save
       redirect_to patient_consultations_path

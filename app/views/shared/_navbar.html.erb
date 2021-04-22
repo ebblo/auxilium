@@ -5,12 +5,19 @@
     <% end %>
   </div>
   <div class="mr-3">
-    <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete do %>
+    <% if doctor_signed_in?  %>
+      <%= link_to destroy_doctor_session_path, method: :delete do %>
+        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
+      <% end %>
+    <% elsif patient_signed_in? %>
+      <%= link_to destroy_patient_session_path, method: :delete do %>
         <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
       <% end %>
     <% else %>
-      <%= link_to new_user_session_path do %>
+      <%= link_to new_doctor_session_path do %>
+        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
+      <% end %>
+      <%= link_to new_patient_session_path do %>
         <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
       <% end %>
     <% end %>

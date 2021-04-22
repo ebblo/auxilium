@@ -65,6 +65,20 @@ ActiveRecord::Schema.define(version: 2020_09_02_101419) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "doctors", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "first_name"
+    t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_doctors_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_doctors_on_reset_password_token", unique: true
+  end
+
   create_table "medications", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -73,21 +87,18 @@ ActiveRecord::Schema.define(version: 2020_09_02_101419) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
-    t.bigint "user_id", null: false
     t.bigint "chatroom_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "patients", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "type"
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
@@ -95,15 +106,17 @@ ActiveRecord::Schema.define(version: 2020_09_02_101419) do
     t.string "city"
     t.string "zip"
     t.string "street"
+    t.bigint "doctor_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["doctor_id"], name: "index_patients_on_doctor_id"
+    t.index ["email"], name: "index_patients_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_patients_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "consultation_medications", "consultations"
   add_foreign_key "consultation_medications", "medications"
   add_foreign_key "messages", "chatrooms"
-  add_foreign_key "messages", "users"
+  add_foreign_key "patients", "doctors"
 end

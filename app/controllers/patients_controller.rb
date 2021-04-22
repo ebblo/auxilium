@@ -1,14 +1,15 @@
 class PatientsController < ApplicationController
+  before_action :authenticate_doctor!
+
   before_action :set_patient, only: [:show]
 
   def index
-    doctor = current_user
-    @patients = doctor.patients.order(:last_name).uniq
+    @patients = current_doctor.patients.order(:last_name).uniq
   end
 
   # patient#show on patient's side
   def my_profile 
-    @patient = current_user
+    @patient = current_patient
     @doctor = @patient.doctor
     @consultations = @patient.consultations.order(:date)
     open_chatroom
@@ -20,6 +21,7 @@ class PatientsController < ApplicationController
     @next_consultation = @patient.next_consultation
     @last_consultation = @patient.last_consultation
     @new_consultation = Consultation.new
+    @chatroom = @patient.chatroom
   end
 
   private
