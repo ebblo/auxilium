@@ -1,1 +1,8 @@
 <h1>coucou</h1>
+
+<%= simple_form_for [ @chatroom, @message ] do |f| %>
+  <%= f.input :content, as: :text, label: false %>
+  <div class='d-flex justify-content-end'>
+    <%= f.submit "Send", class: "btn btn-primary mt-2 mb-3" %>
+  </div>
+<% end %>
