@@ -13,4 +13,8 @@ class Doctor < ApplicationRecord
   has_one_attached :photo
 
   validates :first_name, :last_name, presence: true
+
+  def full_name
+    "Dr. #{self.last_name.capitalize}"
+  end
 end

@@ -1,13 +1,11 @@
-<% if message.user.doctor?  %>
+<% if message.messageable_type == "Doctor"  %>
 
 
   <%# -----------receive-message----------- %>
-  <div class="message-container d-flex justify-content-start" id="message-<%= message.id %>">
-    <div class="m-2 message-receive shadow-sm">
-      <i class="author">
-        <span class="font-weight-bold">Dr <%= " " %><%= message.user.last_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
+  <div class="card col-11 d-flex justify-content-center m-3" style="height: auto; background-color: white; border-radius: 8px; border: none;" id="message-<%= message.id %>">
+    <div>
+      <span class="font-weight-bold"><%= current_doctor.full_name %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       <p><%= message.content %></p>
     </div>
   </div>
@@ -18,7 +16,7 @@
     <div class="message-container d-flex justify-content-end" id="message-<%= message.id %>">
       <div class="m-2 message-user shadow-sm">
       <i class="author">
-        <span class="font-weight-bold"><%= message.user.first_name %><%= " " %><%= message.user.last_name %></span>
+        <span class="font-weight-bold"><%= current_patient.first_name %><%= " " %><%= current_patient.last_name %></span>
         <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
       </i>
       <p><%= message.content %></p>

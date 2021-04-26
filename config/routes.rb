@@ -31,7 +31,8 @@ Rails.application.routes.draw do
   end
 
   # video call route
-  get '/calls', to: 'calls#show'
+  # get '/calls', to: 'calls#show'
+  resources :calls, only: [ :show ]
 
   # errorpages routes
   get "/404", :to => "errors#not_found"
