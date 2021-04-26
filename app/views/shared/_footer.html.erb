@@ -6,5 +6,13 @@
     <%= link_to videoroom_path(@videoroom) do %>
         <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
     <% end %>
+  <% else %>
+    <footer class="pt-2">
+      <div class="d-flex justify-content-center">
+        <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598877707/facebook_nf1scq.png", class:"footer-icon" %>
+        <%= image_tag "https://res.cloudinary.com/kyulol/image/upload/v1598877702/twitter_jd9gu8.png", class:"footer-icon" %>
+      </div>
+      <p class="text-center">2020 © YouMind. All rights reserved.</p>
+    </footer>
   <% end %>
 </div>

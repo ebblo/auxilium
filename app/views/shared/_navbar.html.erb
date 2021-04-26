@@ -4,24 +4,33 @@
       <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
     <% end %>
   </div>
-  <div class="mr-3">
-    <% if doctor_signed_in?  %>
-      <%= link_to destroy_doctor_session_path, method: :delete do %>
-        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary" style="background-color: #395579;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      My profile
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <% if doctor_signed_in?  %>
+        <%= link_to destroy_doctor_session_path, method: :delete do %>
+          <p class="dropdown-item">Logout</p>
+        <% end %>
+      <% elsif patient_signed_in? %>
+        <%= link_to destroy_patient_session_path, method: :delete do %>
+          <p class="dropdown-item">Logout</p>
+        <% end %>
+      <% else %>
+        <%= link_to new_doctor_session_path do %>
+          <p>Doctor login</p>
+        <% end %>
+        <%= link_to new_patient_session_path do %>
+          <p>Patient login</p>
+        <% end %>
       <% end %>
-    <% elsif patient_signed_in? %>
-      <%= link_to destroy_patient_session_path, method: :delete do %>
-        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
-      <% end %>
-    <% else %>
-      <%= link_to new_doctor_session_path do %>
-        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
-      <% end %>
-      <%= link_to new_patient_session_path do %>
-        <i class="fas fa-sign-in-alt fa-2x" style="color: #395579;"></i>
-      <% end %>
-    <% end %>
+    </div>
   </div>
+
+
+
 </div>
 
 

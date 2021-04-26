@@ -1,37 +1,31 @@
-<div class='container' id="index-patient">
-  <div class='row'>
-    <div class='col-sm-6 '>
-      <h2 class='mt-5 pl-2'><%= t('patients.title-patients') %></h2>
-      <br>
-      <div class="px-3 scroll-patient-index">
-        <% @patients.each do |patient| %>
-          <%= link_to patient_path(patient), class: 'color-link' do %>
-            <div class='card-product my-3'>
-              <%# <div class="">
-              </div> %>
+<div class="col-12" style="background-color: #AABAD9;">
 
-              <%= cl_image_tag patient.photo.key, class:"avatar-card-index mx-5" %>
-
-              <div class='row'>
-                <div class='col-sm-12'>
-                  <div class='card-product-info'>
-                    <h4><%= patient.last_name %> <%= patient.first_name %></h2>
-                    <p><img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/avscard_r5hduk.png" class="mr-2 icon-profil-sidebar" alt=""><%= patient.avs_number %></p>
-                    <p><img src="https://res.cloudinary.com/kyulol/image/upload/v1598892733/phone_tkgpff.png" class="mr-2 icon-profil-sidebar" alt=""><%= patient.phone_number %></p>
-                  </div>
-                </div>
-                <%# <div class='col-sm-1'> %>
-                  <p> <%#= patient.last_name %> </p>
-                <%# </div> %>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-2">
+      <%= link_to root_path do %>
+        <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579; text-decoration: none;"></i>
+      <% end %>
     </div>
-    <div class='col-sm-6 col-sm-offset-2'>
-      <h2 class='mt-5 pl-2 mb-2'><%= t('patients.title-schedule') %></h2>
-      <%= image_tag("https://res.cloudinary.com/kyulol/image/upload/v1599123537/Capture_d_%C3%A9cran_2020-09-03_%C3%A0_10.53.48_hmdaij.png", {:style => "width:100%;"}) %>
+    <div class="col-10 mt-3">
+      <h2 class="card-text font-weight-bold text-center mb-2">My patients</h2>
     </div>
   </div>
+
+  <% @patients.each do |patient| %>
+    <%= link_to patient_path(patient) do %>
+      <div class="row justify-content-around">
+        <div class="card col-8 d-flex justify-content-center mt-3 p-2" style="height: auto; background-color: white; border-radius: 8px; border: none;" >
+          <p class="ml-5 card-text font-weight-bold text-left mb-2"><%= patient.full_name %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+  <br>
+  <br>
+  <br>
+
 </div>
+
+
+
