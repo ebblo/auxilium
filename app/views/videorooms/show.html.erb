@@ -17,9 +17,25 @@
         <a href="https://apps.google.com/meet/" target="_blank">
           <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
         </a>
-        <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">Start call</p>
+        <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">New call</p>
       </div>
     </div>
+  </div>
+
+  <div class="text-center">
+    <p>Send URL to patient</p>
+  </div>
+  <div>
+    <%= simple_form_for [ @videoroom ] do |f| %>
+      <div class="m-3 row d-flex">
+        <div class="col-9">
+          <%= f.input :url, as: :text, label: false %>
+        </div>
+        <%= button_tag type: 'submit', style: "color: white; background-color: #395579; border-radius: 8px;" do %>
+          <i class="d-flex align-items-center col-3 fas fa-paper-plane fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
   <br>

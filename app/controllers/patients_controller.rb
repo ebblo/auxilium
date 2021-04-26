@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
   before_action :set_patient, only: [:show]
 
   def index
-    @patients = current_doctor.patients.order(:last_name).uniq
+    @patients = current_doctor.patients.order(:last_name)
   end
 
   # patient#show on patient's side

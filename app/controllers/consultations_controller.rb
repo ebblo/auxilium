@@ -2,7 +2,7 @@ class ConsultationsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_patient, only: [ :index, :create  ]
-  before_action :set_consultation, only: [ :show, :edit ]
+  before_action :set_consultation, only: [ :show, :edit, :update ]
 
   def index
     @past_consultations = @patient.consultations.past.order(date: :desc)
@@ -40,9 +40,7 @@ class ConsultationsController < ApplicationController
   end
 
   def update
-    @consultation = Consultation.find(params[:id])
-    @consultation.update(consultation_params)
-    if @consultation.save
+    if @consultation.update(consultation_params)
       redirect_to consultation_path(@consultation)
     else
       render "edit"

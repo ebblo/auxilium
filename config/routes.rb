@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :videorooms, only: [ :show ]
+  resources :videorooms, only: [ :show, :update ]
 
   # video call route
   # get '/calls', to: 'calls#show'
