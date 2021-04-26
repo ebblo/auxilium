@@ -19,6 +19,8 @@ Message.destroy_all
 puts "Message destroyed"
 Chatroom.destroy_all
 puts "Chatroom destroyed"
+Videoroom.destroy_all
+puts "Videoroom destroyed"
 Patient.destroy_all
 puts "Patient destroyed"
 Doctor.destroy_all

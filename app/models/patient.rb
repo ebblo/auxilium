@@ -8,6 +8,7 @@ class Patient < ApplicationRecord
   belongs_to :doctor
 
   has_one :chatroom
+  has_one :videoroom
   has_many :messages, as: :messageable
 
   has_one_attached :photo
@@ -15,6 +16,7 @@ class Patient < ApplicationRecord
   validates :first_name, :last_name, :phone_number, :city, :zip, :street, :avs_number, presence: true
 
   after_create :new_chatroom
+  after_create :new_videoroom
 
   def full_name
     "#{self.first_name.capitalize} #{self.last_name.capitalize}"
@@ -34,9 +36,9 @@ class Patient < ApplicationRecord
 
   def new_chatroom
     Chatroom.create(patient: self, doctor: self.doctor)
-    # chatroom = Chatroom.new
-    # chatroom.patient = self
-    # chatroom.doctor = self.doctor
-    # chatroom.save
+  end
+
+  def new_videoroom
+    Videoroom.create(patient: self, doctor: self.doctor)
   end
 end

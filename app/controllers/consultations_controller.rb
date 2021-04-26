@@ -8,12 +8,14 @@ class ConsultationsController < ApplicationController
     @past_consultations = @patient.consultations.past.order(date: :desc)
     @upcoming_consultations = @patient.consultations.upcoming.order(date: :desc)
     @chatroom = @patient.chatroom
+    @videoroom = @patient.videoroom
   end
 
   def show
     @consultation_medications = @consultation.consultation_medications.includes(:medication)
     @patient = @consultation.patient
     @chatroom = @patient.chatroom
+    @videoroom = @patient.videoroom
   end
 
   def edit

@@ -8,6 +8,7 @@ class Doctor < ApplicationRecord
   has_many :patients
 
   has_many :chatrooms
+  has_many :videorooms
   has_many :messages, as: :messageable
 
   has_one_attached :photo

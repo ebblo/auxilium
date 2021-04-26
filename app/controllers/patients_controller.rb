@@ -22,6 +22,7 @@ class PatientsController < ApplicationController
     @last_consultation = @patient.last_consultation
     @new_consultation = Consultation.new
     @chatroom = @patient.chatroom
+    @videoroom = @patient.videoroom
   end
 
   private

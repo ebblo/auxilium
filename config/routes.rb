@@ -30,9 +30,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:create]
   end
 
+  resources :videorooms, only: [ :show ]
+
   # video call route
   # get '/calls', to: 'calls#show'
-  resources :calls, only: [ :show ]
 
   # errorpages routes
   get "/404", :to => "errors#not_found"

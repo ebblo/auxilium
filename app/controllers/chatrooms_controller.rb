@@ -7,6 +7,7 @@ class ChatroomsController < ApplicationController
     @messages = @chatroom.messages
     @message = Message.new
     @patient = @chatroom.patient
+    @videoroom = @patient.videoroom
   end
 
   private
