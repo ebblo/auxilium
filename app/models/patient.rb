@@ -8,6 +8,7 @@ class Patient < ApplicationRecord
   belongs_to :doctor
 
   has_one :chatroom
+  has_many :messages, as: :messageable
 
   has_one_attached :photo
 

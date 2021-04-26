@@ -1,6 +1,8 @@
 <div class="d-flex justify-content-around p-2 col-12" style="position: fixed; bottom: 0; background-color: white;">
-  <%= link_to chatroom_path(@chatroom) do %>
-    <i class="fas fa-comments fa-3x" style="color: #395579;"></i>
+  <% if @chatroom.present? %>
+    <%= link_to chatroom_path(@chatroom) do %>
+      <i class="fas fa-comments fa-3x" style="color: #395579;"></i>
+    <% end %>
   <% end %>
   <%= link_to root_path do %>
     <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
