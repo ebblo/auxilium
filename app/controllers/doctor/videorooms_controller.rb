@@ -1,4 +1,4 @@
-class VideoroomsController < ApplicationController
+class Doctor::VideoroomsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_videoroom, only: [:show, :update]

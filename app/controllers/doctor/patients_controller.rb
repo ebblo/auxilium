@@ -1,4 +1,4 @@
-class PatientsController < ApplicationController
+class Doctor::PatientsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_patient, only: [:show]

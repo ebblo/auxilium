@@ -2,7 +2,7 @@
 
   <div class="row d-flex align-items-center justify-content-center">
     <div class="col-2">
-      <%= link_to patient_path(@patient) do %>
+      <%= link_to doctor_patient_path(@patient) do %>
         <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
       <% end %>
     </div>
@@ -16,7 +16,7 @@
     <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
       <div class=" row justify-content-center mt-3 align-items-center">
         <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Public report</h2>
-        <%= link_to edit_consultation_path(@consultation) do %>
+        <%= link_to edit_doctor_consultation_path(@consultation) do %>
           <i class="fas fa-edit col-2" style="color: #395579;"></i>
         <% end %>
       </div>
@@ -30,7 +30,7 @@
     <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
       <div class="row justify-content-center mt-3 align-items-center">
         <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Personal notes</h2>
-        <%= link_to edit_consultation_path(@consultation) do %>
+        <%= link_to edit_doctor_consultation_path(@consultation) do %>
           <i class="fas fa-edit col-2" style="color: #395579;"></i>
         <% end %>
       </div>
@@ -44,7 +44,7 @@
     <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
       <div class=" row justify-content-center mt-3 align-items-center">
         <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Prescription</h2>
-        <%= link_to edit_consultation_path(@consultation) do %>
+        <%= link_to edit_doctor_consultation_path(@consultation) do %>
           <i class="fas fa-plus-circle col-2" style="color: green; opacity: 0.7;"></i>
         <% end %>
       </div>
@@ -58,10 +58,10 @@
             <p class="col-12 card-text mb-1 p-2 text-right d-inline-block" style="border-radius: 10px; border-color: #395579;"><%= consultation_medication.description %></p>
           </div>
           <div class="row justify-content-around mb-3">
-            <%= link_to consultation_medication_path(consultation_medication), method: :delete do %>
+            <%= link_to doctor_consultation_medication_path(consultation_medication), method: :delete do %>
               <i class="fas fa-trash-alt col-6" style="color: red; opacity: 0.7;"></i>
             <% end %>
-            <%= link_to edit_consultation_path(@consultation, consultation_medication: consultation_medication) do %>
+            <%= link_to edit_doctor_consultation_path(@consultation, consultation_medication: consultation_medication) do %>
               <i class="fas fa-edit col-6" style="color: #395579;"></i>
             <% end %>
           </div>

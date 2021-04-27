@@ -1,4 +1,4 @@
-class ConsultationsController < ApplicationController
+class Doctor::ConsultationsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_patient, only: [ :index, :create  ]

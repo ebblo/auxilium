@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Doctors::UnlocksController < Devise::UnlocksController
+class Doctor::UnlocksController < Devise::UnlocksController
   # GET /resource/unlock/new
   # def new
   #   super

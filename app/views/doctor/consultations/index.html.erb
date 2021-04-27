@@ -2,7 +2,7 @@
 
   <div class="row d-flex align-items-center justify-content-center">
     <div class="col-2">
-      <%= link_to patient_path(@patient) do %>
+      <%= link_to doctor_patient_path(@patient) do %>
         <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
       <% end %>
     </div>
@@ -13,7 +13,7 @@
 
   <h2 class="card-text font-weight-bold text-center mb-2 mt-5">Upcoming</h2>
   <% @upcoming_consultations.each do |consultation| %>
-    <%= link_to consultation_path(consultation) do %>
+    <%= link_to doctor_consultation_path(consultation) do %>
       <div class="row justify-content-around">
         <div class="card col-11 d-flex justify-content-center mt-3" style="height: 100px; background-color: white; border-radius: 8px; border: none;" >
           <div class="row justify-content-around">
@@ -27,7 +27,7 @@
 
   <h2 class="card-text font-weight-bold text-center mb-2 mt-5">Past</h2>
   <% @past_consultations.each do |consultation| %>
-    <%= link_to consultation_path(consultation) do %>
+    <%= link_to doctor_consultation_path(consultation) do %>
       <div class="row justify-content-around">
         <div class="card col-11 d-flex justify-content-center mt-3" style="height: 100px; background-color: white; border-radius: 8px; border: none;" >
           <div class="row justify-content-around">

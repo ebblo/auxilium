@@ -1,4 +1,4 @@
-class ConsultationMedicationsController < ApplicationController
+class Doctor::ConsultationMedicationsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_consultation, only: [ :create, :update ]

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Doctors::PasswordsController < Devise::PasswordsController
+class Doctor::PasswordsController < Devise::PasswordsController
   # GET /resource/password/new
   # def new
   #   super

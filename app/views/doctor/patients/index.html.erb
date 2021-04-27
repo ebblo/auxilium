@@ -12,7 +12,7 @@
   </div>
 
   <% @patients.each do |patient| %>
-    <%= link_to patient_path(patient) do %>
+    <%= link_to doctor_patient_path(patient) do %>
       <div class="row justify-content-around">
         <div class="card col-8 d-flex justify-content-center mt-3 p-2" style="height: auto; background-color: white; border-radius: 8px; border: none;" >
           <p class="ml-5 card-text font-weight-bold text-left mb-2"><%= patient.full_name %></p>

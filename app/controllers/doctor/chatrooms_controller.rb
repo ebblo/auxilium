@@ -1,4 +1,4 @@
-class ChatroomsController < ApplicationController
+class Doctor::ChatroomsController < ApplicationController
   before_action :authenticate_doctor!
 
   before_action :set_chatroom, only: [:show]

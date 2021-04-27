@@ -1,10 +1,17 @@
 <div class="d-flex justify-content-around p-2 col-12" style="position: fixed; bottom: 0; background-color: white;">
-  <% if @chatroom.present?  && @videoroom.present? %>
+  <% if doctor_signed_in? && @chatroom.present? && @videoroom.present? %>
+    <%= link_to doctor_chatroom_path(@chatroom) do %>
+      <i class="fas fa-comments fa-3x" style="color: #395579;"></i>
+    <% end %>
+    <%= link_to doctor_videoroom_path(@videoroom) do %>
+        <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
+    <% end %>
+  <% elsif patient_signed_in? && @chatroom.present? && @videoroom.present? %>
     <%= link_to chatroom_path(@chatroom) do %>
       <i class="fas fa-comments fa-3x" style="color: #395579;"></i>
     <% end %>
     <%= link_to videoroom_path(@videoroom) do %>
-        <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
+      <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
     <% end %>
   <% else %>
     <footer class="pt-2">
