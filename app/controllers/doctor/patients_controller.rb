@@ -7,16 +7,6 @@ class Doctor::PatientsController < ApplicationController
     @patients = current_doctor.patients.order(:last_name)
   end
 
-  # patient#show on patient's side
-  def my_profile 
-    @patient = current_patient
-    @doctor = @patient.doctor
-    @consultations = @patient.consultations.order(:date)
-    open_chatroom
-    render "show"
-  end
-
-  # patient#show on doctor's side
   def show
     @next_consultation = @patient.next_consultation
     @last_consultation = @patient.last_consultation
