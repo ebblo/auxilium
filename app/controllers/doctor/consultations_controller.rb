@@ -33,7 +33,7 @@ class Doctor::ConsultationsController < ApplicationController
     @consultation.doctor = current_doctor
     @consultation.patient = @patient
     if @consultation.save
-      redirect_to patient_consultations_path
+      redirect_to doctor_patient_consultations_path
     else
       render "new"
     end
@@ -41,7 +41,7 @@ class Doctor::ConsultationsController < ApplicationController
 
   def update
     if @consultation.update(consultation_params)
-      redirect_to consultation_path(@consultation)
+      redirect_to doctor_consultation_path(@consultation)
     else
       render "edit"
     end

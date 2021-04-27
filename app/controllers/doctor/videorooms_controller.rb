@@ -10,7 +10,7 @@ class Doctor::VideoroomsController < ApplicationController
 
   def update
     if @videoroom.update(videoroom_params)
-      redirect_to videoroom_path(@videoroom)
+      redirect_to doctor_videoroom_path(@videoroom)
     else
       render "viderooms/show"
     end

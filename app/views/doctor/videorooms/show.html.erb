@@ -26,7 +26,7 @@
     <p>Send URL to patient</p>
   </div>
   <div>
-    <%= simple_form_for [ @videoroom ] do |f| %>
+    <%= simple_form_for [ @videoroom ], url: doctor_videoroom_path(@videoroom) do |f| %>
       <div class="m-3 row d-flex">
         <div class="col-9">
           <%= f.input :url, as: :text, label: false %>

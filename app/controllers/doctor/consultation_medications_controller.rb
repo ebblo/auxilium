@@ -8,7 +8,7 @@ class Doctor::ConsultationMedicationsController < ApplicationController
     @consultation_medication = ConsultationMedication.new(consultation_medication_params)
     @consultation_medication.consultation = @consultation
     if @consultation_medication.save
-      redirect_to consultation_path(@consultation)
+      redirect_to doctor_consultation_path(@consultation)
     else
       render 'consultations/edit'
     end
@@ -16,7 +16,7 @@ class Doctor::ConsultationMedicationsController < ApplicationController
 
   def update
     if @consultation_medication.update(consultation_medication_params)
-      redirect_to consultation_path(@consultation)
+      redirect_to doctor_consultation_path(@consultation)
     else
       render "consultations/edit"
     end
@@ -24,7 +24,7 @@ class Doctor::ConsultationMedicationsController < ApplicationController
 
   def destroy
     @consultation_medication.destroy
-    redirect_to consultation_path(@consultation_medication.consultation)
+    redirect_to doctor_consultation_path(@consultation_medication.consultation)
   end
 
   private

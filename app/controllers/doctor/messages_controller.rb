@@ -8,7 +8,7 @@ class Doctor::MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.messageable = current_doctor
     if @message.save
-      redirect_to chatroom_path(@chatroom)
+      redirect_to doctor_chatroom_path(@chatroom)
     else
       render "chatrooms/show"
     end

@@ -18,7 +18,7 @@
   </div>
 
   <div>
-    <%= simple_form_for [ @chatroom, @message ] do |f| %>
+    <%= simple_form_for [ @chatroom, @message ], url: doctor_chatroom_messages_path(@chatroom) do |f| %>
       <div class="m-3 row d-flex">
         <div class="col-9">
           <%= f.input :content, as: :text, label: false %>
