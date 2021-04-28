@@ -1,7 +1,7 @@
 class Doctor::ConsultationMedicationsController < ApplicationController
   before_action :authenticate_doctor!
 
-  before_action :set_consultation, only: [ :create, :update ]
+  before_action :set_consultation, only: [ :create ]
   before_action :set_consultation_medication, only: [ :destroy, :update]
 
   def create
@@ -16,7 +16,7 @@ class Doctor::ConsultationMedicationsController < ApplicationController
 
   def update
     if @consultation_medication.update(consultation_medication_params)
-      redirect_to doctor_consultation_path(@consultation)
+      redirect_to doctor_consultation_path(@consultation_medication.consultation)
     else
       render "consultations/edit"
     end

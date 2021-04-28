@@ -55,7 +55,7 @@
         <div class="col-2"></div>
       </div>
       <div>
-        <%= simple_form_for [ @consultation, @consultation_medication ], url: @consultation_medication.id.present? ? doctor_consultation_consultation_medication_path(@consultation, @consultation_medication) : doctor_consultation_consultation_medications_path(@consultation) do |f| %>
+        <%= simple_form_for [ @consultation, @consultation_medication ], url: @consultation_medication.id.present? ? doctor_consultation_medication_path(@consultation, @consultation_medication) : doctor_consultation_consultation_medications_path(@consultation) do |f| %>
           <%= f.input :medication_id, collection: @medications, label: false %>
           <%= f.input :quantity, label: false %>
           <%= f.input :description, as: :text, label: false %>
