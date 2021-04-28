@@ -1,4 +1,6 @@
 class Doctor::PatientsController < ApplicationController
+  include PatientsControllerConcern
+
   before_action :authenticate_doctor!
 
   before_action :set_patient, only: [:show]
@@ -8,11 +10,8 @@ class Doctor::PatientsController < ApplicationController
   end
 
   def show
-    @next_consultation = @patient.next_consultation
-    @last_consultation = @patient.last_consultation
+    patient_profile
     @new_consultation = Consultation.new
-    @chatroom = @patient.chatroom
-    @videoroom = @patient.videoroom
   end
 
   private
@@ -21,3 +20,5 @@ class Doctor::PatientsController < ApplicationController
     @patient = Patient.find(params[:id])
   end
 end
+
+

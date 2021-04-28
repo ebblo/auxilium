@@ -1,14 +1,13 @@
 class PatientsController < ApplicationController
+  include PatientsControllerConcern
+
   before_action :authenticate_patient!
 
   before_action :set_patient, only: [ :dashboard ]
 
   def dashboard
+    patient_profile
     @doctor = @patient.doctor
-    @next_consultation = @patient.next_consultation
-    @last_consultation = @patient.last_consultation
-    @chatroom = @patient.chatroom
-    @videoroom = @patient.chatroom
   end
 
   private

@@ -1,7 +1,7 @@
-class Doctor::ConsultationsController < ApplicationController
+class ConsultationsController < ApplicationController
   include ConsultationsControllerConcern
 
-  before_action :authenticate_doctor!
+  before_action :authenticate_patient!
 
   before_action :set_patient, only: [ :index, :create  ]
   before_action :set_consultation, only: [ :show, :edit, :update ]
