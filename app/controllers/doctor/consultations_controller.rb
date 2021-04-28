@@ -6,18 +6,9 @@ class Doctor::ConsultationsController < ApplicationController
   before_action :set_patient, only: [ :index, :create  ]
   before_action :set_consultation, only: [ :show, :edit, :update ]
 
-  def index
-    @past_consultations = @patient.consultations.past.order(date: :desc)
-    @upcoming_consultations = @patient.consultations.upcoming.order(date: :desc)
-    @chatroom = @patient.chatroom
-    @videoroom = @patient.videoroom
-  end
-
   def show
-    @consultation_medications = @consultation.consultation_medications.includes(:medication)
     @patient = @consultation.patient
-    @chatroom = @patient.chatroom
-    @videoroom = @patient.videoroom
+    super
   end
 
   def edit
@@ -52,11 +43,11 @@ class Doctor::ConsultationsController < ApplicationController
   private
 
   def set_consultation
-    @consultation = Consultation.find(params[:id])
+    @consultation = Consultation.find(params[:id]) if Consultation.find(params[:id]).doctor == current_doctor
   end
 
   def set_patient
-    @patient = Patient.find(params[:patient_id])
+    @patient = Patient.find(params[:patient_id]) if Patient.find(params[:patient_id]).doctor == current_doctor
   end
 
   def consultation_params

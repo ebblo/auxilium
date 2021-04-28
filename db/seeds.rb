@@ -37,6 +37,16 @@ photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599040891/
 my_doctor_1.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
 my_doctor_1.save!
 
+my_doctor_2 = Doctor.new(
+  email: "adrien.dre@gmail.com",
+  password: "123456",
+  first_name: "Adrien",
+  last_name: "Dre"
+)
+photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599040891/1_2_zf5art.png')
+my_doctor_2.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
+my_doctor_2.save!
+
 puts "1 new doctor created"
 puts "--------------------------------------"
 
