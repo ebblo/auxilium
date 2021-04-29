@@ -1,39 +1,43 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    # your routes here...
+    # devise
+    devise_for :users
 
-  devise_for :doctors, path: "doctor", controllers: { sessions: "doctor/sessions" }
-  devise_for :patients, path: "patient", controllers: { sessions: "patient/sessions" }
+    # root page (it's also where you land after sign_out)
+    root to: "pages#home"
 
-  root to: "pages#home"
+    # redirection after login
+    get '/user', to: "pages#dashboard", :as => :user_root
 
-  # get '/user', to: "pages#dashboard", :as => :user_root TODO redefine after login redirections
-
-  namespace :doctor do
+    # dashboard
     resources :patients, only: [ :index, :show ] do
-      resources :consultations, only: [ :index, :create ]
+      resources :consultations, only: [ :create, :update ] do
+        resources :consultation_medications, only: [ :new, :create, :update, :destroy] do
+          resources :medications, only: [ :create ]
+        end
+      end
     end
-    resources :consultations, only: [ :show, :edit, :update ] do
-      resources :consultation_medications, only: [ :create ]
-    end
-    resources :consultation_medications, only: [ :destroy , :update ]
-    resources :chatrooms, only: [ :show ] do
+    get "/my_profile", to: "patients#my_profile", :as => :my_profile
+
+    # chatroom
+    resources :chatrooms, only: [] do
       resources :messages, only: [:create]
     end
-    resources :videorooms, only: [ :show, :update ]
-  end
 
-  get '/dashboard', to: "patients#dashboard"
-  resources :consultations, only: [ :index, :show ]
-  resources :chatrooms, only: [ :show ] do
-    resources :messages, only: [:create]
-  end
-  resources :videorooms, only: [ :show ]
+    # video call route
+    get '/calls', to: 'calls#show'
 
-  get "/404", :to => "errors#not_found"
-  get "/422", :to => "errors#unacceptable"
-  get "/500", :to => "errors#internal_error"
+    # errorpages routes
+    get "/404", :to => "errors#not_found"
+    get "/422", :to => "errors#unacceptable"
+    get "/500", :to => "errors#internal_error"
 
-  require "sidekiq/web"
-  authenticate :user, ->(user) { user.admin? } do
-    mount Sidekiq::Web => '/sidekiq'
+    # configure sidekiq
+    require "sidekiq/web"
+    authenticate :user, ->(user) { user.admin? } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
   end
 end

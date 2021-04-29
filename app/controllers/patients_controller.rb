@@ -1,18 +1,38 @@
 class PatientsController < ApplicationController
-  include PatientsControllerConcern
+  def index
+    doctor = current_user
+    @patients = doctor.patients.order(:last_name).uniq
+  end
 
-  before_action :authenticate_patient!
-
-  before_action :set_patient, only: [ :dashboard ]
-
-  def dashboard
-    patient_profile
+  # patient#show on patient's side
+  def my_profile 
+    @patient = current_user
     @doctor = @patient.doctor
+    @consultations = @patient.consultations.order(:date)
+    open_chatroom
+    render "show"
+  end
+
+  # patient#show on doctor's side
+  def show
+    @patient = Patient.find(params[:id])
+    @doctor = current_user
+    @consultations = @patient.consultations.order(:date)
+    @new_consultation = Consultation.new
+    @new_consultation_medication = ConsultationMedication.new
+    open_chatroom
   end
 
   private
 
-  def set_patient
-    @patient = current_patient
+  def open_chatroom
+    @chatroom = Chatroom.where(patient: @patient, doctor: @doctor).first
+    if @chatroom.nil?
+      @chatroom = Chatroom.new
+      @chatroom.patient = @patient
+      @chatroom.doctor = @doctor
+      @chatroom.save!
+    end
+    @message = Message.new
   end
 end
