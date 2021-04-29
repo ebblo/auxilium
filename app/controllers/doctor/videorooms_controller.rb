@@ -1,11 +1,13 @@
 class Doctor::VideoroomsController < ApplicationController
+  include VideoroomsControllerConcern
+
   before_action :authenticate_doctor!
 
   before_action :set_videoroom, only: [:show, :update]
 
   def show
     @patient = @videoroom.patient
-    @chatroom = @patient.chatroom
+    super(@patient)
   end
 
   def update
