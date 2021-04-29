@@ -1,13 +1,13 @@
 class Doctor::ChatroomsController < ApplicationController
+  include ChatroomsControllerConcern
+
   before_action :authenticate_doctor!
 
   before_action :set_chatroom, only: [:show]
 
   def show
-    @messages = @chatroom.messages
-    @message = Message.new
     @patient = @chatroom.patient
-    @videoroom = @patient.videoroom
+    super(@patient)
   end
 
   private
