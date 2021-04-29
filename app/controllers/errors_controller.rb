@@ -1,6 +1,5 @@
 class ErrorsController < ApplicationController
-  skip_before_action :authenticate_doctor!
-  skip_before_action :authenticate_patient!
+  skip_before_action :authenticate_user!
 
   def not_found
     respond_to do |format|
