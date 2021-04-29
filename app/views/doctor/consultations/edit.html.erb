@@ -1,0 +1,76 @@
+<div class="col-12" style="background-color: #AABAD9;">
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-2">
+      <%= link_to doctor_consultation_path(@consultation) do %>
+        <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
+      <% end %>
+    </div>
+    <div class="col-10 mt-3">
+      <h2 class="card-text font-weight-bold text-center mb-2">Last consultation</h2>
+    </div>
+    <p class="text-center mt-3"><%= @consultation.full_date %></p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
+      <div class=" row justify-content-center mt-3 align-items-center">
+        <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Public report</h2>
+        <div class="col-2"></div>
+      </div>
+      <div>
+        <%= simple_form_for [ @consultation ], url: doctor_consultation_path(@consultation) do |f| %>
+          <%= f.input :public_report, as: :text, label: false %>
+          <div class='d-flex justify-content-end'>
+            <%= f.submit "Save", class: "btn btn-primary mt-2 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
+      <div class=" row justify-content-center mt-3 align-items-center">
+        <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Personal notes</h2>
+        <div class="col-2"></div>
+      </div>
+      <div>
+        <%= simple_form_for [ @consultation ], url: doctor_consultation_path(@consultation) do |f| %>
+          <%= f.input :private_report, as: :text, label: false %>
+          <div class='d-flex justify-content-end'>
+            <%= f.submit "Save", class: "btn btn-primary mt-2 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="card col-11 d-flex justify-content-center mt-3 mb-5 d-inline-block h-auto" style="height: 120px; background-color: white; border-radius: 8px; border: none;" >
+      <div class=" row justify-content-center mt-3 align-items-center">
+        <h2 class="col-10 card-text font-weight-bold text-center" style="color: #395579;">Drug prescription</h2>
+        <div class="col-2"></div>
+      </div>
+      <div>
+        <%= simple_form_for [ @consultation, @consultation_medication ], url: @consultation_medication.id.present? ? doctor_consultation_medication_path(@consultation, @consultation_medication) : doctor_consultation_consultation_medications_path(@consultation) do |f| %>
+          <%= f.input :medication_id, collection: @medications, label: false %>
+          <%= f.input :quantity, label: false %>
+          <%= f.input :description, as: :text, label: false %>
+          <div class='d-flex justify-content-end'>
+            <%= f.submit "Save", class: "btn btn-primary mt-2 mb-3" %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+
+</div>

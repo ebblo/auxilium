@@ -1,0 +1,65 @@
+<div class="col-12" style="background-color: #AABAD9;">
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-2">
+      <% doctor_signed_in? ? path = doctor_patient_path(@patient) : path = dashboard_path %>
+      <%= link_to path do %>
+        <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
+      <% end %>
+    </div>
+    <div class="col-10 mt-3">
+      <h2 class="card-text font-weight-bold text-center mb-2">Video Call</h2>
+    </div>
+  </div>
+
+  <div class="m-3 row justify-content-around">
+    <div class="card col-12 d-flex justify-content-center mt-3" style="height: 120px; background-color: #eddbd8; border-radius: 8px; border: none;" >
+      <div style="text-align: center">
+        <% if doctor_signed_in? %>
+          <% if @videoroom.url.present? %>
+            <a href=<%= @videoroom.url %> target="_blank">
+              <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
+            </a>
+          <% else %>
+            <a href="https://apps.google.com/meet/" target="_blank">
+              <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
+            </a>
+          <% end %>
+        <% else %>
+          <% if @videoroom.url.present? %>
+            <a href=<%= @videoroom.url %> target="_blank">
+              <i class="fas fa-phone-volume fa-3x" style="color: #395579;"></i>
+            </a>
+          <% else %>
+            <p>No call scheduled</p>
+          <% end %>
+        <% end %>
+        <p class="card-text mt-3 font-weight-bold text-center" style="color: #395579;">New call</p>
+      </div>
+    </div>
+  </div>
+  <% if doctor_signed_in? %>
+    <div class="text-center">
+      <p>Send URL to patient</p>
+    </div>
+  <% end %>
+  <div>
+    <% if doctor_signed_in? %>
+      <%= simple_form_for [ @videoroom ], url: doctor_videoroom_path(@videoroom) do |f| %>
+        <div class="m-3 row d-flex">
+          <div class="col-9">
+            <%= f.input :url, as: :text, label: false %>
+          </div>
+          <%= button_tag type: 'submit', style: "color: white; background-color: #395579; border-radius: 8px;" do %>
+            <i class="d-flex align-items-center col-3 fas fa-paper-plane fa-2x" aria-hidden="true"></i>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+</div>

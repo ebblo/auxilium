@@ -1,59 +1,87 @@
-  <div class="flat-bg d-flex justify-content-begin align-items-center">
+<div class="col-12" style="background-color: #AABAD9;">
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-10 mt-3">
+      <% if doctor_signed_in? %>
+        <%= link_to doctor_patients_path do %>
+          <h2 class="card-text font-weight-bold text-center mb-2 p-2" style="background-color: white; border-radius: 32px;">Getting started</h2>
+        <% end %>
+      <% elsif patient_signed_in? %>
+        <%= link_to dashboard_path do %>
+          <h2 class="card-text font-weight-bold text-center mb-2 p-2" style="background-color: white; border-radius: 32px;">Getting started</h2>
+        <% end %>
+      <% else %>
+        <%= link_to root_path do %>
+          <h2 class="card-text font-weight-bold text-center mb-2 p-2" style="background-color: white; border-radius: 32px;">Getting started</h2>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div style="display: grid; height: 100%;">
+  <%= image_tag "youmind-responsive.png", style: "max-width: 100%; max-height: 100vh; margin: auto;" %>
+</div>
+
+
+
+
+<!--  <div class="flat-bg d-flex justify-content-begin align-items-center">-->
 
     <%# ---------------first bg-home--------------- %>
-    <div class="col-6 d-flex justify-content-center">
-      <div class="col-8 blur p-5 d-flex justify-content-around align-items-center flex-column">
-        <div>
-          <h1 class="text-center font-weight-bold text-white title-box-home">
-            <%= t('home.h1-blur-box') %>
-          </h1>
-        </div>
-        <div>
-          <h5 class="text-white content-box-home font-weight-bold" style="text-align: justify;">
-            <%= t('home.content-blur-box') %>
-          </h5>
-        </div>
+<!--    <div class="col-6 d-flex justify-content-center">-->
+<!--      <div class="col-8 blur p-5 d-flex justify-content-around align-items-center flex-column">-->
+<!--        <div>-->
+<!--          <h1 class="text-center font-weight-bold text-white title-box-home">-->
+            <%#= t('home.h1-blur-box') %>
+<!--          </h1>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--          <h5 class="text-white content-box-home font-weight-bold" style="text-align: justify;">-->
+            <%#= t('home.content-blur-box') %>
+<!--          </h5>-->
+<!--        </div>-->
 
         <%# --------------arrow anchor-------------- %>
-        <%= link_to "#right-card-home", class:"anchor-link" do %>
-          <div href="#right-card-home" class="down-arrow-anchor" id="arrow-anchor">
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+        <%#= link_to "#right-card-home", class:"anchor-link" do %>
+<!--          <div href="#right-card-home" class="down-arrow-anchor" id="arrow-anchor">-->
+<!--          </div>-->
+        <%# end %>
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
 
   <%# ----------------deuxieme bg-home---------------- %>
-  <div class="container-fluid container-fluid-cards p-0">
-    <div class="container projet container-cards">
-      <h4 class="text-center titleBg2 font-weight-bold text-white"><%= t('home.title-bg-2') %></h4>
-      <div class="row justify-content-between align-items-center p-5" >
+<!--  <div class="container-fluid container-fluid-cards p-0">-->
+<!--    <div class="container projet container-cards">-->
+<!--      <h4 class="text-center titleBg2 font-weight-bold text-white"><%#= t('home.title-bg-2') %></h4>-->
+<!--      <div class="row justify-content-between align-items-center p-5" >-->
 
-        <div id="left-card-home" class="card-home  d-flex flex-column align-items-center col-3 m-2 p-4">
-          <div class="bg-white img-1 card-home-img shadow-sm m-0 p-0">
-          </div>
-          <div class="card-home-content py-4">
-            <p class="text-center small-title"><%= t('home.content-card1') %></p>
-          </div>
-        </div>
+<!--        <div id="left-card-home" class="card-home  d-flex flex-column align-items-center col-3 m-2 p-4">-->
+<!--          <div class="bg-white img-1 card-home-img shadow-sm m-0 p-0">-->
+<!--          </div>-->
+<!--          <div class="card-home-content py-4">-->
+<!--            <p class="text-center small-title"><%#= t('home.content-card1') %></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div id="center-card-home" class="card-home d-flex flex-column align-items-center col-3 m-2 p-4" >
-          <div class="bg-white img-2 card-home-img shadow-sm m-0 p-0">
-          </div>
-          <div class="card-home-content py-4">
-            <p class="text-center small-title"><%= t('home.content-card2') %></p>
-          </div>
-        </div>
+<!--        <div id="center-card-home" class="card-home d-flex flex-column align-items-center col-3 m-2 p-4" >-->
+<!--          <div class="bg-white img-2 card-home-img shadow-sm m-0 p-0">-->
+<!--          </div>-->
+<!--          <div class="card-home-content py-4">-->
+<!--            <p class="text-center small-title"><%#= t('home.content-card2') %></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
-        <div id="right-card-home" class="card-home d-flex flex-column align-items-center col-3 m-2 p-4" id="test-card">
-          <div class="bg-white img-3 card-home-img shadow-sm m-0 p-0">
-          </div>
-          <div class="card-home-content py-4">
-            <p class="text-center small-title"><%= t('home.content-card3') %></p>
-          </div>
-        </div>
+<!--        <div id="right-card-home" class="card-home d-flex flex-column align-items-center col-3 m-2 p-4" id="test-card">-->
+<!--          <div class="bg-white img-3 card-home-img shadow-sm m-0 p-0">-->
+<!--          </div>-->
+<!--          <div class="card-home-content py-4">-->
+<!--            <p class="text-center small-title"><%#= t('home.content-card3') %></p>-->
+<!--          </div>-->
+<!--        </div>-->
 
-      </div>
+<!--      </div>-->
 
-    </div>
-  </div>
+<!--    </div>-->
+<!--  </div>-->

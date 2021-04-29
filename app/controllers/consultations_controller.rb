@@ -1,33 +1,19 @@
 class ConsultationsController < ApplicationController
-  before_action :set_patient
+  include ConsultationsControllerConcern
 
-  def create
-    # @patient = Patient.find(params[:patient_id])
-    @consultation = Consultation.new(consultation_params_create)
-    @consultation.doctor = current_user
-    @consultation.patient = @patient
-    @consultation.save!
-    redirect_to patient_path(@patient)
-  end
+  before_action :authenticate_patient!
 
-  def update
-    # @patient = Patient.find(params[:patient_id])
-    @consultation = Consultation.find(params[:id])
-    @consultation.update(consultation_params_update)
-    redirect_to patient_path(@patient)
-  end
+  before_action :set_patient, only: [ :index, :show ]
+  before_action :set_consultation, only: [ :show ]
+
 
   private
 
   def set_patient
-    @patient = Patient.find(params[:patient_id])
+    @patient = current_patient
   end
 
-  def consultation_params_create
-    params.require(:consultation).permit(:title, :date)
-  end
-
-  def consultation_params_update
-    params.require(:consultation).permit(:public_report, :private_report)
+  def set_consultation
+    @consultation = Consultation.find(params[:id]) if Consultation.find(params[:id]).patient == current_patient
   end
 end

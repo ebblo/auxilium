@@ -19,6 +19,8 @@ Message.destroy_all
 puts "Message destroyed"
 Chatroom.destroy_all
 puts "Chatroom destroyed"
+Videoroom.destroy_all
+puts "Videoroom destroyed"
 Patient.destroy_all
 puts "Patient destroyed"
 Doctor.destroy_all
@@ -29,15 +31,21 @@ my_doctor_1 = Doctor.new(
   email: "hugo.vidal@gmail.com",
   password: "123456",
   first_name: "Hugo",
-  last_name: "Vidal",
-  phone_number: "076 456 78 92",
-  city: "Lausanne",
-  zip: "1006",
-  street: "Boulevard de Grancy 4"
+  last_name: "Vidal"
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599040891/1_2_zf5art.png')
 my_doctor_1.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
 my_doctor_1.save!
+
+my_doctor_2 = Doctor.new(
+  email: "adrien.dre@gmail.com",
+  password: "123456",
+  first_name: "Adrien",
+  last_name: "Dre"
+)
+photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599040891/1_2_zf5art.png')
+my_doctor_2.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
+my_doctor_2.save!
 
 puts "1 new doctor created"
 puts "--------------------------------------"
@@ -51,7 +59,8 @@ my_patient_1 = Patient.new(
   city: "Lausanne",
   zip: "1006",
   street: "Avenue de France 32",
-  avs_number: "756.4423.6040.23"
+  avs_number: "756.4423.6040.23",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599040951/jerem_fsfakh.png')
 my_patient_1.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -66,7 +75,8 @@ my_patient_2 = Patient.new(
   city: "Corseaux",
   zip: "1802",
   street: "Chemin de Pierre-à-Fleur 23",
-  avs_number: "453.9769.5008.90"
+  avs_number: "453.9769.5008.90",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Adriana-Companile_k294ef.jpg')
 my_patient_2.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -81,7 +91,8 @@ my_patient_3 = Patient.new(
   city: "Prilly",
   zip: "1008",
   street: "Route de Cery 12",
-  avs_number: "477.9935.9357.12"
+  avs_number: "477.9935.9357.12",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Adrien_Richard_klz8rq.jpg')
 my_patient_3.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -96,7 +107,8 @@ my_patient_4 = Patient.new(
   city: "Lausanne",
   zip: "1006",
   street: "Chemin des Trois-Rois 17",
-  avs_number: "816.1458.8920.32"
+  avs_number: "816.1458.8920.32",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041166/Andreas_Thomas_ruyacr.jpg')
 my_patient_4.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -111,7 +123,8 @@ my_patient_5 = Patient.new(
   city: "Pully",
   zip: "1009",
   street: "Avenue Général-Guisan 95",
-  avs_number: "153.7569.0051.48"
+  avs_number: "153.7569.0051.48",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Audree_Samuel_hfc3pf.jpg')
 my_patient_5.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -126,7 +139,8 @@ my_patient_6 = Patient.new(
   city: "Lausanne",
   zip: "1003",
   street: "Avenue de la Gare 10",
-  avs_number: "169.7924.1231.58"
+  avs_number: "169.7924.1231.58",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Ange_Dubois_rvwctz.jpg')
 my_patient_6.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -141,7 +155,8 @@ my_patient_7 = Patient.new(
   city: "Vevey",
   zip: "1800",
   street: "Avenue de la Gare 2",
-  avs_number: "751.6574.9658.32"
+  avs_number: "751.6574.9658.32",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Beatrice_Olivier_paqwva.jpg')
 my_patient_7.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -156,7 +171,8 @@ my_patient_8 = Patient.new(
   city: "Attalens",
   zip: "1616",
   street: "Grand-Rue 11",
-  avs_number: "453.9769.5008.90"
+  avs_number: "453.9769.5008.90",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Dorothee_Vincent_mchhiv.jpg')
 my_patient_8.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -171,7 +187,8 @@ my_patient_9 = Patient.new(
   city: "Savigny",
   zip: "1073",
   street: "Chemin de la Porat 9",
-  avs_number: "193.3933.9894.63"
+  avs_number: "193.3933.9894.63",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Ellis_Myers_zkyvn9.jpg')
 my_patient_9.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -186,7 +203,8 @@ my_patient_10 = Patient.new(
   city: "Savigny",
   zip: "1073",
   street: "Route de Nialin 7",
-  avs_number: "303.4059.1293.28"
+  avs_number: "303.4059.1293.28",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Gerard_Martinez_msohyr.jpg')
 my_patient_10.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -201,7 +219,8 @@ my_patient_11 = Patient.new(
   city: "Savigny",
   zip: "1073",
   street: "Route de Saint-Amour 7",
-  avs_number: "453.9769.5008.90"
+  avs_number: "453.9769.5008.90",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041167/Hayley_Robert_gvxyvi.jpg')
 my_patient_11.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -216,7 +235,8 @@ my_patient_12 = Patient.new(
   city: "Forel",
   zip: "1072",
   street: "Le Frêne 44",
-  avs_number: "442.9102.2201.10"
+  avs_number: "442.9102.2201.10",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041168/Jenna_Diaz_ugv28c.jpg')
 my_patient_12.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -231,7 +251,8 @@ my_patient_13 = Patient.new(
   city: "Forel",
   zip: "1072",
   street: "Chemin des Granges 2",
-  avs_number: "722.2454.4003.12"
+  avs_number: "722.2454.4003.12",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041168/Lilianne_Bernard_a2imgn.jpg')
 my_patient_13.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -246,7 +267,8 @@ my_patient_14 = Patient.new(
   city: "Cully",
   zip: "1096",
   street: "Chemin des Colombaires 15",
-  avs_number: "642.8452.0012.37"
+  avs_number: "642.8452.0012.37",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041168/Marc_Austin_lvertg.jpg')
 my_patient_14.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -261,7 +283,8 @@ my_patient_15 = Patient.new(
   city: "Cully",
   zip: "1096",
   street: "Chemin des Colombaires 16",
-  avs_number: "453.9269 4308.12"
+  avs_number: "453.9269 4308.12",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041168/Marcelle_Patel_iyax1s.jpg')
 my_patient_15.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -276,7 +299,8 @@ my_patient_16 = Patient.new(
   city: "Ecublens",
   zip: "1024",
   street: "Chemin du Bugnon 8",
-  avs_number: "069.7516 4296.92"
+  avs_number: "069.7516 4296.92",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041168/Remi_Martinez_wucavo.jpg')
 my_patient_16.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -291,7 +315,8 @@ my_patient_17 = Patient.new(
   city: "La Tour-de-Peilz",
   zip: "1814",
   street: "Chemin du Crotton 10",
-  avs_number: "703.4402.1092.12"
+  avs_number: "703.4402.1092.12",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041169/Shantay_Martin_ewhpmg.jpg')
 my_patient_17.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -306,7 +331,8 @@ my_patient_18 = Patient.new(
   city: "La Tour-de-Peilz",
   zip: "1814",
   street: "Route de Blonay 253",
-  avs_number: "902.3302.1102.23"
+  avs_number: "902.3302.1102.23",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041169/Toni_Moreau_al0pxe.jpg')
 my_patient_18.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -321,7 +347,8 @@ my_patient_19 = Patient.new(
   city: "Châtel-Saint-Denis",
   zip: "1618",
   street: "Chemin des Rochettes 91",
-  avs_number: "442.2311.7890.34"
+  avs_number: "442.2311.7890.34",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041166/Xiang_Simon_pvnuqz.jpg')
 my_patient_19.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -336,7 +363,8 @@ my_patient_20 = Patient.new(
   city: "Châtel-Saint-Denis",
   zip: "1618",
   street: "Route de Pra de Plan 10",
-  avs_number: "433.9732.5001.20"
+  avs_number: "433.9732.5001.20",
+  doctor: Doctor.first
 )
 photo = URI.open('https://res.cloudinary.com/dsszx2brq/image/upload/v1599041166/Zachariah_Martin_pbamps.jpg')
 my_patient_20.photo.attach(io: photo, filename: 'nes.png', content_type: 'image/png')
@@ -637,7 +665,7 @@ url = "https://www.doctissimo.fr/classe-PL-ANTIDEPRESSEURS.htm"
 html_file = open(url).read
 html_doc = Nokogiri::HTML(html_file)
 
-html_doc.search('.multi-columns-2 li a').each do |element|
+html_doc.search('.doc-list--grid li a').each do |element|
   my_medication = Medication.new(
     name: element.text.strip
   )

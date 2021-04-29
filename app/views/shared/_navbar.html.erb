@@ -1,123 +1,166 @@
-<nav class="bg-white navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-baseline" id="navbar-test">
+<div class="d-flex justify-content-between align-items-center p-2 col-12" >
+  <div class="ml-3">
+    <%= link_to root_path do %>
+      <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
+    <% end %>
+  </div>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="dropdown">
+    <button class="btn btn-secondary" style="background-color: #395579;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      My profile
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <% if doctor_signed_in?  %>
+        <%= link_to destroy_doctor_session_path, method: :delete do %>
+          <p class="dropdown-item">Logout</p>
+        <% end %>
+      <% elsif patient_signed_in? %>
+        <%= link_to destroy_patient_session_path, method: :delete do %>
+          <p class="dropdown-item">Logout</p>
+        <% end %>
+      <% else %>
+        <%= link_to new_doctor_session_path do %>
+          <p>Doctor login</p>
+        <% end %>
+        <%= link_to new_patient_session_path do %>
+          <p>Patient login</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--<nav class="bg-white navbar navbar-expand-lg navbar-light d-flex justify-content-between align-items-baseline" id="navbar-test">-->
+
+<!--  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
 
   <%# ------------drop-down-flags------------ %>
-<div class="">
-  <% if I18n.locale == :fr %>
+<!--<div class="">-->
+  <%# if I18n.locale == :fr %>
     <%# ---------------french flag--------------- %>
-    <div class="dropright stagger-link" id="flags">
-      <%= link_to(root_path(locale: :fr), {"class" => "dropdown-toggle", "role" => "button", "id" => "dropDownFlag", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}) do %>
-        <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">
-      <% end %>
+<!--    <div class="dropright stagger-link" id="flags">-->
+      <%#= link_to(root_path(locale: :fr), {"class" => "dropdown-toggle", "role" => "button", "id" => "dropDownFlag", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}) do %>
+<!--        <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="french-flag">-->
+      <%# end %>
 
       <%# ---------------english flag--------------- %>
 
-      <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">
-        <%= link_to(root_path(locale: :en), {"class" => "dropdown-item link-drop-item"}) do %>
-          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag">
-        <% end %>
+<!--      <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">-->
+        <%#= link_to(root_path(locale: :en), {"class" => "dropdown-item link-drop-item"}) do %>
+<!--          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag">-->
+        <%# end %>
         <%# <a class="dropdown-item" href="#">
           <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag">
         </a> %>
-      </div>
-    </div>
+<!--      </div>-->
+<!--    </div>-->
 
-  <% else %>
+  <%# else %>
 
     <%# ---------------english flag--------------- %>
-    <div class="dropright stagger-link" id="flags">
-      <%= link_to(root_path(locale: :en), {"class" => "dropdown-toggle", "role" => "button", "id" => "dropDownFlag", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}) do %>
-        <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="french-flag">
-      <% end %>
+<!--    <div class="dropright stagger-link" id="flags">-->
+      <%#= link_to(root_path(locale: :en), {"class" => "dropdown-toggle", "role" => "button", "id" => "dropDownFlag", "data-toggle" => "dropdown", "aria-haspopup" => "true", "aria-expanded" => "false"}) do %>
+<!--        <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="french-flag">-->
+      <%# end %>
 
       <%# ---------------french flag--------------- %>
 
-      <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">
-        <%= link_to(root_path(locale: :fr), {"class" => "dropdown-item link-drop-item"}) do %>
-          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="uk-flag">
-        <% end %>
+<!--      <div class="dropdown-menu flag-drop-right" aria-labelledby="dropDownFlag">-->
+        <%#= link_to(root_path(locale: :fr), {"class" => "dropdown-item link-drop-item"}) do %>
+<!--          <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/french-flag_dvs8vi.png" class="flag-icon" alt="uk-flag">-->
+        <%# end %>
         <%# <a class="dropdown-item" href="#">
           <img src="https://res.cloudinary.com/kyulol/image/upload/v1598281901/uk-flag_lztcpr.png" class="flag-icon" alt="uk-flag">
         </a> %>
-      </div>
-    </div>
+<!--      </div>-->
+<!--    </div>-->
 
-  <% end %>
-</div>
+  <%# end %>
+<!--</div>-->
 
   
-<div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+<!--<div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">-->
     <%# --------------1ere navbar-------------- %>
-    <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">
-      <%= link_to(root_path, {"data-hover" => "Home", "class" => "nav-item stagger-link"}) do %>
-        Home
-      <% end %>
-      <%= link_to(user_root_path, {"data-hover" => "Dashboard", "class" => "nav-item stagger-link"}) do %>
-        Dashboard
-      <% end %>
-    </nav>
+<!--    <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">-->
+      <%#= link_to(root_path, {"data-hover" => "Home", "class" => "nav-item stagger-link"}) do %>
+<!--        Home-->
+      <%# end %>
+      <%#= link_to(user_root_path, {"data-hover" => "Dashboard", "class" => "nav-item stagger-link"}) do %>
+<!--        Dashboard-->
+      <%# end %>
+<!--    </nav>-->
 
 
     <%# ----------------div logo---------------- %>
-    <%= link_to root_path, class: "stagger-link" do %>
-      <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">
-    <% end %>
+    <%#= link_to root_path, class: "stagger-link" do %>
+<!--      <img src="https://res.cloudinary.com/kyulol/image/upload/v1598371571/test_syrfsm.png" alt="Logo Youmind" id="logo-navbar">-->
+    <%# end %>
 
     <%# --------------2eme navbar-------------- %>
-    <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">
-      <%= link_to(root_path, {"data-hover" => t('navbar.calendar'), "class" => "nav-item stagger-link"}) do %>
-        <%= t('navbar.calendar') %>
-      <% end %>
-      <%= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item stagger-link"}) do %>
-        Notifications
-      <% end %>
-    </nav>
-</div>
+<!--    <nav class="cl-effect-11 navbar-nav d-flex justify-content-around col-md-4">-->
+      <%#= link_to(root_path, {"data-hover" => t('navbar.calendar'), "class" => "nav-item stagger-link"}) do %>
+        <%#= t('navbar.calendar') %>
+      <%# end %>
+      <%#= link_to(root_path, {"data-hover" => "Notifications", "class" => "nav-item stagger-link"}) do %>
+<!--        Notifications-->
+      <%# end %>
+<!--    </nav>-->
+<!--</div>-->
 
 
 
   <%# -------------login drop down------------- %>
-  <% if user_signed_in? %>
-  <div class=" d-flex justify-content-end">
-    <div class=" nav-item dropleft d-flex flex-column justify-content-center align-items-center stagger-link">
+  <%# if user_signed_in? %>
+<!--  <div class=" d-flex justify-content-end">-->
+<!--    <div class=" nav-item dropleft d-flex flex-column justify-content-center align-items-center stagger-link">-->
 
         
-        <div style="background-image: url('<%= cl_image_path current_user.photo.key %>')" class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="bg-connected"></span>
-        </div>
+<!--        <div style="background-image: url('<%#= cl_image_path current_user.photo.key %>')" class="nav-item login-icon" id="dropDownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--          <span class="bg-connected"></span>-->
+<!--        </div>-->
 
 
-        <p>
-          <% if current_user.doctor? %>
-            Dr <%= current_user.last_name %>
-          <% else %>
-            <%= current_user.first_name %>
-          <% end %>
-        </p>
+<!--        <p>-->
+          <%# if current_user.doctor? %>
+<!--            Dr <%#= current_user.last_name %>-->
+          <%# else %>
+            <%#= current_user.first_name %>
+          <%# end %>
+<!--        </p>-->
 
-        <div class="dropdown-menu" aria-labelledby="dropDownLogin" >
-          <p><%= link_to "Mon profil" %></p>
-          <p><%= link_to "Paramètres"%></p>
-          <p><%= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> 
-      </div>
-    </div>
-  </div>
-  <% else %>
-  <div class=" d-flex justify-content-end">
-    <div class="cl-effect-11 d-flex flex-column justify-content-center align-items-center stagger-link">
-      <%= link_to(user_session_path) do %>
-        <div class="login-icon" >
-        </div>
-      <% end %>
+<!--        <div class="dropdown-menu" aria-labelledby="dropDownLogin" >-->
+<!--          <p><%#= link_to "Mon profil" %></p>-->
+<!--          <p><%#= link_to "Paramètres"%></p>-->
+<!--          <p><%#= link_to "Se déconnecter", destroy_user_session_path, method: :delete %></p> -->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+  <%# else %>
+<!--  <div class=" d-flex justify-content-end">-->
+<!--    <div class="cl-effect-11 d-flex flex-column justify-content-center align-items-center stagger-link">-->
+      <%#= link_to(user_session_path) do %>
+<!--        <div class="login-icon" >-->
+<!--        </div>-->
+      <%# end %>
       
-      <%= link_to(user_session_path, {"data-hover" => "Login"}) do %>
-        Login
-      <% end %>
-    </div>  
-  </div>
-  <% end %>
+      <%#= link_to(user_session_path, {"data-hover" => "Login"}) do %>
+<!--        Login-->
+      <%# end %>
+<!--    </div>  -->
+<!--  </div>-->
+  <%# end %>
 
-</nav>
+<!--</nav>-->

@@ -1,0 +1,19 @@
+<% if message.messageable_type == "Doctor"  %>
+  <div class="card col-11 d-flex justify-content-center m-3" style="height: auto; background-color: white; border-radius: 8px; border: none;" id="message-<%= message.id %>">
+    <div>
+      <% doctor_signed_in? ? doctor = current_doctor : doctor = @doctor %>
+      <span class="font-weight-bold"><%= doctor.full_name %></span>
+      <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <p><%= message.content %></p>
+    </div>
+  </div>
+<% else %>
+  <div class="card col-11 d-flex justify-content-center m-3" style="height: auto; background-color: #eddbd8; border-radius: 8px; border: none;" id="message-<%= message.id %>">
+    <div>
+        <% patient_signed_in? ? patient = current_patient : patient = @patient %>
+        <span class="font-weight-bold"><%= patient.full_name %></span>
+        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
+      <p><%= message.content %></p>
+    </div>
+  </div>
+<% end %>

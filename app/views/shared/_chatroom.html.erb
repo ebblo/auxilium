@@ -1,0 +1,38 @@
+<div class="col-12" style="background-color: #AABAD9;">
+
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-2">
+      <% doctor_signed_in? ? path = doctor_patient_path(@patient) : path = dashboard_path %>
+      <%= link_to path do %>
+        <i class="fas fa-chevron-circle-left fa-3x mt-3" style="color: #395579;"></i>
+      <% end %>
+    </div>
+    <div class="col-10 mt-3">
+      <h2 class="card-text font-weight-bold text-center mb-2">Chat</h2>
+    </div>
+  </div>
+
+  <div class="row d-flex">
+    <% @messages.each do |message| %>
+      <%= render "shared/message", message: message %>
+    <% end %>
+  </div>
+
+  <div>
+    <%= simple_form_for [ @chatroom, @message ], url: doctor_signed_in? ? doctor_chatroom_messages_path(@chatroom) : chatroom_messages_path(@chatroom) do |f| %>
+      <div class="m-3 row d-flex">
+        <div class="col-9">
+          <%= f.input :content, as: :text, label: false %>
+        </div>
+        <%= button_tag type: 'submit', style: "color: white; background-color: #395579; border-radius: 8px;" do %>
+          <i class="d-flex align-items-center col-3 fas fa-paper-plane fa-2x" aria-hidden="true"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+</div>
